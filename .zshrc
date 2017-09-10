@@ -30,9 +30,8 @@ precmd () { vcs_info }
 setopt prompt_subst
 
 PROMPT='
-%(?,,%K{red}COMMAND FAILED%k
-)%F{blue}[%D %*]%f%~${vcs_info_msg_0_}
-%F{red}$%f '
+%F{blue}[%D %*]%f%~${vcs_info_msg_0_}
+%(?,$,%F{red}$%f) '
 
 #alias
 alias cls=clear
