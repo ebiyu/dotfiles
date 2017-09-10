@@ -1,0 +1,21 @@
+[user]
+	name = 海老原祐輔
+	email = ebiyuu1121@gmail.com
+[gui]
+	recentrepo = /Users/ebiyuu1121/Dropbox/物チャレ個人フォルダ/レポート
+	recentrepo = /Users/ebiyuu1121/Xcode/makenumber
+[core]
+	excludesfile = /Users/ebiyuu1121/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+    gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+    st = status
+    cm = commit
+    pu = push origin master
+[commit]
+	template = /Users/ebiyuu1121/.stCommitMsg
