@@ -66,9 +66,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# ディレクトリ名を入力するだけで移動
-setopt auto_cd
-
 # 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
 setopt auto_pushd
 
