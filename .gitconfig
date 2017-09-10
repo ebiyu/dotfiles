@@ -15,7 +15,7 @@
 [alias]
     g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     s = status
-    c = commi
+    c = commit
     cn = commit -m
     ca = commit -a -m
     ch = checkout
