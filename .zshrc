@@ -43,6 +43,7 @@ alias gist='git status'
 alias google='(){open "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
 alias dict='(){open dict:///$1}'
+alias g=git
 
 alias zshrc='vim ~/.zshrc'
 
