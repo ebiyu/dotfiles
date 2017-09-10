@@ -23,6 +23,7 @@
     ap = add -p
     d = diff
     l = log
+    lp = log -p
     ps = push origin master
     pl = pull origin master
 [commit]
