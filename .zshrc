@@ -72,9 +72,6 @@ setopt auto_cd
 # 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
 setopt auto_pushd
 
-# コマンド訂正
-setopt correct
-
 #auto_cd
 setopt auto_cd
 
