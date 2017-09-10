@@ -12,3 +12,8 @@ noremap <Up> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
 noremap ZQ <nop>
+
+noremap <Space>m  %
+noremap <Space>h  ^
+noremap <Space>l  $
+nnoremap <Space>/  *
