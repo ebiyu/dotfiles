@@ -15,7 +15,9 @@
 [alias]
     g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     s = status
-    c = commit
+    c = commi
+    cn = commit -mt
+    ca = commit -a -m
     a = add
     d = diff
     l = log
