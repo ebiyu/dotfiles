@@ -11,6 +11,10 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
+#zmv
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 #git prompt
 autoload -Uz vcs_info
 
