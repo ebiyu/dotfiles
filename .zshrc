@@ -39,6 +39,9 @@ alias gist='git status'
 
 alias zshrc='vim ~/.zshrc'
 
+#Trash
+alias trash='(){mv $1 ~/.Trash}'
+
 #alias -s
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 
