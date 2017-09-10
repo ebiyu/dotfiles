@@ -18,6 +18,8 @@
     c = commit
     a = add
     d = diff
-    p = push origin master
+    l = log
+    ps = push origin master
+    pl = pull origin master
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
