@@ -18,6 +18,12 @@ noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
+
+noremap! <Down> <Nop>
+noremap! <Up> <Nop>
+noremap! <Right> <Nop>
+noremap! <Left> <Nop>
+
 noremap ZQ <nop>
 
 noremap <Space>m  %
