@@ -24,13 +24,16 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないフ�
 zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
-precmd () { vcs_info }
+precmd () {
+    vcs_info 
+    export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}')
+}
 
 #プロンプトの設定
 setopt prompt_subst
 
 PROMPT='
-%F{blue}[%D %*]%f%~${vcs_info_msg_0_}
+%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
 
 #alias
