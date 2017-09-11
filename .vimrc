@@ -6,6 +6,14 @@ set softtabstop=4
 set autoindent
 set smartindent
 set backspace=indent,eol,start
+set showcmd
+
+set number
+set cursorline
+
+set showmatch
+
+set list listchars=tab:\▸\-
 
 noremap <Down> <Nop>
 noremap <Up> <Nop>
