@@ -24,4 +24,4 @@ noremap ZQ <nop>
 noremap <Space>m  %
 noremap <Space>h  ^
 noremap <Space>l  $
-nnoremap <Space>/  *
+noremap <Space>/  *
