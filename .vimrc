@@ -25,6 +25,9 @@ noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>/  *
 
+noremap j gj
+noremap k gk
+
 noremap! <C-j> <Esc>
 
 " split
