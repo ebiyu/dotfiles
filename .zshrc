@@ -15,9 +15,10 @@ compinit -u
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-#git prompt
-autoload -Uz vcs_info
+#プロンプトの設定
 
+#git
+autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
 zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファイルがある
 zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
@@ -25,11 +26,10 @@ zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
 precmd () {
-    vcs_info 
-    export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}')
+    vcs_info #git
+    export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
 }
 
-#プロンプトの設定
 setopt prompt_subst
 
 PROMPT='
