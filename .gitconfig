@@ -18,7 +18,7 @@
     cm = commit
     cn = commit -m
     ca = commit -a -m
-    ch = checkout
+    co = checkout
     a = add
     ap = add -p
     d = diff
