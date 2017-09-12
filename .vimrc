@@ -24,11 +24,11 @@ nnoremap Y y$
 
 noremap :: :!
 
+"矢印キーの無効化
 noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
-
 noremap! <Down> <Nop>
 noremap! <Up> <Nop>
 noremap! <Right> <Nop>
