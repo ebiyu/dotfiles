@@ -7,7 +7,7 @@ set autoindent
 set smartindent
 set backspace=indent,eol,start
 set showcmd
-set hidden
+set hidden "buffer切り替え時に保存を促さない
 
 set shell=/bin/zsh
 
