@@ -9,6 +9,11 @@ compinit -u
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 
+#vimのkeymap
+bindkey -M vicmd ' l' vi-end-of-line
+bindkey -M vicmd ' h' vi-first-non-blank
+bindkey -M vicmd ' m' vi-match-bracket
+
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'
