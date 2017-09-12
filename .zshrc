@@ -42,10 +42,10 @@ setopt prompt_subst
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
     vicmd)
-    export vimmode=[%F{yellow}NOR%f]
+    export vimmode=%F{red}[NORMAL]%f
     ;;
     main|viins)
-    export vimmode=[INS]
+    export vimmode=[INSERT]
     ;;
   esac
   zle reset-prompt
