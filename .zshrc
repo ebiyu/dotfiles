@@ -32,8 +32,25 @@ precmd () {
 
 setopt prompt_subst
 
+#vim mode
+bindkey -v
+#zshプロンプトにモード表示####################################
+function zle-line-init zle-keymap-select {
+  case $KEYMAP in
+    vicmd)
+    export vimmode=[%F{yellow}NOR%f]
+    ;;
+    main|viins)
+    export vimmode=[INS]
+    ;;
+  esac
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 PROMPT='
-%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
+%F{blue}[%D %*]%f${vimmode}%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
 
 #alias
@@ -66,8 +83,8 @@ setopt share_history        # share command history data
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
+bindkey "" history-beginning-search-backward-end
+bindkey "" history-beginning-search-forward-end
 
 # 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
 setopt auto_pushd
