@@ -15,6 +15,9 @@ alias ql='qlmanage -p'
 alias dict='(){open dict:///$1}'
 alias g=git
 
+alias -g ...='../..'
+alias -g ....='../../..'
+
 alias zshrc='vim ~/.zshrc'
 
 #Trash
