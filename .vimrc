@@ -1,3 +1,4 @@
+" vim:set foldmethod=marker:
 syntax on
 set expandtab
 set tabstop=4
@@ -6,7 +7,7 @@ set softtabstop=4
 set autoindent
 set smartindent
 set backspace=indent,eol,start
-set showcmd
+set showcmd "入力中のコマンドを表示
 set hidden
 
 set shell=/bin/zsh
@@ -24,7 +25,7 @@ nnoremap Y y$
 
 inoremap <silent> jj <ESC>
 
-"矢印キーの無効化
+"矢印キーの無効化/*{{{*/
 noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
@@ -32,7 +33,7 @@ noremap <Left> <Nop>
 noremap! <Down> <Nop>
 noremap! <Up> <Nop>
 noremap! <Right> <Nop>
-noremap! <Left> <Nop>
+noremap! <Left> <Nop>}}}
 
 noremap ZQ <nop>
 
@@ -49,7 +50,7 @@ noremap k gk
 
 noremap! <C-c> <Esc>
 
-" split
+" split/*{{{*/
 noremap s <nop>
 noremap ss :split<Return>
 noremap sv :vsplit<Return>
@@ -62,12 +63,12 @@ noremap sl <C-w>l
 noremap sH <C-w>H
 noremap sJ <C-w>J
 noremap sK <C-w>K
-noremap sL <C-w>L
+noremap sL <C-w>L}}}
 
-" tab
+" tab/*{{{*/
 noremap st :tabnew<Return>
 noremap sn gt
 noremap sp gT
-noremap sw <C-w>c
+noremap sw <C-w>c}}}
 
 set clipboard=unnamed
