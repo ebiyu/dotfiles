@@ -24,8 +24,8 @@
     d = diff
     l = log
     lp = log -p
-    ps = push origin master
-    pl = pull origin master
+    ps = !git push origin $(git rev-parse --abbrev-ref HEAD)
+    pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
     b = branch
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
