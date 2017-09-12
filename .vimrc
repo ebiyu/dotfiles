@@ -14,7 +14,9 @@ nnoremap <Esc><Esc> :noh<Return>
 
 set number
 set cursorline
+
 set showmatch
+set matchtime=1
 
 set list listchars=tab:\▸\-
 
