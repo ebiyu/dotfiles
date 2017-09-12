@@ -18,6 +18,9 @@ bindkey -v
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
+#C-jで改行
+bindkey '^J' self-insert
+
 #プロンプトの設定
 
 #git
