@@ -18,8 +18,6 @@ alias g=git
 alias -g ...='../..'
 alias -g ....='../../..'
 
-alias zshrc='vim ~/.zshrc'
-
 #Trash
 alias trash='(){mv $1 ~/.Trash}'
 
