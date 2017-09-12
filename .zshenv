@@ -2,7 +2,7 @@
 export LANG=ja_JP.UTF-8
 
 #add PATH
-export PATH="$PATH:~/bin"  
+export PATH="$PATH:$HOME/bin"  
 
 #alias
 alias cls=clear
