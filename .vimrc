@@ -7,6 +7,7 @@ set autoindent
 set smartindent
 set backspace=indent,eol,start
 set showcmd
+set hidden
 
 set number
 set cursorline
