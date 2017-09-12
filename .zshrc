@@ -97,6 +97,7 @@ bindkey "" history-beginning-search-forward-end
 #}}}
 #}}}
 
+setopt ignoreeof #C-dでのログアウトを無効化
 setopt auto_pushd #移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
 setopt auto_cd
 setopt list_packed # 補完候補を詰めて表示する
