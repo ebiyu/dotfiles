@@ -45,7 +45,7 @@ noremap <Space>/  *
 noremap j gj
 noremap k gk
 
-noremap! <C-j> <Esc>
+noremap! <C-c> <Esc>
 
 " split
 noremap s <nop>
