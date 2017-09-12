@@ -22,8 +22,6 @@ set matchtime=1
 
 nnoremap Y y$
 
-noremap :: :!
-
 inoremap <silent> jj <ESC>
 
 "矢印キーの無効化
