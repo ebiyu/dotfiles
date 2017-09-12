@@ -10,7 +10,7 @@ set showcmd
 set hidden
 
 set hlsearch
-nnoremap <Esc> :noh<Return>
+nnoremap <Esc><Esc> :noh<Return>
 
 set number
 set cursorline
