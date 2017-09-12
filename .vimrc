@@ -8,6 +8,8 @@ set smartindent
 set backspace=indent,eol,start
 set showcmd
 set hidden "buffer切り替え時に保存を促さない
+set background=dark
+colorscheme hybrid
 
 set shell=/bin/zsh
 
