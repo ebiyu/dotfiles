@@ -9,6 +9,9 @@ set backspace=indent,eol,start
 set showcmd
 set hidden
 
+set hlsearch
+nnoremap <Esc> :noh<Return>
+
 set number
 set cursorline
 set showmatch
