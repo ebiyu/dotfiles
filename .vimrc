@@ -20,6 +20,8 @@ set matchtime=1
 
 set list listchars=tab:\▸\-
 
+nnoremap Y y$
+
 noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
@@ -31,6 +33,9 @@ noremap! <Right> <Nop>
 noremap! <Left> <Nop>
 
 noremap ZQ <nop>
+
+noremap + <C-a>
+noremap - <C-x>
 
 noremap <Space>m  %
 noremap <Space>h  ^
