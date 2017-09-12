@@ -9,6 +9,8 @@ set backspace=indent,eol,start
 set showcmd
 set hidden
 
+set shell=/bin/zsh
+
 set hlsearch
 nnoremap <Esc><Esc> :noh<Return>
 
@@ -21,6 +23,8 @@ set matchtime=1
 set list listchars=tab:\▸\-
 
 nnoremap Y y$
+
+noremap :: :!
 
 noremap <Down> <Nop>
 noremap <Up> <Nop>
