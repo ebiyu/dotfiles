@@ -21,6 +21,7 @@ autoload -U zmv
 alias mmv='noglob zmv -W'
 
 bindkey '^J' self-insert #C-jで改行
+bindkey -r '' #画面の消去を無効化
 
 #プロンプトの設定#{{{
 
