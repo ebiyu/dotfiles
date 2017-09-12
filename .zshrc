@@ -20,8 +20,7 @@ bindkey -M vicmd ' m' vi-match-bracket
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-#C-jで改行
-bindkey '^J' self-insert
+bindkey '^J' self-insert #C-jで改行
 
 #プロンプトの設定#{{{
 
