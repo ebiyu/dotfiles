@@ -20,8 +20,6 @@ set cursorline
 set showmatch
 set matchtime=1
 
-set list listchars=tab:\▸\-
-
 nnoremap Y y$
 
 noremap :: :!
