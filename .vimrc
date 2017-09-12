@@ -48,10 +48,10 @@ noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
-noremap! <Down> <Nop>
-noremap! <Up> <Nop>
-noremap! <Right> <Nop>
-noremap! <Left> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+inoremap <Left> <Nop>
 "}}}
 
 noremap ZQ <nop>
