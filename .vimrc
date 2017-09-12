@@ -24,6 +24,8 @@ nnoremap Y y$
 
 noremap :: :!
 
+inoremap <silent> jj <ESC>
+
 "矢印キーの無効化
 noremap <Down> <Nop>
 noremap <Up> <Nop>

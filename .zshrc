@@ -7,6 +7,7 @@ compinit -u
 
 #vim mode
 bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
 
 #zmv
 autoload -U zmv
