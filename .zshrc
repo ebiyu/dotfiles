@@ -11,6 +11,9 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
+#vim mode
+bindkey -v
+
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'
@@ -32,8 +35,6 @@ precmd () {
 
 setopt prompt_subst
 
-#vim mode
-bindkey -v
 #zshプロンプトにモード表示####################################
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
