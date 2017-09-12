@@ -62,6 +62,7 @@ zle -N zle-keymap-select
 PROMPT='
 %F{blue}[%D %*]%f${vimmode}%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
+PROMPT2='${vimmode}>'
 
 #C-zでfgを実行#{{{
 function run-fglast {
