@@ -53,6 +53,16 @@ PROMPT='
 %F{blue}[%D %*]%f${vimmode}%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
 
+#C-zでfgを実行
+function run-fglast {
+    zle push-input
+    BUFFER="fg %"
+    zle accept-line
+}
+
+zle -N run-fglast
+bindkey "^z" run-fglast
+
 #alias
 alias cls=clear
 alias ls='ls -G'
