@@ -18,6 +18,13 @@ alias g=git
 alias -g ...='../..'
 alias -g ....='../../..'
 
+alias -g G='|egrep'
+alias -g S='|sort'
+alias -g L='|less'
+alias -g LS='|less -s'
+alias -g DN=/dev/null
+
+
 #Trash
 alias trash='(){mv $1 ~/.Trash}'
 
