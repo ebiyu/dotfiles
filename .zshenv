@@ -24,3 +24,11 @@ alias trash='(){mv $1 ~/.Trash}'
 #alias -s
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 
+function op() {
+    if [ -z "$1" ]; then
+        open .
+    else
+        open "$@"
+    fi
+}
+alias ql='qlmanage -p "$@" >& /dev/null'
