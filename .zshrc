@@ -62,6 +62,9 @@ function run-fglast {
 zle -N run-fglast
 bindkey "^z" run-fglast
 
+#C-rでプロンプトを更新
+bindkey "" reset-prompt
+
 #history
 HISTFILE=~/.zsh_history
 HISTSIZE=6000000
