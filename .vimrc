@@ -56,3 +56,5 @@ noremap st :tabnew<Return>
 noremap sn gt
 noremap sp gT
 noremap sw :q<Return>
+
+set clipboard=unnamed
