@@ -92,6 +92,7 @@ HISTSIZE=6000000
 SAVEHIST=6000000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
+setopt hist_ignore_space
 
 #history search
 autoload history-search-end
