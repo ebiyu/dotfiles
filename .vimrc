@@ -56,6 +56,6 @@ noremap sL <C-w>L
 noremap st :tabnew<Return>
 noremap sn gt
 noremap sp gT
-noremap sw :q<Return>
+noremap sw <C-w>c
 
 set clipboard=unnamed
