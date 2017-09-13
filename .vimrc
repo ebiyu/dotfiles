@@ -25,6 +25,7 @@ set matchtime=1
 
 nnoremap Y y$
 
+command Todo edit ~/Dropbox/Note/todo.txt
 inoremap <silent> jj <ESC>
 
 "矢印キーの無効化"{{{
