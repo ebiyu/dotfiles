@@ -29,6 +29,7 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('shougo/unite.vim')
 call dein#add('shougo/neoyank.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('airblade/vim-gitgutter')
 
 call dein#end()
 
@@ -43,6 +44,9 @@ let NERDTreeShowHidden = 1 "隠しファイルを既定で表示
 "}}}
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
+"}}}
+"gitgutterの設定"{{{
+let g:gitgutter_highlight_lines = 1 "行のハイライト表示を有効化
 "}}}
 
 "}}}
