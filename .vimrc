@@ -35,6 +35,7 @@ call dein#end()
 nnoremap <silent> sr :<C-u>Unite file_mru<CR>
 nnoremap <silent> sf :<C-u>Unite file<CR>
 nnoremap <silent> sb :<C-u>Unite buffer<CR>
+nnoremap <silent> sd :<C-u>Unite buffer file_mru<CR>
 "}}}
 
 "neoyankの設定"{{{
