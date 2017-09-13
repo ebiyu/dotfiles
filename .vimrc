@@ -8,6 +8,7 @@ set smartindent
 set backspace=indent,eol,start
 set showcmd "入力中のコマンドを表示
 set hidden "buffer切り替え時に保存を促さない
+set history=1000 "コマンド履歴
 set background=dark
 colorscheme hybrid
 
