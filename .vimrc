@@ -38,7 +38,8 @@ nnoremap <silent> sb :<C-u>Unite buffer<CR>
 nnoremap <silent> sf :<C-u>Unite buffer file_mru<CR>
 "}}}
 "NERDTreeの設定"{{{
-nnoremap <silent> <C-e> :<C-u>NERDTreeToggle<CR>
+nnoremap <silent> <C-e> :<C-u>NERDTree<CR>
+let NERDTreeShowHidden = 1 "隠しファイルを既定で表示
 "}}}
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
