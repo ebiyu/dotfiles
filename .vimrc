@@ -62,6 +62,7 @@ noremap Mn :new<CR>
 noremap Mt :Todo<CR>
 "}}}
 
+command Run !%
 inoremap <silent> jj <ESC>
 
 inoremap <silent> っj <ESC>
