@@ -34,5 +34,6 @@
     b = branch
     m = merge
     r = reset
+    rp = reset -p
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
