@@ -54,7 +54,14 @@ set matchtime=1
 
 nnoremap Y y$
 
+"メモ関連の機能"{{{
 command Todo edit ~/Dropbox/Note/todo.txt
+noremap Mw :write ~/Dropbox/Note/
+noremap Ml :Unite file_rec:~/Dropbox/Note/ -buffer-name=note_list<CR>
+noremap Mn :new<CR>
+noremap Mt :Todo<CR>
+"}}}
+
 inoremap <silent> jj <ESC>
 
 "矢印キーの無効化"{{{
