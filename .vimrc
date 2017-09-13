@@ -64,6 +64,9 @@ noremap Mt :Todo<CR>
 
 inoremap <silent> jj <ESC>
 
+inoremap <silent> っj <ESC>
+noremap い i
+
 "矢印キーの無効化"{{{
 noremap <Down> <Nop>
 noremap <Up> <Nop>
