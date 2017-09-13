@@ -100,8 +100,10 @@ inoremap <Left> <Nop>
 
 noremap ZQ <nop>
 
-noremap + <C-a>
-noremap - <C-x>
+noremap + <C-a>gv
+noremap - <C-x>gv
+noremap g+ g<C-a>
+noremap g- g<C-x>
 
 noremap <Space>m  %
 noremap <Space>h  ^
