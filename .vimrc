@@ -27,8 +27,14 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 call dein#add('Shougo/neomru.vim')
 call dein#add('shougo/unite.vim')
+call dein#add('shougo/neoyank.vim')
 
 call dein#end()
+
+"neoyankの設定"{{{
+nnoremap <silent> sy :<C-u>Unite history/yank<CR>
+"}}}
+
 "}}}
 
 set hlsearch
