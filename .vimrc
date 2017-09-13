@@ -38,6 +38,7 @@ call dein#end()
 nnoremap <silent> sr :<C-u>Unite file_mru<CR>
 nnoremap <silent> sb :<C-u>Unite buffer<CR>
 nnoremap <silent> sf :<C-u>Unite buffer file_mru<CR>
+let g:unite_source_file_mru_limit = 50
 "}}}
 "NERDTreeの設定"{{{
 nnoremap <silent> <C-e> :<C-u>NERDTree<CR>
