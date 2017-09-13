@@ -31,6 +31,12 @@ call dein#add('shougo/neoyank.vim')
 
 call dein#end()
 
+"Uniteの設定"{{{
+nnoremap <silent> sr :<C-u>Unite file_mru<CR>
+nnoremap <silent> sf :<C-u>Unite file<CR>
+nnoremap <silent> sb :<C-u>Unite buffer<CR>
+"}}}
+
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
