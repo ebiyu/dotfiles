@@ -9,6 +9,7 @@ export PATH="$PATH:$HOME/bin"
 alias ls='ls -G'
 alias rm='rm -i'
 alias la='ls -Ga'
+alias ll='ls -Gl'
 alias gist='git status'
 alias google='(){open "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
