@@ -1,10 +1,11 @@
+# vim:set foldmethod=marker commentstring=#%s:
 # 日本語を使用
 export LANG=ja_JP.UTF-8
 
 #add PATH
 export PATH="$PATH:$HOME/bin"  
 
-#alias
+#alias#{{{
 alias ls='ls -G'
 alias rm='rm -i'
 alias la='ls -Ga'
@@ -13,7 +14,10 @@ alias google='(){open "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
 alias dict='(){open dict:///$1}'
 alias g=git
+alias trash='(){mv $1 ~/.Trash}'
+#}}}
 
+#global alias#{{{
 alias -g ...='../..'
 alias -g ....='../../..'
 
@@ -22,12 +26,9 @@ alias -g S='|sort'
 alias -g L='|less'
 alias -g LS='|less -s'
 alias -g DN=/dev/null
+#}}}
 
-
-#Trash
-alias trash='(){mv $1 ~/.Trash}'
-
-#alias -s
+#alias -s#{{{
 function extract() {
   case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
@@ -50,6 +51,7 @@ alias -s html=open
 alias -s rb=ruby
 alias -s hs=runhaskell
 alias -s php='php -f'
+#}}}
 
 function op() {
     if [ -z "$1" ]; then
