@@ -30,6 +30,7 @@ call dein#add('shougo/unite.vim')
 call dein#add('shougo/neoyank.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('airblade/vim-gitgutter')
+call dein#add('t9md/vim-textmanip')
 
 call dein#end()
 
@@ -50,6 +51,13 @@ nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
 "gitgutterの設定"{{{
 let g:gitgutter_highlight_lines = 1 "行のハイライト表示を有効化
+"}}}
+"textmanipの設定"{{{
+vmap <C-j> <Plug>(textmanip-move-down)
+vmap <C-k> <Plug>(textmanip-move-up)
+vmap <C-h> <Plug>(textmanip-move-left)
+vmap <C-l> <Plug>(textmanip-move-right)
+vmap <C-d> <Plug>(textmanip-duplicate-down)
 "}}}
 
 "}}}
