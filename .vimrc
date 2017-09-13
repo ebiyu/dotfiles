@@ -28,16 +28,18 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('Shougo/neomru.vim')
 call dein#add('shougo/unite.vim')
 call dein#add('shougo/neoyank.vim')
+call dein#add('scrooloose/nerdtree')
 
 call dein#end()
 
 "Uniteの設定"{{{
 nnoremap <silent> sr :<C-u>Unite file_mru<CR>
-nnoremap <silent> sf :<C-u>Unite file<CR>
 nnoremap <silent> sb :<C-u>Unite buffer<CR>
 nnoremap <silent> sd :<C-u>Unite buffer file_mru<CR>
 "}}}
-
+"NERDTreeの設定"{{{
+nnoremap <silent> sf :<C-u>NERDTreeToggle<CR>
+"}}}
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
