@@ -1,5 +1,4 @@
 " vim:set foldmethod=marker commentstring="%s:
-syntax on
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -13,6 +12,23 @@ set background=dark
 colorscheme hybrid
 
 set shell=/bin/zsh
+
+" dein.vimによるプラグイン管理"{{{
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
+call dein#add('Shougo/neomru.vim')
+call dein#add('shougo/unite.vim')
+
+call dein#end()
+"}}}
 
 set hlsearch
 nnoremap <Esc><Esc> :noh<Return>
@@ -78,3 +94,5 @@ noremap sw <C-w>c
 "}}}
 
 set clipboard=unnamed
+
+syntax on
