@@ -5,7 +5,6 @@ export LANG=ja_JP.UTF-8
 export PATH="$PATH:$HOME/bin"  
 
 #alias
-alias cls=clear
 alias ls='ls -G'
 alias rm='rm -i'
 alias la='ls -Ga'
