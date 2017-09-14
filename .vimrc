@@ -10,7 +10,6 @@ set showcmd "入力中のコマンドを表示
 set hidden "buffer切り替え時に保存を促さない
 set history=1000 "コマンド履歴
 set background=dark
-colorscheme hybrid
 
 set shell=/bin/zsh
 
@@ -32,6 +31,8 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('t9md/vim-textmanip')
 call dein#add('kana/vim-submode')
+call dein#add('flazz/vim-colorschemes')
+call dein#add('ujihisa/unite-colorscheme')
 
 call dein#end()
 
@@ -155,5 +156,7 @@ noremap sw <C-w>c
 "}}}
 
 set clipboard=unnamed
+
+colorscheme hybrid
 
 syntax on
