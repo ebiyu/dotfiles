@@ -44,7 +44,9 @@ let g:unite_source_file_mru_limit = 50
 nnoremap <silent> <C-e> :<C-u>NERDTree<CR>
 let NERDTreeShowHidden = 1 "隠しファイルを既定で表示
 
-autocmd vimenter * NERDTree "起動時にNERDTreeを表示
+"ファイルを指定せず開いた時のみ起動時にNERDTreeを起動
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "}}}
 "neoyankの設定"{{{
