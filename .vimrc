@@ -31,6 +31,7 @@ call dein#add('shougo/neoyank.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('t9md/vim-textmanip')
+call dein#add('kana/vim-submode')
 
 call dein#end()
 
@@ -61,6 +62,16 @@ vmap <C-k> <Plug>(textmanip-move-up)
 vmap <C-h> <Plug>(textmanip-move-left)
 vmap <C-l> <Plug>(textmanip-move-right)
 vmap <C-d> <Plug>(textmanip-duplicate-down)
+"}}}
+"submodeの設定"{{{
+call submode#enter_with('winsize','n','','s>','<C-w>>')
+call submode#enter_with('winsize','n','','s<','<C-w><')
+call submode#enter_with('winsize','n','','s+','<C-w>+')
+call submode#enter_with('winsize','n','','s-','<C-w>-')
+call submode#map('winsize','n','','>','<C-w>>')
+call submode#map('winsize','n','','<','<C-w><')
+call submode#map('winsize','n','','+','<C-w>+')
+call submode#map('winsize','n','','-','<C-w>-')
 "}}}
 
 "}}}
