@@ -87,6 +87,8 @@ set matchtime=1
 
 nnoremap Y y$
 
+nnoremap x "_x
+
 "メモ関連の機能"{{{
 command Todo edit ~/Dropbox/Note/todo.txt
 noremap Mw :write ~/Dropbox/Note/
