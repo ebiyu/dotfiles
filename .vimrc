@@ -50,6 +50,9 @@ let NERDTreeShowHidden = 1 "隠しファイルを既定で表示
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+"他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "}}}
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
