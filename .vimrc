@@ -58,7 +58,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
 "gitgutterの設定"{{{
-let g:gitgutter_highlight_lines = 1 "行のハイライト表示を有効化
 "}}}
 "textmanipの設定"{{{
 vmap <C-j> <Plug>(textmanip-move-down)
