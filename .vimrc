@@ -37,9 +37,9 @@ call dein#add('ujihisa/unite-colorscheme')
 call dein#end()
 
 "Uniteの設定"{{{
-nnoremap <silent> sr :<C-u>Unite file_mru<CR>
+nnoremap <silent> sr :<C-u>Unite register<CR>
 nnoremap <silent> sb :<C-u>Unite buffer<CR>
-nnoremap <silent> sf :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> sf :<C-u>NERDTreeClose<CR>:<C-u>Unite buffer file_mru<CR>
 let g:unite_source_file_mru_limit = 50
 "}}}
 "NERDTreeの設定"{{{
