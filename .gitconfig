@@ -33,7 +33,13 @@
     pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
     b = branch
     m = merge
-    r = reset
-    rp = reset -p
+    rs = reset
+    rss = reset --soft
+    rsh = reset --hard
+    rsp = reset -p
+    rb = rebase
+    rbi = rebase -i
+    rbir = rebase -i --root
+    rbc = rebase -continue
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
