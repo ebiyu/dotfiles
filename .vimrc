@@ -108,6 +108,9 @@ inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 noremap い i
 
+"hardcopyでpreview.appを開く
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
+
 "矢印キーの無効化"{{{
 noremap <Down> <Nop>
 noremap <Up> <Nop>
@@ -121,8 +124,10 @@ inoremap <Left> <Nop>
 
 noremap ZQ <nop>
 
-noremap + <C-a>gv
-noremap - <C-x>gv
+noremap + <C-a>
+noremap - <C-x>
+vmap + <C-a>gv
+vmap - <C-x>gv
 noremap g+ g<C-a>
 noremap g- g<C-x>
 
