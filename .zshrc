@@ -7,6 +7,11 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
+alias proj='cd ~/projects'
+alias dtp='cd ~/Desktop'
+alias doc='cd ~/Documents'
+alias drop='cd ~/Dropbox'
+
 #zleのvimモードに関する設定#{{{
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
