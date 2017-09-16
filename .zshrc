@@ -105,12 +105,13 @@ setopt nolistbeep # 補完候補表示時などにピッピとビープ音をな
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
 #空行でlsを実行#{{{
+alias gitls="git status;echo;echo ls--------------------;ls"
 function my_enter {
     if [[ -n "$BUFFER" ]]; then
         builtin zle .accept-line
         return 0
     fi
-    BUFFER="ls"
+    BUFFER="gitls"
     builtin zle .accept-line
 }
 zle -N my_enter
