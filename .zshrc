@@ -116,7 +116,7 @@ function my_enter {
         builtin zle .accept-line
         return 0
     fi
-    BUFFER="gitls"
+    BUFFER=" gitls"
     builtin zle .accept-line
 }
 zle -N my_enter
