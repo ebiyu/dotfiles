@@ -47,7 +47,7 @@ function extract() {
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 alias -s {zshrc,zshrc,zsh_profile}=source
-alias -s py=pyton
+alias -s py=python3
 alias -s txt=cat
 alias -s html=open
 alias -s rb=ruby
