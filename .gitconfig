@@ -31,6 +31,8 @@
     lp = log -p
     ps = !git push origin $(git rev-parse --abbrev-ref HEAD)
     pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+    f = fetch
+    fa = fetch --all
     b = branch
     m = merge
     rs = reset
