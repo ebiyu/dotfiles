@@ -111,17 +111,6 @@ noremap い i
 "hardcopyでpreview.appを開く
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
-"矢印キーの無効化"{{{
-noremap <Down> <Nop>
-noremap <Up> <Nop>
-noremap <Right> <Nop>
-noremap <Left> <Nop>
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Right> <Nop>
-inoremap <Left> <Nop>
-"}}}
-
 noremap ZQ <nop>
 
 noremap + <C-a>
