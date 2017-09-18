@@ -44,5 +44,9 @@
     rbi = rebase -i
     rbir = rebase -i --root
     rbc = rebase -continue
+    #hubコマンド用
+    br = browse
+    cl = clone
+    pr = pull-request
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
