@@ -1,15 +1,28 @@
 " vim:set foldmethod=marker commentstring="%s:
+
+"インデント関係"{{{
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
+"}}}
+
 set backspace=indent,eol,start
+
 set showcmd "入力中のコマンドを表示
 set hidden "buffer切り替え時に保存を促さない
 set history=1000 "コマンド履歴
 set background=dark
+set clipboard=unnamed
+set showmatch "対応するかっこを挿入
+set matchtime=1
+set number "行番号を表示
+set cursorline "カーソル業を強調
+
+set hlsearch
+nnoremap <Esc><Esc> :noh<Return>
 
 set shell=/bin/zsh
 
@@ -79,18 +92,10 @@ call submode#map('winsize','n','','-','<C-w>-')
 
 "}}}
 
-set hlsearch
-nnoremap <Esc><Esc> :noh<Return>
-
-set number
-set cursorline
-
-set showmatch
-set matchtime=1
-
 nnoremap Y y$
 
 nnoremap x "_x
+
 
 "メモ関連の機能"{{{
 command Todo edit ~/Dropbox/Note/todo.txt
@@ -105,14 +110,17 @@ noremap Mt :Todo<CR>
 command Run !%
 inoremap <silent> jj <ESC>
 
+"日本語入力時でのキーマップ"{{{
 inoremap <silent> っj <ESC>
 noremap い i
+"}}}
 
 "hardcopyでpreview.appを開く
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
 noremap ZQ <nop>
 
+"数字の加算・減算"{{{
 noremap + <C-a>
 noremap - <C-x>
 vmap + <C-a>gv
@@ -124,6 +132,7 @@ noremap <Space>m  %
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>/  *
+"}}}
 
 noremap j gj
 noremap k gk
@@ -152,8 +161,6 @@ noremap sn gt
 noremap sp gT
 noremap sw <C-w>c
 "}}}
-
-set clipboard=unnamed
 
 colorscheme hybrid
 
