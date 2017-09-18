@@ -10,12 +10,13 @@ alias ls='ls -G'
 alias rm='rm -i'
 alias la='ls -Ga'
 alias ll='ls -Gl'
-alias google='(){open "http://www.google.co.jp/search?q=$1"}'
+alias google='(){w3m "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
 alias dict='(){open dict:///$1}'
 alias g=hub
 alias v=vim
 alias trash='(){mv $1 ~/.Trash}'
+alias bm='w3m -B'
 #}}}
 
 #global alias#{{{
