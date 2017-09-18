@@ -34,7 +34,8 @@
     f = fetch
     fa = fetch --all
     b = branch
-    m = merge
+    m = merge --no-ff
+    mff = merge --ff
     rs = reset
     rss = reset --soft
     rsh = reset --hard
