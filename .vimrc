@@ -136,8 +136,6 @@ noremap い i
 "hardcopyでpreview.appを開く
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
-noremap ZQ <nop>
-
 "数字の加算・減算"{{{
 noremap + <C-a>
 noremap - <C-x>
