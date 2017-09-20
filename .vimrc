@@ -114,6 +114,7 @@ nnoremap Y y$
 
 nnoremap x "_x
 
+nnoremap <C-]> g<C-]> "タグが複数ある時に一覧表示
 
 "メモ関連の機能"{{{
 command Todo edit ~/Dropbox/Note/todo.txt
