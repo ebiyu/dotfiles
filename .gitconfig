@@ -6,6 +6,7 @@
 	recentrepo = /Users/ebiyuu1121/Xcode/makenumber
 [core]
 	excludesfile = /Users/ebiyuu1121/.gitignore_global
+	filemode = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
