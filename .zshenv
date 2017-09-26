@@ -18,6 +18,7 @@ alias g=hub
 alias v=vim
 alias trash='(){mv $1 ~/.Trash}'
 alias bm='w3m -B'
+alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 #}}}
 
 #global alias#{{{

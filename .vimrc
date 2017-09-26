@@ -52,6 +52,7 @@ call dein#add('kana/vim-submode')
 call dein#add('flazz/vim-colorschemes')
 call dein#add('ujihisa/unite-colorscheme')
 call dein#add('tpope/vim-fugitive')
+call dein#add('szw/vim-tags')
 
 call dein#end()
 
