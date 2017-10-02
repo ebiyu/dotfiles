@@ -145,12 +145,12 @@ vmap + <C-a>gv
 vmap - <C-x>gv
 noremap g+ g<C-a>
 noremap g- g<C-x>
+"}}}
 
 noremap <Space>m  %
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>/  *
-"}}}
 
 noremap j gj
 noremap k gk
