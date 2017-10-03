@@ -168,6 +168,7 @@ nnoremap <localleader>q :quit<cr>
 noremap j gj
 noremap k gk
 
+inoremap <cr> <C-g>u<cr>
 noremap! <C-c> <Esc>
 
 " split"{{{
