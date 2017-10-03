@@ -142,11 +142,6 @@ nnoremap x "_x
 
 nnoremap <C-]> g<C-]> "タグが複数ある時に一覧表示
 
-"日本語入力時でのキーマップ"{{{
-inoremap <silent> っj <ESC>
-noremap い i
-"}}}
-
 "数字の加算・減算"{{{
 noremap + <C-a>
 noremap - <C-x>
