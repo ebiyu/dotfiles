@@ -168,6 +168,9 @@ noremap k gk
 
 inoremap <cr> <C-g>u<cr>
 
+nnoremap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
+inoremap <F6> <C-R>=strftime("%Y/%m/%d (%a) %H:%M")
+
 "Esc"{{{
 inoremap <silent> jj <ESC>
 inoremap <silent> jk <ESC>
