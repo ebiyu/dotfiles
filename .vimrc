@@ -174,6 +174,7 @@ inoremap <F6> <C-R>=strftime("%Y/%m/%d (%a) %H:%M")
 "Esc"{{{
 inoremap <silent> jj <ESC>
 inoremap <silent> jk <ESC>
+inoremap <silent> kj <ESC>
 noremap <C-c> <Esc>
 noremap! <C-c> <Esc>
 "}}}
