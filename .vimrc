@@ -135,7 +135,6 @@ noremap Mt :Todo<CR>
 "}}}
 
 command Run !%
-inoremap <silent> jj <ESC>
 
 "日本語入力時でのキーマップ"{{{
 inoremap <silent> っj <ESC>
@@ -169,6 +168,10 @@ noremap j gj
 noremap k gk
 
 inoremap <cr> <C-g>u<cr>
+
+inoremap <silent> jj <ESC>
+inoremap <silent> jk <ESC>
+noremap <C-c> <Esc>
 noremap! <C-c> <Esc>
 
 " split"{{{
