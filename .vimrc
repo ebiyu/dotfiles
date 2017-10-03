@@ -204,6 +204,8 @@ noremap sw <C-w>c
 "emacsキーバインド"{{{
 noremap! <C-p> <up>
 noremap! <C-n> <down>
+"C-pを潰してしまったのでC-lで補完開始
+noremap! <C-l> <C-x><C-p>
 noremap! <C-b> <left>
 noremap! <C-f> <right>
 noremap! <C-a> <home>
