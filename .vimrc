@@ -196,6 +196,19 @@ noremap sn gt
 noremap sp gT
 noremap sw <C-w>c
 "}}}
+
+"emacsキーバインド"{{{
+noremap! <C-p> <up>
+noremap! <C-n> <down>
+noremap! <C-b> <left>
+noremap! <C-f> <right>
+noremap! <C-a> <home>
+noremap! <C-e> <end>
+noremap! <C-d> <delete>
+noremap! <C-h> <BS>
+noremap! <C-k> <C-o>D
+noremap! <C-y> <C-r>0
+"}}}
 "}}}
 
 colorscheme hybrid
