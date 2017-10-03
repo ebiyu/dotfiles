@@ -217,6 +217,8 @@ noremap! <C-y> <C-r>0
 "}}}
 "}}}
 
+inoremap <C-g> <C-g>u
+
 colorscheme hybrid
 
 syntax on
