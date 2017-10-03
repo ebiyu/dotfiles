@@ -14,6 +14,7 @@ inoremap <CR> <CR>X<C-h>
 "}}}
 "}}}
 
+"オプションの設定"{{{
 set backspace=indent,eol,start
 
 set showcmd "入力中のコマンドを表示
@@ -37,6 +38,7 @@ set smartcase " 検索文字列に大文字が含まれている場合は区別�
 set gdefault
 
 set shell=/bin/zsh
+"}}}
 
 " dein.vimによるプラグイン管理"{{{
 if &compatible
@@ -118,6 +120,9 @@ function! s:Jq(...)
 endfunction
 "}}}
 
+"hardcopyでpreview.appを開く
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
+
 nnoremap Y y$
 
 nnoremap x "_x
@@ -136,13 +141,11 @@ noremap Mt :Todo<CR>
 
 command Run !%
 
+"キーマッピング"{{{
 "日本語入力時でのキーマップ"{{{
 inoremap <silent> っj <ESC>
 noremap い i
 "}}}
-
-"hardcopyでpreview.appを開く
-set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
 "数字の加算・減算"{{{
 noremap + <C-a>
@@ -169,10 +172,12 @@ noremap k gk
 
 inoremap <cr> <C-g>u<cr>
 
+"Esc"{{{
 inoremap <silent> jj <ESC>
 inoremap <silent> jk <ESC>
 noremap <C-c> <Esc>
 noremap! <C-c> <Esc>
+"}}}
 
 " split"{{{
 noremap s <nop>
@@ -195,6 +200,7 @@ noremap st :tabnew<Return>
 noremap sn gt
 noremap sp gT
 noremap sw <C-w>c
+"}}}
 "}}}
 
 colorscheme hybrid
