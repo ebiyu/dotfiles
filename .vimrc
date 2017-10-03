@@ -147,10 +147,16 @@ noremap g+ g<C-a>
 noremap g- g<C-x>
 "}}}
 
-noremap <Space>m  %
-noremap <Space>h  ^
-noremap <Space>l  $
-noremap <Space>/  *
+" localleaderの設定"{{{
+let maplocalleader=" "
+noremap <localleader>m  %
+noremap <localleader>h  ^
+noremap <localleader>l  $
+noremap <localleader>/  *
+nnoremap <localleader>s :up<cr>
+nnoremap <localleader>w :close<cr>
+nnoremap <localleader>q :quit<cr>
+"}}}
 
 noremap j gj
 noremap k gk
