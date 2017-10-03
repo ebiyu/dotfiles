@@ -12,15 +12,6 @@ alias dtp='cd ~/Desktop'
 alias doc='cd ~/Documents'
 alias drop='cd ~/Dropbox'
 
-#zleのvimモードに関する設定#{{{
-bindkey -v
-bindkey -M viins 'jj' vi-cmd-mode
-#vimのkeymap
-bindkey -M vicmd ' l' vi-end-of-line
-bindkey -M vicmd ' h' vi-first-non-blank
-bindkey -M vicmd ' m' vi-match-bracket
-#}}}
-
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'
@@ -46,25 +37,9 @@ precmd () {
 
 setopt prompt_subst #プロンプトで変数を展開
 
-#zshプロンプトにモード表示####################################{{{
-function zle-line-init zle-keymap-select {
-  case $KEYMAP in
-    vicmd)
-    export vimmode=%F{red}[NORMAL]%f
-    ;;
-    main|viins)
-    export vimmode=[INSERT]
-    ;;
-  esac
-  zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-#}}}
-
 #プロンプトを設定
 PROMPT='
-%F{blue}[%D %*]%f${vimmode}%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
+%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
 PROMPT2='${vimmode}>'
 
