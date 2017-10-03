@@ -160,6 +160,8 @@ noremap <localleader>/  *
 nnoremap <localleader>s :up<cr>
 nnoremap <localleader>w :close<cr>
 nnoremap <localleader>q :quit<cr>
+nnoremap <localleader>P "0P
+nnoremap <localleader>P "0p
 "}}}
 
 noremap j gj
