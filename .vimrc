@@ -123,12 +123,6 @@ endfunction
 "hardcopyでpreview.appを開く
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
-nnoremap Y y$
-
-nnoremap x "_x
-
-nnoremap <C-]> g<C-]> "タグが複数ある時に一覧表示
-
 "メモ関連の機能"{{{
 command Todo edit ~/Dropbox/Note/todo.txt
 command -nargs=1 MemoWrite :write ~/Dropbox/Note/<args>.txt
@@ -142,6 +136,12 @@ noremap Mt :Todo<CR>
 command Run !%
 
 "キーマッピング"{{{
+
+nnoremap Y y$
+nnoremap x "_x
+
+nnoremap <C-]> g<C-]> "タグが複数ある時に一覧表示
+
 "日本語入力時でのキーマップ"{{{
 inoremap <silent> っj <ESC>
 noremap い i
