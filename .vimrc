@@ -24,10 +24,17 @@ set clipboard=unnamed
 set showmatch "対応するかっこを挿入
 set matchtime=1
 set number "行番号を表示
+set ruler
 set cursorline "カーソル業を強調
+set scrolloff=8
+set autoread
 
 set hlsearch
+set incsearch
 nnoremap <Esc><Esc> :noh<Return>
+set ignorecase " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set smartcase " 検索文字列に大文字が含まれている場合は区別して検索する
+set gdefault
 
 set shell=/bin/zsh
 
