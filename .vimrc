@@ -215,7 +215,6 @@ noremap! <C-a> <home>
 noremap! <C-e> <end>
 noremap! <C-d> <delete>
 noremap! <C-h> <BS>
-noremap! <C-k> <C-o>D
 noremap! <C-y> <C-r>0
 "}}}
 "}}}
