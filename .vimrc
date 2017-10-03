@@ -190,6 +190,8 @@ noremap sH <C-w>H
 noremap sJ <C-w>J
 noremap sK <C-w>K
 noremap sL <C-w>L
+noremap st <C-w>t
+noremap sb <C-w>b
 "}}}
 
 " tab"{{{
