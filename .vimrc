@@ -55,7 +55,6 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('Shougo/neomru.vim')
 call dein#add('shougo/unite.vim')
 call dein#add('shougo/neoyank.vim')
-call dein#add('scrooloose/nerdtree')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('t9md/vim-textmanip')
 call dein#add('kana/vim-submode')
@@ -63,25 +62,23 @@ call dein#add('flazz/vim-colorschemes')
 call dein#add('ujihisa/unite-colorscheme')
 call dein#add('tpope/vim-fugitive')
 call dein#add('szw/vim-tags')
+call dein#add('Shougo/vimfiler.vim')
 
 call dein#end()
 
 "Uniteの設定"{{{
 nnoremap <silent> sr :<C-u>Unite register<CR>
 nnoremap <silent> sb :<C-u>Unite buffer<CR>
-nnoremap <silent> sf :<C-u>NERDTreeClose<CR>:<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> sf :<C-u>Unite buffer file_mru<CR>
 let g:unite_source_file_mru_limit = 50
 "}}}
-"NERDTreeの設定"{{{
-nnoremap <silent> <C-e> :<C-u>NERDTree<CR>
-let NERDTreeShowHidden = 1 "隠しファイルを既定で表示
+"vimfilerの設定"{{{
+nnoremap <silent> <C-e> :VimFilerExplore -toggle -winwidth=30 -find -force-hide<Cr>
+let g:vimfiler_enable_auto_cd = 1
 
-"ファイルを指定せず開いた時のみ起動時にNERDTreeを起動
+"ファイルを指定せず開いた時のみ起動時にvimfilerを起動
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | VimFiler -force-quit | endif
 
 "}}}
 "neoyankの設定"{{{
