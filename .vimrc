@@ -215,7 +215,10 @@ noremap! <C-a> <home>
 noremap! <C-e> <end>
 noremap! <C-d> <delete>
 noremap! <C-h> <BS>
-noremap! <C-y> <C-r>0
+noremap! <C-y> <C-o>p
+noremap! <C-k> <C-o>D
+"C-kを割り当て直す
+noremap! <C-x><C-k> <C-k>
 "}}}
 "}}}
 
