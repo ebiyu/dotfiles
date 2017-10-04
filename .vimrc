@@ -26,7 +26,6 @@ set showmatch "対応するかっこを挿入
 set matchtime=1
 set number "行番号を表示
 set ruler
-set cursorline "カーソル業を強調
 set scrolloff=8
 set autoread
 set timeoutlen=500
@@ -165,6 +164,8 @@ nnoremap <localleader>w :close<cr>
 nnoremap <localleader>q :quit<cr>
 nnoremap <localleader>P "0P
 nnoremap <localleader>P "0p
+
+noremap <silent> <localleader><localleader> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
 "}}}
 
 noremap j gj
