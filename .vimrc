@@ -134,6 +134,13 @@ noremap MM :tabnew + ~/Dropbox/Note/todo.txt<CR>o<CR><C-R>=strftime("%Y/%m/%d (%
 "}}}
 
 command Run !%
+" 一定時間入力がなかったらノーマルモードに {{{
+set updatetime=2000
+function s:InsertToNormal()
+    call feedkeys("\<Esc>")
+endfunction
+autocmd CursorHoldI * call s:InsertToNormal()
+"}}}
 
 "キーマッピング"{{{
 
