@@ -134,7 +134,7 @@ noremap MM :tabnew + ~/Dropbox/Note/todo.txt<CR>o<CR><C-R>=strftime("%Y/%m/%d (%
 "}}}
 
 " 一定時間入力がなかったらノーマルモードに {{{
-set updatetime=2000
+set updatetime=5000
 function s:InsertToNormal()
     call feedkeys("\<Esc>")
 endfunction
