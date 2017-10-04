@@ -133,7 +133,6 @@ noremap Mn :new<CR>
 noremap MM :tabnew + ~/Dropbox/Note/todo.txt<CR>o<CR><C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
 "}}}
 
-command Run !%
 " 一定時間入力がなかったらノーマルモードに {{{
 set updatetime=2000
 function s:InsertToNormal()
