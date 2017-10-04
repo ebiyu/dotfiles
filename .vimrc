@@ -29,6 +29,7 @@ set ruler
 set cursorline "カーソル業を強調
 set scrolloff=8
 set autoread
+set timeoutlen=500
 
 set hlsearch
 set incsearch
