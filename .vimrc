@@ -77,7 +77,7 @@ let g:vimfiler_enable_auto_cd = 1
 
 "ファイルを指定せず開いた時のみ起動時にvimfilerを起動
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | VimFiler -force-quit | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && !has("gui_running") | VimFiler -force-quit | endif
 
 "}}}
 "neoyankの設定"{{{
