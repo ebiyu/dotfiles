@@ -33,13 +33,13 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 precmd () {
     vcs_info #git
     export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
+    echo -e "\033[0;31m${(r:COLUMNS::-:)}\033[0;39m"
 }
 
 setopt prompt_subst #プロンプトで変数を展開
 
 #プロンプトを設定
-PROMPT='
-%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
+PROMPT='%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
 %(?,$,%F{red}$%f) '
 PROMPT2='${vimmode}>'
 
@@ -84,7 +84,7 @@ setopt nolistbeep # 補完候補表示時などにピッピとビープ音をな
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
 #空行でlsを実行#{{{
-alias gitls="git status;echo;echo ls--------------------;ls"
+alias gitls="echo git status${(r:COLUMNS-10::-:)};git status;echo ls${(r:COLUMNS-2::-:)};ls"
 function my_enter {
     if [[ -n "$BUFFER" ]]; then
         builtin zle .accept-line
