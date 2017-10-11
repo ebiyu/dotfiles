@@ -142,7 +142,8 @@ autocmd CursorHoldI * call s:InsertToNormal()
 nnoremap Y y$
 nnoremap x "_x
 
-nnoremap <C-]> g<C-]> "タグが複数ある時に一覧表示
+"タグが複数ある時に一覧表示
+nnoremap <C-]> g<C-]>
 
 "数字の加算・減算"{{{
 noremap + <C-a>
