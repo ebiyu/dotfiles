@@ -154,6 +154,9 @@ noremap g+ g<C-a>
 noremap g- g<C-x>
 "}}}
 
+vnoremap > >gv
+vnoremap < <gv
+
 " localleaderの設定"{{{
 let maplocalleader=" "
 noremap <localleader> <nop>
