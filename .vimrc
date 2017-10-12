@@ -156,6 +156,7 @@ noremap g- g<C-x>
 
 " localleaderの設定"{{{
 let maplocalleader=" "
+noremap <localleader> <nop>
 noremap <localleader>m  %
 noremap <localleader>h  ^
 noremap <localleader>l  $
@@ -167,6 +168,15 @@ nnoremap <localleader>P "0P
 nnoremap <localleader>P "0p
 
 noremap <silent> <localleader><localleader> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
+"}}}
+
+"コマンドラインでのマッピング"{{{
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 "}}}
 
 noremap j gj
