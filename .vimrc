@@ -83,8 +83,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && !has("gui_running") 
 "neoyankの設定"{{{
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
-"gitgutterの設定"{{{
-"}}}
 "textmanipの設定"{{{
 vmap <C-j> <Plug>(textmanip-move-down)
 vmap <C-k> <Plug>(textmanip-move-up)
