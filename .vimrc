@@ -74,7 +74,8 @@ let g:unite_source_file_mru_limit = 50
 "vimfilerの設定"{{{
 nnoremap <silent> <C-e> :VimFilerExplore -toggle -winwidth=30 -find -force-hide<Cr>
 let g:vimfiler_enable_auto_cd = 1
-
+"キーマップの変更
+autocmd FileType vimfiler nmap <buffer> F <Plug>(vimfiler_toggle_maximize_window)
 "ファイルを指定せず開いた時のみ起動時にvimfilerを起動
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && !has("gui_running") | VimFiler -force-quit | endif
