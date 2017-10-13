@@ -84,11 +84,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && !has("gui_running") 
 nnoremap <silent> sy :<C-u>Unite history/yank<CR>
 "}}}
 "textmanipの設定"{{{
-vmap <C-j> <Plug>(textmanip-move-down)
-vmap <C-k> <Plug>(textmanip-move-up)
-vmap <C-h> <Plug>(textmanip-move-left)
-vmap <C-l> <Plug>(textmanip-move-right)
-vmap <C-d> <Plug>(textmanip-duplicate-down)
+vnoremap <C-j> <Plug>(textmanip-move-down)
+vnoremap <C-k> <Plug>(textmanip-move-up)
+vnoremap <C-h> <Plug>(textmanip-move-left)
+vnoremap <C-l> <Plug>(textmanip-move-right)
+vnoremap <C-d> <Plug>(textmanip-duplicate-down)
 "}}}
 "submodeの設定"{{{
 call submode#enter_with('winsize','n','','s>','<C-w>>')
@@ -146,8 +146,8 @@ nnoremap <C-]> g<C-]>
 "数字の加算・減算"{{{
 noremap + <C-a>
 noremap - <C-x>
-vmap + <C-a>gv
-vmap - <C-x>gv
+vnoremap + <C-a>gv
+vnoremap - <C-x>gv
 noremap g+ g<C-a>
 noremap g- g<C-x>
 "}}}
