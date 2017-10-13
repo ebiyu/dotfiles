@@ -155,20 +155,19 @@ noremap g- g<C-x>
 vnoremap > >gv
 vnoremap < <gv
 
-" localleaderの設定"{{{
-let maplocalleader=" "
-noremap <localleader> <nop>
-noremap <localleader>m  %
-noremap <localleader>h  ^
-noremap <localleader>l  $
-noremap <localleader>/  *
-nnoremap <localleader>s :up<cr>
-nnoremap <localleader>w :close<cr>
-nnoremap <localleader>q :quit<cr>
-nnoremap <localleader>P "0P
-nnoremap <localleader>P "0p
+" spaceの設定"{{{
+noremap <space> <nop>
+noremap <space>m  %
+noremap <space>h  ^
+noremap <space>l  $
+noremap <space>/  *
+nnoremap <space>s :up<cr>
+nnoremap <space>w :close<cr>
+nnoremap <space>q :quit<cr>
+nnoremap <space>P "0P
+nnoremap <space>P "0p
 
-noremap <silent> <localleader><localleader> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
+noremap <silent> <space><space> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
 "}}}
 
 "コマンドラインでのマッピング"{{{
