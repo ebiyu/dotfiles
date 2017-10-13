@@ -55,6 +55,15 @@ alias -s html=open
 alias -s rb=ruby
 alias -s hs=runhaskell
 alias -s php='php -f'
+alias .zshrc='source .zshrc'
+alias .zshenv='source .zshenv'
+alias -s sh=sh
+function textypeset(){
+    platex $1
+    dvipdfmx ${1%%.tex}.dvi
+    open ${1%%.tex}.pdf
+}
+alias -s tex=textypeset
 #}}}
 
 function op() {
