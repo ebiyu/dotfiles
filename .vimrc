@@ -63,6 +63,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('szw/vim-tags')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Lokaltog/vim-easymotion')
+call dein#add('cohama/lexima.vim')
 
 call dein#end()
 
@@ -110,7 +111,17 @@ map T <Plug>(easymotion-Tl)
 map <space>f <Plug>(easymotion-s)
 map <space>j <Plug>(easymotion-jumptoanywhere)
 "}}}
+"maximaの設定"{{{
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
+"}}}
 "}}}
 
 "jqコマンドの実行"{{{
@@ -233,6 +244,9 @@ noremap sn gt
 noremap sp gT
 noremap sw <C-w>c
 "}}}
+
+"カッコから出やすいようにC-fに右を割り当て
+inoremap <C-f> <right>
 
 "}}}
 
