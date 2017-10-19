@@ -64,6 +64,9 @@ call dein#add('szw/vim-tags')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('cohama/lexima.vim')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
 
 call dein#end()
 
@@ -121,6 +124,13 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
 call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
 call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+"}}}
+"neosnippetの設定"{{{
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 "}}}
 "}}}
 
