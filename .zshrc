@@ -83,6 +83,8 @@ setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
+cdpath=(.. ~ ~/projects /Volumes)
+
 #空行でlsを実行#{{{
 alias gitls="echo git status${(r:COLUMNS-10::-:)};git status;echo ls${(r:COLUMNS-2::-:)};ls"
 function my_enter {
