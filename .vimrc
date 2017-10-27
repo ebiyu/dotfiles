@@ -260,6 +260,15 @@ inoremap <C-f> <right>
 
 "}}}
 
+augroup csv
+autocmd!
+autocmd BufRead,BufNewFile *.csv setfiletype csv
+autocmd FileType csv nnoremap <buffer> <Tab> f,l
+autocmd FileType csv nnoremap <buffer> <S-Tab> 2F,l
+autocmd FileType csv inoremap <buffer> <Tab> <C-o>f,<C-o>l
+autocmd FileType csv inoremap <buffer> <S-Tab> <C-o>2F,<C-o>l
+augroup end
+
 inoremap <C-g> <C-g>u
 
 colorscheme hybrid
