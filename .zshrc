@@ -54,9 +54,6 @@ zle -N run-fglast
 bindkey "^z" run-fglast
 #}}}
 
-#C-rでプロンプトを更新
-bindkey "" reset-prompt
-
 #}}}
 
 #コマンド履歴#{{{
