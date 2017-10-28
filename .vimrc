@@ -29,6 +29,7 @@ set ruler
 set scrolloff=8
 set autoread
 set timeoutlen=500
+set laststatus=2 "常にステータス行を表示
 
 set hlsearch
 set incsearch
