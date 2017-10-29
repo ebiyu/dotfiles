@@ -30,6 +30,8 @@ set scrolloff=8
 set autoread
 set timeoutlen=500
 set laststatus=2 "常にステータス行を表示
+set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
+
 
 set hlsearch
 set incsearch
