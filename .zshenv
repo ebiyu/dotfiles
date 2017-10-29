@@ -3,7 +3,7 @@
 export LANG=ja_JP.UTF-8
 
 #add PATH
-export PATH="$PATH:$HOME/bin"  
+export PATH="$PATH:$HOME/bin:$HOME/Qt/5.9/clang_64/bin"  
 
 #alias#{{{
 alias ls='ls -G'
