@@ -118,16 +118,16 @@ map <space>f <Plug>(easymotion-s)
 map <space>j <Plug>(easymotion-jumptoanywhere)
 "}}}
 "maximaの設定"{{{
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'input': '<Right>'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'input': '<Right>'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'input': '<Right>'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'input': '<Right>'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'input': '<Right>'})
 
 call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'input': '<Right>', 'filetype': 'tex'})
 call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$',  'input': '<Right>', 'filetype': 'tex'})
 "}}}
 "neosnippetの設定"{{{
 " Plugin key-mappings.
