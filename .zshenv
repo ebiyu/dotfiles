@@ -49,6 +49,15 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 alias .zshrc='source .zshrc'
 alias .zshenv='source .zshenv'
+
+function cppcompile(){
+    g++ $1;
+    if [ $? = 0 ]; then
+        echo 'compile complete!'
+        ./a.out
+    fi
+}
+
 function textypeset(){
     platex $1
     if [ $? = 0 ]; then
@@ -68,6 +77,7 @@ function run()
         *.sh) sh $1;;
         *.tex) textypeset $1;;
         *.html) open $1;;
+        *.cpp) cppcompile $1;;
     esac
 }
 alias -s {py,rb,hs,php,sh,html}
