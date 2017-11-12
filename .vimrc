@@ -218,8 +218,6 @@ cnoremap <c-e> <end>
 noremap j gj
 noremap k gk
 
-inoremap <cr> <C-g>u<cr>
-
 nnoremap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
 inoremap <F6> <C-R>=strftime("%Y/%m/%d (%a) %H:%M")
 
@@ -255,9 +253,6 @@ noremap sn gt
 noremap sp gT
 noremap sw <C-w>c
 "}}}
-
-"カッコから出やすいようにC-fに右を割り当て
-inoremap <C-f> <right>
 
 "}}}
 
