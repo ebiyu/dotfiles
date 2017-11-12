@@ -48,23 +48,28 @@ function extract() {
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
-alias -s {zshrc,zshrc,zsh_profile}=source
-alias -s py=python3
-alias -s txt=cat
-alias -s html=open
-alias -s rb=ruby
-alias -s hs=runhaskell
-alias -s php='php -f'
 alias .zshrc='source .zshrc'
 alias .zshenv='source .zshenv'
-alias -s sh=sh
 function textypeset(){
     platex $1
     dvipdfmx ${1%%.tex}.dvi
     open ${1%%.tex}.pdf
 }
-alias -s tex=textypeset
-#}}}
+
+function run()
+{
+    case $1 in
+        *.py) python3 $1;;
+        .zshrc|.zshenv|.zsh_profile) source $1;;
+        *.rb) ruby $1;;
+        *.hs) runhaskell $1;;
+        *.php) php -f $1;;
+        *.sh) sh $1;;
+        *.tex) textypeset $1;;
+        *.html) open $1;;
+    esac
+}
+alias -s {py,rb,hs,php,sh,html}
 
 function op() {
     if [ -z "$1" ]; then
