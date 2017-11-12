@@ -110,10 +110,6 @@ call submode#map('winsize','n','','+','<C-w>+')
 call submode#map('winsize','n','','-','<C-w>-')
 "}}}
 "easymotionの設定"{{{
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
 map <space>f <Plug>(easymotion-s)
 map <space>j <Plug>(easymotion-jumptoanywhere)
 "}}}
