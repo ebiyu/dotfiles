@@ -32,7 +32,6 @@ alias -g LS='|less -s'
 alias -g DN=/dev/null
 #}}}
 
-#alias -s#{{{
 function extract() {
     case $1 in
         *.tar.gz|*.tgz) tar xzvf $1;;
