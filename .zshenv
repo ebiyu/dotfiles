@@ -52,8 +52,10 @@ alias .zshrc='source .zshrc'
 alias .zshenv='source .zshenv'
 function textypeset(){
     platex $1
-    dvipdfmx ${1%%.tex}.dvi
-    open ${1%%.tex}.pdf
+    if [ $? = 0 ]; then
+        dvipdfmx ${1%%.tex}.dvi
+        open ${1%%.tex}.pdf
+    fi
 }
 
 function run()
