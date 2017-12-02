@@ -7,6 +7,8 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
+disable r
+
 alias proj='cd ~/projects'
 alias dtp='cd ~/Desktop'
 alias doc='cd ~/Documents'
