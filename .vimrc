@@ -197,7 +197,7 @@ nnoremap <space>q :quit<cr>
 nnoremap <space>P "0P
 nnoremap <space>P "0p
 nnoremap <space>c :lcd %:h<cr>
-nnoremap <space>r :lcd %:h<cr>:<c-u>!run %<cr>
+nnoremap <space>r :lcd %:h<cr>:<c-u>w<cr>:<c-u>!run %<cr>
 
 noremap <silent> <space><space> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
 "}}}
