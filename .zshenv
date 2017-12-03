@@ -88,6 +88,20 @@ function run()
 }
 alias -s {py,rb,hs,php,sh,html,md}=run
 
+function prev(){
+    case $1 in
+        *.tex) textypeset $1
+            if [ $? = 0 ]; then
+                open -g ${1%%.tex}.pdf
+            fi;;
+        *.html) open -g $1;;
+        *.md) md2html $1
+            if [ $? = 0 ]; then
+                open -g ${1%%.md}-md.html
+            fi;;
+    esac
+}
+
 function op() {
     if [ -z "$1" ]; then
         open .
