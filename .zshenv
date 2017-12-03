@@ -66,6 +66,13 @@ function textypeset(){
     fi
 }
 
+function mdopen(){
+    pandoc $1 -o ${1%%.md}-md.html
+    if [ $? = 0 ]; then
+        open ${1%%.md}-md.html
+    fi
+}
+
 function run()
 {
     case $1 in
@@ -78,6 +85,7 @@ function run()
         *.tex) textypeset $1;;
         *.html) open $1;;
         *.cpp) cppcompile $1;;
+        *.md) mdopen $1;;
     esac
 }
 alias -s {py,rb,hs,php,sh,html}
