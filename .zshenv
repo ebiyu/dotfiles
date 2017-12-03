@@ -50,27 +50,15 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 alias .zshrc='source .zshrc'
 alias .zshenv='source .zshenv'
 
-function cppcompile(){
-    g++ $1;
-    if [ $? = 0 ]; then
-        echo 'compile complete!'
-        ./a.out
-    fi
-}
-
 function textypeset(){
     platex $1
     if [ $? = 0 ]; then
         dvipdfmx ${1%%.tex}.dvi
-        open ${1%%.tex}.pdf
     fi
 }
 
-function mdopen(){
+function md2html(){
     pandoc $1 -o ${1%%.md}-md.html
-    if [ $? = 0 ]; then
-        open ${1%%.md}-md.html
-    fi
 }
 
 function run()
@@ -82,13 +70,23 @@ function run()
         *.hs) runhaskell $1;;
         *.php) php -f $1;;
         *.sh) sh $1;;
-        *.tex) textypeset $1;;
+        *.tex) textypeset $1
+            if [ $? = 0 ]; then
+                open ${1%%.tex}.pdf
+            fi;;
         *.html) open $1;;
-        *.cpp) cppcompile $1;;
-        *.md) mdopen $1;;
+        *.cpp) g++ $1
+            if [ $? = 0 ]; then
+                echo 'compile complete!'
+                ./a.out
+            fi;;
+        *.md) md2html $1
+            if [ $? = 0 ]; then
+                open ${1%%.md}-md.html
+            fi;;
     esac
 }
-alias -s {py,rb,hs,php,sh,html,md}=open
+alias -s {py,rb,hs,php,sh,html,md}=run
 
 function op() {
     if [ -z "$1" ]; then
