@@ -72,6 +72,7 @@ call dein#add('Shougo/neocomplcache')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('fuenor/JpFormat.vim')
+call dein#add('dhruvasagar/vim-table-mode')
 
 call dein#end()
 
