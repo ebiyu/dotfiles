@@ -88,7 +88,7 @@ function run()
         *.md) mdopen $1;;
     esac
 }
-alias -s {py,rb,hs,php,sh,html}
+alias -s {py,rb,hs,php,sh,html,md}=open
 
 function op() {
     if [ -z "$1" ]; then
