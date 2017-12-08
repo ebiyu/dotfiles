@@ -8,3 +8,4 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/dotfiles/keymap ~/.w3m/keymap
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
