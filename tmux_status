@@ -1,0 +1,21 @@
+#!/bin/zsh
+# https://qiita.com/arks22/items/a792d9d43d913c373520 から
+
+if sound_info=$(osascript -e 'get volume settings') ; then
+  if [ "$(echo $sound_info | awk '{print $8}')" = "muted:false" ]; then
+    sound_volume=$(expr $(echo $sound_info | awk '{print $2}' | sed "s/[^0-9]//g") / 6 )
+    str=""
+    for ((i=0; i < $sound_volume; i++ )); do
+      str="${str}■"
+    done
+    for ((i=$sound_volume; i < 16; i++ )); do
+      str="${str} "
+    done
+    sound_r="#[bold][$str]#[default] "
+  else
+    sound_r="#[bold][      mute      ]#[default] "
+  fi
+fi
+
+battery=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}')'%'
+echo $sound_r$battery
