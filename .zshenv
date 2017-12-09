@@ -17,6 +17,7 @@ alias dict='(){open dict:///$1}'
 alias g=hub
 alias v=vim
 alias t=tmux
+alias ta='tmux a'
 alias trash='(){mv $1 ~/.Trash}'
 alias bm='w3m -B'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
