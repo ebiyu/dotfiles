@@ -34,6 +34,7 @@ alias -g LS='|less -s'
 alias -g DN=/dev/null
 #}}}
 
+#{{{extrect
 function extract() {
     case $1 in
         *.tar.gz|*.tgz) tar xzvf $1;;
@@ -48,21 +49,27 @@ function extract() {
     esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+#}}}
+
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
 alias .zshrc='source .zshrc'
 alias .zshenv='source .zshenv'
 
+#{{{textypeset
 function textypeset(){
     platex $1
     if [ $? = 0 ]; then
         dvipdfmx ${1%%.tex}.dvi
     fi
 }
-
+#}}}
+#{{{md2html
 function md2html(){
     pandoc $1 -o ${1%%.md}-md.html
 }
+#}}}
 
+#{{{run
 function run()
 {
     case $1 in
@@ -89,7 +96,8 @@ function run()
     esac
 }
 alias -s {py,rb,hs,php,sh,html,md}=run
-
+#}}}
+#{{{prev
 function prev(){
     case $1 in
         *.tex) textypeset $1
@@ -103,6 +111,8 @@ function prev(){
             fi;;
     esac
 }
+#}}}
+
 
 function op() {
     if [ -z "$1" ]; then
@@ -111,4 +121,5 @@ function op() {
         open "$@"
     fi
 }
+#}}}
 alias ql='qlmanage -p "$@" >& /dev/null'
