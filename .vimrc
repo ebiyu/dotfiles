@@ -49,6 +49,15 @@ if &compatible
 endif
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+
 call dein#begin(expand('~/.vim/dein'))
 
 call dein#add('Shougo/dein.vim')
@@ -74,6 +83,11 @@ call dein#add('fuenor/JpFormat.vim')
 call dein#add('dhruvasagar/vim-table-mode')
 
 call dein#end()
+
+"プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
 
 "Uniteの設定"{{{
 nnoremap <silent> sr :<C-u>Unite register<CR>
