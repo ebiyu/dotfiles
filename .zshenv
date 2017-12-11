@@ -52,8 +52,8 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 #}}}
 
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=open
-alias .zshrc='source .zshrc'
-alias .zshenv='source .zshenv'
+alias zshrc='source ~/.zshrc'
+alias zshenv='source ~/.zshenv'
 
 #{{{textypeset
 function textypeset(){
