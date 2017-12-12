@@ -43,6 +43,7 @@ set visualbell
 set shell=/bin/zsh
 "}}}
 
+" プラグイン関係 {{{
 " dein.vimによるプラグイン管理"{{{
 if &compatible
   set nocompatible
@@ -88,6 +89,7 @@ call dein#end()
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
+"}}}
 
 "Uniteの設定"{{{
 nnoremap <silent> sr :<C-u>Unite register<CR>
