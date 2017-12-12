@@ -82,6 +82,7 @@ call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('fuenor/JpFormat.vim')
 call dein#add('dhruvasagar/vim-table-mode')
+call dein#add('itchyny/calendar.vim')
 
 call dein#end()
 
@@ -148,6 +149,10 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$',  'input': '<Right>', 'file
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+"}}}
+"calendar.vimの設定{{{
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 "}}}
 "}}}
 
