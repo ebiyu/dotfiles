@@ -30,3 +30,4 @@ keymap b PREV
 keymap B NEXT
 keymap : COMMAND
 keymap C-b BOOKMARK
+keymap e PEEK_LINK
