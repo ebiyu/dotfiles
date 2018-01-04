@@ -31,3 +31,4 @@ keymap B NEXT
 keymap : COMMAND
 keymap C-b BOOKMARK
 keymap e PEEK_LINK
+keymap C-e CHARSET
