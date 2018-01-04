@@ -25,7 +25,7 @@ keymap r RELOAD
 keymap R REINIT
 keymap t TAB_LINK
 keymap a ADD_BOOKMARK
-keymap q BACK
+keymap q EXIT
 keymap b PREV
 keymap B NEXT
 keymap : COMMAND
