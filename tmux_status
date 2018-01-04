@@ -10,5 +10,9 @@ if sound_info=$(osascript -e 'get volume settings') ; then
   fi
 fi
 
-battery=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}')'%'
-echo $sound_r $battery
+if battery_value=$(pmset -g ps | awk '{ if ( NR==2 ) print $3}' | sed -e "s/;//g") ;then
+    if [ ! "$(pmset -g ps | awk '{ if ( NR==2 ) print $4}' | sed -e "s/;//g")" = "discharging" ]; then
+        battery_charging="+"
+    fi
+fi
+echo $sound_r $battery_value$battery_charging
