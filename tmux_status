@@ -1,6 +1,10 @@
 #!/bin/zsh
 # https://qiita.com/arks22/items/a792d9d43d913c373520 から
 
+if air_info=($(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -E "^ *SSID:" | awk '{print $2}')); then
+    air_status="SSID:"$air_info
+fi
+
 if sound_info=$(osascript -e 'get volume settings') ; then
   if [ "$(echo $sound_info | awk '{print $8}')" = "muted:false" ]; then
     sound_volume=$(expr $(echo $sound_info | awk '{print $2}' | sed "s/[^0-9]//g") / 6 )
@@ -15,4 +19,4 @@ if battery_value=$(pmset -g ps | awk '{ if ( NR==2 ) print $3}' | sed -e "s/;//g
         battery_charging="+"
     fi
 fi
-echo $sound_r $battery_value$battery_charging
+echo $air_status $sound_r $battery_value$battery_charging
