@@ -265,6 +265,26 @@ noremap sw <C-w>c
 
 "}}}
 
+" 英語の縮約形{{{
+ab dont don't
+ab doesnt doesn't
+ab cant can't
+ab couldnt couldn't
+ab wouldnt wouldn't
+ab inst isn't
+ab Im I'm
+ab Ive I've
+ab youre you're
+ab were we're
+ab theyre they're
+ab Id I'd
+ab shes she's
+ab hes he's
+ab itss it's
+
+ab govt government
+"}}}
+
 "CSV"{{{
 augroup csv
 autocmd!
