@@ -256,6 +256,11 @@ noremap sw <C-w>c
 
 "}}}
 
+"一時ファイルの機能"{{{
+command! -nargs=1 Tmpnew :e ~/tmpfiles/tmp.<args>
+command! Tmpcd :cd ~/tmpfiles
+"}}}
+
 " 英語の縮約形{{{
 ab dont don't
 ab doesnt doesn't
