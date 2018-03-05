@@ -257,8 +257,8 @@ noremap sw <C-w>c
 "}}}
 
 "一時ファイルの機能"{{{
-command! -nargs=1 Tnew :e ~/tmpfiles/tmp.<args>
 command! Tcd :cd ~/tmpfiles
+nnoremap sm :e ~/tmpfiles/<C-r>=strftime('%Y%m%d%H%M%S')<CR>.
 "}}}
 
 " 英語の縮約形{{{
