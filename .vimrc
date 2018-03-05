@@ -171,15 +171,6 @@ endfunction
 "hardcopyでpreview.appを開く
 set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
 
-"メモ関連の機能"{{{
-command! -nargs=1 MemoWrite :write ~/Dropbox/Note/<args>.txt
-noremap Mw :MemoWrite 
-command! -nargs=0 MemoList :Unite file_rec:~/Dropbox/Note/ -buffer-name=note_list
-noremap Ml :MemoList<CR>
-noremap Mn :new<CR>
-noremap MM :tabnew + ~/Dropbox/Note/todo.txt<CR>o<CR><C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
-"}}}
-
 "キーマッピング"{{{
 
 nnoremap Y y$
