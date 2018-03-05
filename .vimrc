@@ -257,8 +257,8 @@ noremap sw <C-w>c
 "}}}
 
 "一時ファイルの機能"{{{
-command! -nargs=1 Tmpnew :e ~/tmpfiles/tmp.<args>
-command! Tmpcd :cd ~/tmpfiles
+command! -nargs=1 Tnew :e ~/tmpfiles/tmp.<args>
+command! Tcd :cd ~/tmpfiles
 "}}}
 
 " 英語の縮約形{{{
