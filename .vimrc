@@ -254,6 +254,18 @@ noremap sp gT
 noremap sw <C-w>c
 "}}}
 
+"comment out"{{{
+augroup comment
+autocmd!
+autocmd Bufread *.cpp,*.c noremap <buffer> s/ :s+^+//+<cr>:noh<cr>
+autocmd Bufread *.cpp,*c noremap <buffer> s? :s+//++<cr>:noh<cr>
+autocmd Bufread *.py noremap <buffer> s/ :s+^+#+<cr>:noh<cr>
+autocmd Bufread *.py noremap <buffer> s? :s+#++<cr>:noh<cr>
+autocmd Bufread *.vimrc noremap <buffer> s/ :s+^+"+<cr>:noh<cr>
+autocmd Bufread *.vimrc noremap <buffer> s? :s+"++<cr>:noh<cr>
+augroup end
+"}}}
+
 "}}}
 
 "一時ファイルの機能"{{{
