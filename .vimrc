@@ -299,6 +299,20 @@ autocmd FileType csv inoremap <buffer> <S-Tab> <C-o>2F,<C-o>l
 augroup end
 "}}}
 
+"{{{ brainfuck
+augroup bfc
+autocmd!
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> s <
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> d >
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> f +
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> g -
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> h .
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> j ,
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> k [
+autocmd BufRead,BufNewFile *.bfc inoremap <buffer> l ]
+autocmd BufRead,BufNewFile *.bfc set filetype=bfc
+augroup END
+"}}}
 "iTerm2のカーソルを変える"{{{
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
