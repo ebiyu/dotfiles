@@ -93,6 +93,7 @@ function run()
             if [ $? = 0 ]; then
                 open ${1%%.md}-md.html
             fi;;
+        *.bfc) python3 bfc.py $1
     esac
 }
 alias -s {py,rb,hs,php,sh,html,md}=run
