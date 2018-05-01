@@ -299,6 +299,8 @@ autocmd FileType csv inoremap <buffer> <S-Tab> <C-o>2F,<C-o>l
 augroup end
 "}}}
 
+autocmd BufRead,BufNewFile *.tex setfiletype tex
+
 "{{{ brainfuck
 augroup bfc
 autocmd!
