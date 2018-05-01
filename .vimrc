@@ -7,11 +7,6 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
-"空行でもインデントを維持する"{{{
-nnoremap o oX<C-h>
-nnoremap O OX<C-h>
-inoremap <CR> <CR>X<C-h>
-"}}}
 "}}}
 
 "オプションの設定"{{{
