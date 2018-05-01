@@ -84,7 +84,7 @@ function run()
                 open ${1%%.tex}.pdf
             fi;;
         *.html) open $1;;
-        *.cpp) g++ $1
+        *.cpp) g++-7 $1
             if [ $? = 0 ]; then
                 echo 'compile complete!'
                 ./a.out
