@@ -138,6 +138,7 @@ call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
 call lexima#add_rule({'char': '$', 'at': '\%#\$', 'input': '<Right>', 'filetype': 'tex'})
 call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$',  'input': '<Right>', 'filetype': 'tex'})
+call lexima#add_rule({'char': '<CR>', 'at': '\[$', 'input_after':'<CR>\]', 'filetype': 'tex'})
 "}}}
 "neosnippetの設定"{{{
 " Plugin key-mappings.
