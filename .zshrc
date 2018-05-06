@@ -14,6 +14,8 @@ alias dtp='cd ~/Desktop'
 alias doc='cd ~/Documents'
 alias drop='cd ~/Dropbox'
 
+alias :q=exit
+
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'
