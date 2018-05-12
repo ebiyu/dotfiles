@@ -46,6 +46,7 @@
     rbi = rebase -i
     rbir = rebase -i --root
     rbc = rebase --continue
+    st = stash
     #hubコマンド用
     br = browse
     cl = clone
