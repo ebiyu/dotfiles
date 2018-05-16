@@ -79,10 +79,7 @@ function run()
         *.hs) runhaskell $1;;
         *.php) php -f $1;;
         *.sh) sh $1;;
-        *.tex) textypeset $1
-            if [ $? = 0 ]; then
-                open ${1%%.tex}.pdf
-            fi;;
+        *.tex) platex $1;;
         *.html) open $1;;
         *.cpp) g++-7 $1
             if [ $? = 0 ]; then
@@ -103,7 +100,7 @@ function prev(){
     case $1 in
         *.tex) textypeset $1
             if [ $? = 0 ]; then
-                open -g ${1%%.tex}.pdf
+                open ${1%%.tex}.pdf
             fi;;
         *.html) open -g $1;;
         *.md) md2html $1
