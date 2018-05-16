@@ -299,7 +299,14 @@ autocmd FileType csv inoremap <buffer> <S-Tab> <C-o>2F,<C-o>l
 augroup end
 "}}}
 
+augroup tex
+autocmd!
 autocmd BufRead,BufNewFile *.tex setfiletype tex
+autocmd Bufread,BufNewFile *.tex inoremap <buffer> (( \left(
+autocmd Bufread,BufNewFile *.tex inoremap )) \right)
+autocmd Bufread,BufNewFile *.tex inoremap <C-d> \partial 
+augroup END
+
 
 "{{{ brainfuck
 augroup bfc
