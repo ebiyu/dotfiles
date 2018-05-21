@@ -45,110 +45,12 @@ if &compatible
 endif
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+if dein#load_state(expand('~/.vim/dein'))
+    call dein#begin(expand('~/.vim/dein'))
+    call dein#load_toml(expand('~/.vim/dein.toml'))
+    call dein#end()
+    call dein#save_state()
 endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-
-call dein#begin(expand('~/.vim/dein'))
-
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
-call dein#add('Shougo/neomru.vim')
-call dein#add('shougo/unite.vim')
-call dein#add('shougo/neoyank.vim')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('t9md/vim-textmanip')
-call dein#add('kana/vim-submode')
-call dein#add('flazz/vim-colorschemes')
-call dein#add('ujihisa/unite-colorscheme')
-call dein#add('tpope/vim-fugitive')
-call dein#add('szw/vim-tags')
-call dein#add('Shougo/vimfiler.vim')
-call dein#add('Lokaltog/vim-easymotion')
-call dein#add('cohama/lexima.vim')
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('fuenor/JpFormat.vim')
-call dein#add('dhruvasagar/vim-table-mode')
-call dein#add('itchyny/calendar.vim')
-
-call dein#end()
-
-"プラグインの自動インストール
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-"}}}
-
-"Uniteの設定"{{{
-nnoremap <silent> sr :<C-u>Unite register<CR>
-nnoremap <silent> sb :<C-u>Unite buffer<CR>
-nnoremap <silent> sf :<C-u>Unite buffer file_mru<CR>
-let g:unite_source_file_mru_limit = 50
-"}}}
-"vimfilerの設定"{{{
-nnoremap <silent> <C-e> :VimFilerExplore -toggle -winwidth=30 -find -force-hide<Cr>
-let g:vimfiler_enable_auto_cd = 1
-"キーマップの変更
-autocmd FileType vimfiler nmap <buffer> F <Plug>(vimfiler_toggle_maximize_window)
-"ファイルを指定せず開いた時のみ起動時にvimfilerを起動
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && !has("gui_running") | VimFiler -force-quit | endif
-
-"}}}
-"neoyankの設定"{{{
-nnoremap <silent> sy :<C-u>Unite history/yank<CR>
-"}}}
-"textmanipの設定"{{{
-vnoremap <C-j> <Plug>(textmanip-move-down)
-vnoremap <C-k> <Plug>(textmanip-move-up)
-vnoremap <C-h> <Plug>(textmanip-move-left)
-vnoremap <C-l> <Plug>(textmanip-move-right)
-vnoremap <C-d> <Plug>(textmanip-duplicate-down)
-"}}}
-"submodeの設定"{{{
-call submode#enter_with('winsize','n','','s>','<C-w>>')
-call submode#enter_with('winsize','n','','s<','<C-w><')
-call submode#enter_with('winsize','n','','s+','<C-w>+')
-call submode#enter_with('winsize','n','','s-','<C-w>-')
-call submode#map('winsize','n','','>','<C-w>>')
-call submode#map('winsize','n','','<','<C-w><')
-call submode#map('winsize','n','','+','<C-w>+')
-call submode#map('winsize','n','','-','<C-w>-')
-"}}}
-"easymotionの設定"{{{
-map <space>f <Plug>(easymotion-s)
-map <space>j <Plug>(easymotion-jumptoanywhere)
-"}}}
-"maximaの設定"{{{
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'input': '<Right>'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'input': '<Right>'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'input': '<Right>'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'input': '<Right>'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'input': '<Right>'})
-
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'input': '<Right>', 'filetype': 'tex'})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#\$',  'input': '<Right>', 'filetype': 'tex'})
-"}}}
-"neosnippetの設定"{{{
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-"}}}
-"calendar.vimの設定{{{
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-"}}}
 "}}}
 
 "jqコマンドの実行"{{{
