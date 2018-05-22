@@ -37,7 +37,11 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 precmd () {
     vcs_info #git
     export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
-    echo -e "\033[0;31m${(r:COLUMNS::-:)}\033[0;39m"
+    if [ -n "$SSH_CONNECTION" ]; then
+        echo -e "${(r:COLUMNS::-:)}"
+    else
+        echo -e "\033[0;31m${(r:COLUMNS::-:)}\033[0;39m"
+    fi
 }
 
 setopt prompt_subst #プロンプトで変数を展開

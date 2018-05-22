@@ -14,7 +14,11 @@ alias lla='ls -Gla'
 alias google='(){w3m "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
 alias dict='(){open dict:///$1}'
-alias g=hub
+if [ $USER = 6585151351 ]; then
+    alias g=git
+else
+    alias g=hub
+fi
 alias v=vim
 alias t=tmux
 alias ta='tmux a'
