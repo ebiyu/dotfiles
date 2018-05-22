@@ -207,6 +207,7 @@ autocmd BufRead,BufNewFile *.tex setfiletype tex
 autocmd Bufread,BufNewFile *.tex inoremap <buffer> (( \left(
 autocmd Bufread,BufNewFile *.tex inoremap )) \right)
 autocmd Bufread,BufNewFile *.tex inoremap <C-d> \partial 
+autocmd Bufread,BufNewFile *.tex inoremap <C-e> \varepsilon
 augroup END
 
 
