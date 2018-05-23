@@ -47,6 +47,7 @@
     rbir = rebase -i --root
     rbc = rebase --continue
     st = stash
+    t=tag
     #hubコマンド用
     br = browse
     cl = clone
