@@ -52,5 +52,6 @@
     br = browse
     cl = clone
     pr = pull-request
+    pst = push origin --tags
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
