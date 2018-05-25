@@ -162,6 +162,9 @@ autocmd Bufread *.vimrc noremap <buffer> s? :s+"++<cr>:noh<cr>
 augroup end
 "}}}
 
+inoremap <c-a> <c-o>^
+inoremap <c-e> <c-o>$
+
 "}}}
 
 "一時ファイルの機能"{{{
