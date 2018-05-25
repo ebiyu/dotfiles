@@ -38,8 +38,7 @@ set visualbell
 set shell=/bin/zsh
 "}}}
 
-" プラグイン関係 {{{
-" dein.vimによるプラグイン管理"{{{
+" dein.tomlによるプラグイン管理"{{{
 if &compatible
   set nocompatible
 endif
