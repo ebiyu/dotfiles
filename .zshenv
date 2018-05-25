@@ -13,6 +13,7 @@ alias ll='ls -Gl'
 alias lla='ls -Gla'
 alias google='(){w3m "http://www.google.co.jp/search?q=$1"}'
 alias ql='qlmanage -p'
+alias q='qlmanage -p'
 alias dict='(){open dict:///$1}'
 if [ $USER = 6585151351 ]; then
     alias g=git
