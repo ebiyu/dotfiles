@@ -116,6 +116,14 @@ function prev(){
 }
 #}}}
 
+#git関係
+alias c="git commit -a -m 'hoge'"
+function s(){
+    if git push origin $(git rev-parse --abbrev-ref HEAD) ; then
+        git commit -a -m 'hoge'
+        git push origin $(git rev-parse --abbrev-ref HEAD)
+    fi
+}
 
 function op() {
     if [ -z "$1" ]; then
