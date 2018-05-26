@@ -122,7 +122,7 @@ function c(){
     git commit -m 'hoge'
 }
 function s(){
-    if git push origin $(git rev-parse --abbrev-ref HEAD) ; then
+    if git pull origin $(git rev-parse --abbrev-ref HEAD) ; then
         git add .
         git commit -m 'hoge'
         git push origin $(git rev-parse --abbrev-ref HEAD)
