@@ -117,10 +117,14 @@ function prev(){
 #}}}
 
 #git関係
-alias c="git commit -a -m 'hoge'"
+function c(){
+    git add .
+    git commit -m 'hoge'
+}
 function s(){
     if git push origin $(git rev-parse --abbrev-ref HEAD) ; then
-        git commit -a -m 'hoge'
+        git add .
+        git commit -m 'hoge'
         git push origin $(git rev-parse --abbrev-ref HEAD)
     fi
 }
