@@ -27,7 +27,7 @@ set timeoutlen=500
 set laststatus=2 "常にステータス行を表示
 set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
 
-
+set modelines=5
 set hlsearch
 set incsearch
 nnoremap <Esc><Esc> :noh<Return>
