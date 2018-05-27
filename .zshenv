@@ -112,6 +112,7 @@ function prev(){
             if [ $? = 0 ]; then
                 open -g ${1%%.md}-md.html
             fi;;
+        *.cpp) ./a.out;;
     esac
 }
 #}}}
