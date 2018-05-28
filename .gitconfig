@@ -1,9 +1,6 @@
 [user]
 	name = 海老原祐輔
 	email = ebiyuu1121@gmail.com
-[gui]
-	recentrepo = /Users/ebiyuu1121/Dropbox/物チャレ個人フォルダ/レポート
-	recentrepo = /Users/ebiyuu1121/Xcode/makenumber
 [core]
 	filemode = false
 	editor = vim
