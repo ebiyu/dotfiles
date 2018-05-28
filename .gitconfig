@@ -5,7 +5,6 @@
 	recentrepo = /Users/ebiyuu1121/Dropbox/物チャレ個人フォルダ/レポート
 	recentrepo = /Users/ebiyuu1121/Xcode/makenumber
 [core]
-	excludesfile = /Users/ebiyuu1121/.gitignore_global
 	filemode = false
 	editor = vim
 [difftool "sourcetree"]
