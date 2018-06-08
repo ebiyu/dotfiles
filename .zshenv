@@ -86,7 +86,12 @@ function run()
         *.sh) sh $1;;
         *.tex) platex $1;;
         *.html) open $1;;
-        *.cpp) g++ $1
+        *.cpp) which g++-7 >> /dev/null
+            if [ $? = 0 ]; then
+                g++-7 $1
+            else
+                g++ $1
+            fi
             if [ $? = 0 ]; then
                 echo 'compile complete!'
                 ./a.out
