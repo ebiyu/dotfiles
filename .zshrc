@@ -36,7 +36,12 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 #プロンプト更新時
 precmd () {
     vcs_info #git
-    export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
+    which pmset &> /dev/null
+    if [ $? = 0 ]; then
+        export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
+    else
+        export battery_info=""
+    fi
     if [ -n "$SSH_CONNECTION" ]; then
         echo -e "${(r:COLUMNS::-:)}"
     else
