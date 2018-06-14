@@ -51,3 +51,5 @@
     pst = push origin --tags
 [commit]
 	template = /Users/ebiyuu1121/.stCommitMsg
+[color]
+	ui = true
