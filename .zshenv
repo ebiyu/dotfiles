@@ -21,8 +21,8 @@ else
     alias g=hub
 fi
 alias v=vim
-alias t=tmux
-alias ta='tmux a'
+alias t='tmux -2'
+alias ta='tmux a -2'
 alias trash='(){mv $1 ~/.Trash}'
 alias bm='w3m -B'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
