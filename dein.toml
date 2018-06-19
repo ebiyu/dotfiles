@@ -100,3 +100,6 @@ repo='fuenor/JpFormat.vim'
 
 [[plugins]]
 repo='dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo='tpope/vim-surround'
