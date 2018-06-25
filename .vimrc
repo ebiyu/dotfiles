@@ -214,7 +214,42 @@ autocmd Bufread,BufNewFile *.tex inoremap )) \right)
 autocmd Bufread,BufNewFile *.tex inoremap <C-d> \partial 
 autocmd Bufread,BufNewFile *.tex inoremap <C-e> \varepsilon
 augroup END
+"}}}
 
+"format{{{
+let g:clang_format_enable = 1
+function! s:clang_format()
+    if g:clang_format_enable == 1
+        let now_line = line(".")-1
+        exec ":%! clang-format"
+        exec "." . now_line
+    endif
+endfunction
+if executable("clang-format")
+    augroup cpp_clang_format
+        autocmd!
+        autocmd Bufwrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
+        autocmd BufRead,BufNewFile *.[ch]pp nnoremap <buffer> sb :let g:clang_format_enable=0<cr>
+        autocmd BufRead,BufNewFile *.[ch]pp nnoremap <buffer> sB :let g:clang_format_enable=1<cr>
+    augroup END
+endif
+let g:yapf_enable = 0
+function! s:yapf()
+    if g:yapf_enable == 1
+        let now_line = line(".")-1
+        exec ":%!yapf"
+        exec "." . now_line
+    endif
+endfunction
+if executable("yapf")
+    augroup format
+        autocmd!
+        autocmd Bufwrite,FileWritePre,FileAppendPre *.py call s:yapf()
+        autocmd BufRead,BufNewFile *.py nnoremap <buffer> sb :let g:yapf_enable=0<cr>
+        autocmd BufRead,BufNewFile *.py nnoremap <buffer> sB :let g:yapf_enable=1<cr>
+    augroup END
+endif
+"}}}
 
 "{{{ brainfuck
 augroup bfc
