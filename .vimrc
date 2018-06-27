@@ -87,6 +87,8 @@ noremap g- g<C-x>
 vnoremap > >gv
 vnoremap < <gv
 
+nnoremap sa ggVG
+
 " spaceの設定"{{{
 noremap <space> <nop>
 noremap <space>m  %
