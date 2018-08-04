@@ -249,7 +249,7 @@ endfunction
 if executable("clang-format")
     augroup cpp_clang_format
         autocmd!
-        autocmd Bufwrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
+        autocmd Bufwrite,FileWritePre,FileAppendPre *.[ch]pp,*dot call s:clang_format()
         autocmd BufRead,BufNewFile *.[ch]pp nnoremap <buffer> sb :let g:clang_format_enable=0<cr>
         autocmd BufRead,BufNewFile *.[ch]pp nnoremap <buffer> sB :let g:clang_format_enable=1<cr>
     augroup END

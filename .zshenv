@@ -121,6 +121,10 @@ function prev(){
                 open -g ${1%%.md}-md.html
             fi;;
         *.cpp) ./a.out;;
+        *.dot) dot -Tpng $1 -o ${1%%.dot}.png
+            if [ $? = 0 ]; then
+                open ${1%%.dot}.png
+            fi;;
     esac
 }
 #}}}
