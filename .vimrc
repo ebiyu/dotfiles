@@ -25,7 +25,6 @@ set scrolloff=8
 set autoread
 set timeoutlen=500
 set laststatus=2 "常にステータス行を表示
-set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
 
 set modelines=5
 set hlsearch
@@ -37,6 +36,26 @@ set visualbell
 
 set shell=/bin/zsh
 "}}}
+
+function! WordCount()
+    if &filetype=='tex'
+        return ''
+    else
+        let s:old_status = v:statusmsg
+        let position = getpos(".")
+        exe ":silent normal g\<c-g>"
+        let s:stat = v:statusmsg
+        "let s:word_count = 0
+        "if stat != '--No lines in buffer--'
+        "  let s:word_count = str2nr(split(v:statusmsg)[11])
+          let v:statusmsg = s:old_status
+        "end
+        call setpos('.', position)
+        return s:stat
+    endif
+endfunction
+
+set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)\ %{WordCount()}%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
 
 " dein.tomlによるプラグイン管理"{{{
 if &compatible
