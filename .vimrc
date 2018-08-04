@@ -227,6 +227,7 @@ autocmd FileType csv inoremap <buffer> <S-Tab> <C-o>2F,<C-o>l
 augroup end
 "}}}
 
+"texのためのショートカット"{{{
 augroup tex
 autocmd!
 autocmd BufRead,BufNewFile *.tex setfiletype tex
