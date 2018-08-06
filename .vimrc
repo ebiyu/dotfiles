@@ -81,9 +81,6 @@ function! s:Jq(...)
 endfunction
 "}}}
 
-"hardcopyでpreview.appを開く
-set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
-
 "キーマッピング"{{{
 
 nnoremap Y y$
@@ -284,15 +281,6 @@ autocmd BufRead,BufNewFile *.bfc inoremap <buffer> k [
 autocmd BufRead,BufNewFile *.bfc inoremap <buffer> l ]
 autocmd BufRead,BufNewFile *.bfc set filetype=bfc
 augroup END
-"}}}
-"iTerm2のカーソルを変える"{{{
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
 "}}}
 
 inoremap <C-g> <C-g>u
