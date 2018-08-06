@@ -194,7 +194,7 @@ nnoremap sm :e ~/tmpfiles/<C-r>=strftime('%Y%m%d%H%M%S')<CR>.
 "}}}
 
 "テンプレート読み込み
-nnoremap sn :0r ~/template/template.%:e<cr>G
+nnoremap sb :0r ~/template/template.%:e<cr>G
 
 " 英語の縮約形{{{
 ab dont don't
