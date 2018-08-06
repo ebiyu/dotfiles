@@ -37,6 +37,7 @@ set visualbell
 set shell=/bin/zsh
 "}}}
 
+" ステータス行の表示"{{{
 function! WordCount()
     if &filetype=='tex'
         return ''
@@ -52,6 +53,7 @@ function! WordCount()
 endfunction
 
 set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)\ %{WordCount()}%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
+"}}}
 
 " dein.tomlによるプラグイン管理"{{{
 if &compatible
