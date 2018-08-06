@@ -300,4 +300,9 @@ inoremap <C-g> <C-g>u
 colorscheme hybrid
 set t_Co=256
 
+".vimlocalの読み込み
+if filereadable(expand($HOME.'/local.vimrc'))
+    source $HOME/local.vimrc
+endif
+
 syntax on
