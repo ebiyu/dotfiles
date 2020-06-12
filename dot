@@ -1,6 +1,10 @@
 #!/bin/bash
 set -eu
 
+link(){
+    aa
+}
+
 pull(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
@@ -10,7 +14,9 @@ pull(){
 push(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
-    git commit -m `git status -s`
+    msg=`git status -s | sed -e "s/^ //" -e "s/ /_/g"` || :
+    git add .
+    git commit -m "$msg"
     git push origin master
 }
 
