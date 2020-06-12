@@ -1,0 +1,58 @@
+#!/bin/bash
+set -eu
+
+setup(){
+    dotfiles=$HOME/dotfiles
+
+    has(){
+        type "$1" > /dev/null 2>&1
+    }
+
+    symlink(){
+        [ -e "$2" ] || ln -s "$1" "$2"
+    }
+
+
+    if ! has(git); then
+        echo "git not installed"
+        exit 1
+    fi
+
+
+    cd $HOME
+
+    echo "cloning dotfiles... "
+    echo
+    git clone git@github.com:ebiyuu1121/dotfiles || git clone https://github.com/ebiyuu1121/dotfiles/
+}
+
+pull(){
+    dotfiles=$HOME/dotfiles
+    cd "$dotfiles"
+    git pull origin master
+}
+
+push(){
+    dotfiles=$HOME/dotfiles
+    cd "$dotfiles"
+    git pull origin master
+}
+
+setup
+
+subcommand="$1"
+shift
+
+case $subcommand in
+    pull)
+        pull
+        ;;
+    push)
+        push
+        ;;
+    *)
+        echo "dotfiles commands"
+        echo "pull"
+        echo "push"
+        ;;
+esac
