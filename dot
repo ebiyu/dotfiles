@@ -1,8 +1,19 @@
 #!/bin/bash
 set -eu
 
+
+has(){
+    type "$1" > /dev/null 2>&1
+}
+
+symlink(){
+    [ -e "$2" ] || ln -s "$1" "$2"
+}
+
 link(){
-    aa
+    dotfiles=$HOME/dotfiles
+
+    has vim && symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
 }
 
 pull(){
