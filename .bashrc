@@ -1,3 +1,11 @@
+export LANG=ja_JP.UTF-8
+alias ls="ls -G"
+alias rm="rm -i"
+alias la="ls -Ga"
+alias ll="ls -Gl"
+alias lla="ls -Gla"
+alias g=git
+alias l="less"
+alias d=docker
 alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
-export LANG=ja_JP.UTF-8
