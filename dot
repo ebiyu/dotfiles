@@ -14,6 +14,14 @@ link(){
     dotfiles=$HOME/dotfiles
 
     has vim && symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
+    symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
+}
+
+copy(){
+    dotfiles=$HOME/dotfiles
+
+    cp "$dotfiles/.vimrc" "$HOME/.vimrc"
+    cp "$dotfiles/.bashrc" "$HOME/.bashrc"
 }
 
 pull(){
@@ -45,6 +53,10 @@ case $subcommand in
         pull
         push
         ;;
+    copy)
+        copy
+        ;;
+
 
     link)
         link
