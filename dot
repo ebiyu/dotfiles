@@ -41,9 +41,13 @@ case $subcommand in
     push)
         push
         ;;
+    link)
+        link
+        ;;
     *)
         echo "dotfiles commands"
         echo "pull"
         echo "push"
+        echo "link"
         ;;
 esac
