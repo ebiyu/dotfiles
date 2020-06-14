@@ -64,8 +64,10 @@ push(){
     msg=`git status -s | sed -e "s/^ //" -e "s/ /_/g"` || :
     git add .
     if git commit -m "$msg" > /dev/null 2>&1 ; then
+        echo "local change found"
         git diff --stat HEAD^ HEAD
-        git push origin master
+        echo "pushing changes..."
+        git push origin master > /dev/null
         return 0
     else
         return 1
