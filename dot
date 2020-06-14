@@ -61,6 +61,10 @@ sync(){
     pull
     push
 }
+vi(){
+    dotfiles=$HOME/dotfiles
+    vi "$dotfiles"
+}
 
 if [ $# == 0 ]; then
     echo "no subcommand given. running \`dot sync\` ..."
@@ -84,10 +88,11 @@ case $subcommand in
     copy)
         copy
         ;;
-
-
     link)
         link
+        ;;
+    vi)
+        vi
         ;;
     *)
         echo "dotfiles commands"
