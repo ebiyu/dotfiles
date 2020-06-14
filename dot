@@ -76,7 +76,7 @@ sync(){
     changed="$?"
     push
     set -eu
-    if [ "$changed" == 0 and "$(uname)" == "MINGW64_NT-10.0-18362" ]; then
+    if [ "$changed" == 0 ] && ["$(uname)" == "MINGW64_NT-10.0-18362" ]; then
         link
     fi
 }
