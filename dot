@@ -49,11 +49,14 @@ pull(){
     CID0=`git log --pretty=format:"%H" | head -n 1`
     CID1=`git ls-remote origin HEAD | awk '{print $1}'`
     if [ "$CID1" != "$CID1" ]; then
+        echo "remote change founf"
         echo "pulling changes..."
         git pull origin master > /dev/null 2>&1
+        echo "pulled"
         git diff --stat "$CID1".."$CID2"
         return 0
     else
+        echo "no remote change found"
         return 1
     fi
 }
@@ -67,9 +70,11 @@ push(){
         echo "local change found"
         git diff --stat HEAD^ HEAD
         echo "pushing changes..."
-        git push origin master > /dev/null 2>&1 
+        git push origin master > /dev/null 2>&1
+        echo "pushed to remote"
         return 0
     else
+        echo "no local change found"
         return 1
     fi
 }
