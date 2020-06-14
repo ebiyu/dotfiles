@@ -64,6 +64,7 @@ push(){
     msg=`git status -s | sed -e "s/^ //" -e "s/ /_/g"` || :
     git add .
     if git commit -m "$msg"; then
+        git diff --stat HEAD^ HEAD
         git push origin master
         return 0
     else
