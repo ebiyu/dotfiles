@@ -9,4 +9,4 @@ alias l="less"
 alias d=docker
 alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
-type "$1" > /dev/null 2>&1 || alias dot="~/dotfiles/dot"
+type dot > /dev/null 2>&1 || alias dot="~/dotfiles/dot"
