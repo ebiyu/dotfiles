@@ -59,7 +59,7 @@ pull(){
         echo "pulling changes..."
         git pull origin master > /dev/null 2>&1
         echo "pulled"
-        git diff --stat "$CID1".."$CID2"
+        git diff --stat "$CID0".."$CID1"
         return 0
     else
         echo "no remote change found"
