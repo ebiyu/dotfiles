@@ -60,6 +60,9 @@ push(){
 sync(){
     pull
     push
+    if ["$(uname)" == "MINGW64_NT-10.0-18362" ]; then
+        link
+    fi
 }
 vi(){
     dotfiles=$HOME/dotfiles
