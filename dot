@@ -7,7 +7,7 @@ has(){
 }
 
 symlink(){
-    [ -e "$2" ] || ln -s "$1" "$2"
+    [ -e "$2" ] || echo "linking $1 => $2" && ln -s "$1" "$2"
 }
 
 link(){
