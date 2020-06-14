@@ -91,6 +91,6 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[34m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[35m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]\\$ "
+export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]\\$ "
 
 # ----prompt end---
