@@ -1,55 +1,12 @@
 [user]
-	name = 海老原祐輔
 	email = ebiyuu1121@gmail.com
-[core]
-	filemode = false
-	editor = vim
-[http]
-    sslVerify = false
-[credential]
-    helper = cache
-[push]
-    default = simple
-    recurseSubmodules = check
+	name = Ebihara Yusuke
+
 [alias]
-    g = log --graph --date=format:'%Y/%m/%d %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    s = status
-    cm = commit
-    cma = commit --amend
-    cn = commit -m
-    ca = commit -a -m
-    co = checkout
-    cop = checkout -p
-    a = add
-    aa = add .
-    ap = add -p
-    d = diff
-    ds = diff --staged
-    dh = diff HEAD^ HEAD
-    l = log
-    lp = log -p
-    ps = !git push origin $(git rev-parse --abbrev-ref HEAD)
-    pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
-    f = fetch
-    fa = fetch --all
-    b = branch
-    m = merge --no-ff
-    mff = merge --ff
-    rs = reset
-    rss = reset --soft
-    rsh = reset --hard
-    rsp = reset -p
-    rb = rebase
-    rbi = rebase -i
-    rbir = rebase -i --root
-    rbc = rebase --continue
-    st = stash
-    t=tag
-    #hubコマンド用
-    br = browse
-    cl = clone
-    pr = pull-request
-    pst = push origin --tags
-    op = !open $(git remote get-url origin)
-[color]
-	ui = true
+	co = checkout
+	m = merge
+	l = log
+	g = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(reset)%cd %C(green)%cn %C(yellow)%d %C(reset)%s'
+	cm = commit
+	cma = commit --amend
+	b = branch

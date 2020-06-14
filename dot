@@ -32,6 +32,7 @@ link(){
     dotfiles=$HOME/dotfiles
 
     has vim && symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
+    has git && symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
     symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
 }
 
