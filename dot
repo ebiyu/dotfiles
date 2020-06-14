@@ -45,7 +45,17 @@ copy(){
 pull(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
-    git pull origin master
+
+    CID0=`git log --pretty=format:"%H" | head -n 1`
+    CID1=`git ls-remote origin HEAD | awk '{print $1}'`
+    if [ "$CID1" != "$CID1" ]; then
+        echo "pulling changes..."
+        git pull origin master > /dev/null 2>&1
+        git diff --stat "$CID1".."$CID2"
+        return 0
+    else
+        return 1
+    fi
 }
 
 push(){
@@ -56,13 +66,17 @@ push(){
     if git commit -m "$msg"; then
         git push origin master
         return 0
+    else
+        return 1
     fi
-    return 1
 }
 sync(){
-    pull
+    set +eu
+    pull 
+    changed="$?"
     push
-    if [ "$(uname)" == "MINGW64_NT-10.0-18362" ]; then
+    set -eu
+    if [ "$changed" == 0 and "$(uname)" == "MINGW64_NT-10.0-18362" ]; then
         link
     fi
 }
