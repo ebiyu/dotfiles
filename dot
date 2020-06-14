@@ -55,7 +55,9 @@ push(){
     git add .
     if git commit -m "$msg"; then
         git push origin master
+        return 0
     fi
+    return 1
 }
 sync(){
     pull
