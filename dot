@@ -8,10 +8,16 @@ has(){
 
 symlink(){
     if [ -e "$2" ]; then
-        echo -n "file $2 already exists. force link? [y/N]: "
+        echo -n "file $2 already exists. override? [y/b/N]: "
         read ANS
         case $ANS in
             [Yy]* )
+                rm -f "$2"
+                echo "$2 removed"
+                echo "linking $1 => $2"
+                ln -s "$1" "$2"
+                ;;
+            [Bb]* )
                 mv "$2" "$2.bak"
                 echo "$2.bak created"
                 echo "linking $1 => $2"
@@ -85,7 +91,7 @@ sync(){
     push
     set -eu
     if [ "$changed" == 0 ] && [ "$(uname)" == "MINGW64_NT-10.0-18362" ]; then
-        link
+        yes | link
     fi
 }
 vi(){
