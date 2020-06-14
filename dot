@@ -46,11 +46,9 @@ pull(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
 
-    echo "checking remote changes..."
-    git fetch > /dev/null 2>&1
     CID0=`git log --pretty=format:"%H" | head -n 1`
     CID1=`git ls-remote origin HEAD | awk '{print $1}'`
-    if [ "$CID1" != "$CID1" ]; then
+    if [ "$CID0" != "$CID1" ]; then
         echo "remote change founf"
         echo "pulling changes..."
         git pull origin master > /dev/null 2>&1
