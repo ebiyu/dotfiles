@@ -7,7 +7,25 @@ has(){
 }
 
 symlink(){
-    [ -e "$2" ] || echo "linking $1 => $2" && ln -s "$1" "$2"
+    if [ -e "$2" ]; then
+        echo -n "file $2 already exists. force link? [y/N]: "
+        read ANS
+        case $ANS in
+            [Yy]* )
+                mv "$2" "$2.bak"
+                echo "$2.bak created"
+                echo "linking $1 => $2"
+                ln -s "$1" "$2"
+                ;;
+            * )
+                echo "skipping..."
+                ;;
+        esac
+    else
+        echo "linking $1 => $2"
+        ln -s "$1" "$2"
+    fi
+    # [ -e "$2" ] || echo "linking $1 => $2" && ln -s "$1" "$2"
 }
 
 link(){
