@@ -2,6 +2,11 @@ export LANG=ja_JP.UTF-8
 export LANG_ALL=ja_JP.UTF-8
 export LANG_MESSAGES=ja_JP.UTF-8
 export HISTSIZE=100000
+export HISTCONTROL=ignoreboth
+
+shopt -s autocd
+stty stop undef
+ 
 alias ls="ls -G"
 alias rm="rm -i"
 alias la="ls -Ga"
