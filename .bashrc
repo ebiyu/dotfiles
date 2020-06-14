@@ -36,7 +36,7 @@ function nonzero_return() {
 
 # get current branch in git repo
 function parse_git_branch() {
-	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	BRANCH="$(git symbolic-ref --short HEAD 2> /dev/null)"
 	if [ ! "${BRANCH}" == "" ]
 	then
 		STAT=`parse_git_dirty`
@@ -48,36 +48,33 @@ function parse_git_branch() {
 
 # get current status of git repo
 function parse_git_dirty {
-	status=`git status 2>&1 | tee`
-	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-	bits=''
-	if [ "${renamed}" == "0" ]; then
-		bits=">${bits}"
+	local status=$(git status --short --ignore-submodules 2> /dev/null) || return 0
+	
+	local unstaged   # add 前のファイル (行頭にスペース1つ開けて M or D)
+	local staged     # add 済のファイル (行頭に A or M or D)
+	local untracked  # 新規作成ファイル (行頭に ??)
+	
+	# Unstaged
+	if [ -n "$(echo "$status" | cut -c 2 | tr -dc 'ACDMRU')" ]; then
+		unstaged='*'
 	fi
-	if [ "${ahead}" == "0" ]; then
-		bits="*${bits}"
+	
+	# Staged
+	if [ -n "$(echo "$status" | cut -c 1 | tr -dc 'ACDMRU')" ]; then
+		staged='+'
 	fi
-	if [ "${newfile}" == "0" ]; then
-		bits="+${bits}"
+	
+	# Untracked
+	if [ -n "$(echo "$status" | tr -dc '?')" ]; then
+		untracked='?'
 	fi
-	if [ "${untracked}" == "0" ]; then
-		bits="?${bits}"
-	fi
-	if [ "${deleted}" == "0" ]; then
-		bits="x${bits}"
-	fi
-	if [ "${dirty}" == "0" ]; then
-		bits="!${bits}"
-	fi
-	if [ ! "${bits}" == "" ]; then
-		echo " ${bits}"
-	else
-		echo ""
+
+	# ステータス文字列を結合する
+	local files_status="$unstaged$staged$untracked"
+	
+	# いずれかの記号があれば先頭にスペースを入れておく
+	if [ -n "$files_status" ]; then
+		files_status=" $files_status"
 	fi
 }
 
