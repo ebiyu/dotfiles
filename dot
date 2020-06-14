@@ -63,7 +63,7 @@ sync(){
 }
 vi(){
     dotfiles=$HOME/dotfiles
-    vi "$dotfiles"
+    exec vi "$dotfiles"
 }
 
 if [ $# == 0 ]; then
