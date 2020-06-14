@@ -10,3 +10,4 @@
 	cm = commit
 	cma = commit --amend
 	b = branch
+    st = status
