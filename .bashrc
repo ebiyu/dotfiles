@@ -1,4 +1,7 @@
 export LANG=ja_JP.UTF-8
+export LANG_ALL=ja_JP.UTF-8
+export LANG_MESSAGES=ja_JP.UTF-8
+export HISTSIZE=100000
 alias ls="ls -G"
 alias rm="rm -i"
 alias la="ls -Ga"
@@ -8,7 +11,7 @@ alias l="less"
 alias d=docker
 alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
-type dot > /dev/null 2>&1 || alias dot="~/dotfiles/dot"
+alias dot="~/dotfiles/dot"
 
 if type hub > /dev/null 2>&1; then
     alias g=hub
