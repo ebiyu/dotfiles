@@ -49,7 +49,7 @@ pull(){
     CID0=`git log --pretty=format:"%H" | head -n 1`
     CID1=`git ls-remote origin HEAD | awk '{print $1}'`
     if [ "$CID0" != "$CID1" ]; then
-        echo "remote change founf"
+        echo "remote change found"
         echo "pulling changes..."
         git pull origin master > /dev/null 2>&1
         echo "pulled"
@@ -84,7 +84,7 @@ sync(){
     changed="$?"
     push
     set -eu
-    if [ "$changed" == 0 ] && ["$(uname)" == "MINGW64_NT-10.0-18362" ]; then
+    if [ "$changed" == 0 ] && [ "$(uname)" == "MINGW64_NT-10.0-18362" ]; then
         link
     fi
 }
