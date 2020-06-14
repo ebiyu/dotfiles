@@ -25,7 +25,6 @@ symlink(){
         echo "linking $1 => $2"
         ln -s "$1" "$2"
     fi
-    # [ -e "$2" ] || echo "linking $1 => $2" && ln -s "$1" "$2"
 }
 
 link(){
@@ -54,8 +53,9 @@ push(){
     cd "$dotfiles"
     msg=`git status -s | sed -e "s/^ //" -e "s/ /_/g"` || :
     git add .
-    git commit -m "$msg"
-    git push origin master
+    if git commit -m "$msg"; then
+        git push origin master
+    fi
 }
 sync(){
     pull
