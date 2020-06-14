@@ -67,7 +67,7 @@ push(){
         echo "local change found"
         git diff --stat HEAD^ HEAD
         echo "pushing changes..."
-        git push origin master > /dev/null
+        git push origin master > /dev/null 2>&1 
         return 0
     else
         return 1
