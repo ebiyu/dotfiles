@@ -9,6 +9,8 @@ stty stop undef
  
 alias ls="ls -G"
 alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 alias la="ls -Ga"
 alias ll="ls -Gl"
 alias lla="ls -Gla"
