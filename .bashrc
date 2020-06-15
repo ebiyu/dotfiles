@@ -5,15 +5,21 @@ export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 
 shopt -s autocd
-stty stop undef
  
-alias ls="ls -G"
+if [ "$(uname)" == "Darwin" ]; then
+    alias ls="ls -G"
+    alias la="ls -Ga"
+    alias ll="ls -Gl"
+    alias lla="ls -Gla"
+else
+    alias ls="ls --color=auto"
+    alias la="ls --color=autoa"
+    alias ll="ls --color=autol"
+    alias lla="ls --color=autola"
+fi
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias la="ls -Ga"
-alias ll="ls -Gl"
-alias lla="ls -Gla"
 alias l="less"
 alias d=docker
 alias dc="docker-compose"
