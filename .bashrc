@@ -13,9 +13,9 @@ if [ "$(uname)" == "Darwin" ]; then
     alias lla="ls -Gla"
 else
     alias ls="ls --color=auto"
-    alias la="ls --color=autoa"
-    alias ll="ls --color=autol"
-    alias lla="ls --color=autola"
+    alias la="ls --color=auto -a"
+    alias ll="ls --color=auto -l"
+    alias lla="ls --color=autol -a"
 fi
 alias rm="rm -i"
 alias cp="cp -i"
