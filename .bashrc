@@ -25,6 +25,7 @@ alias d=docker
 alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
 alias dot="~/dotfiles/dot"
+type column > /dev/null 2>&1 && alias csv="column -s, -t"
 
 if type hub > /dev/null 2>&1; then
     alias g=hub
