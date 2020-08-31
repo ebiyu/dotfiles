@@ -104,5 +104,5 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 
 # ----prompt end---
 
-eval `ssh-agent`
-ssh-add .ssh/id_rsa
+# eval `ssh-agent`
+# ssh-add .ssh/id_rsa
