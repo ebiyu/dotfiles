@@ -11,3 +11,5 @@
 	cma = commit --amend
 	b = branch
     st = status
+[core]
+	editor = vi
