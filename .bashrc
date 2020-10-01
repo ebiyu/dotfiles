@@ -108,3 +108,7 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 # ssh-add .ssh/id_rsa
 
 export PATH=$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
+
+if [ "$(uname)" == "Linux" ]; then
+    export PATH=$HOME/android-studio/bin:$PATH
+fi
