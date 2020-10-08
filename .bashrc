@@ -112,3 +112,7 @@ export PATH=$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
 if [ "$(uname)" == "Linux" ]; then
     export PATH=$HOME/android-studio/bin:$PATH
 fi
+
+if type "xdg-open" > /dev/null 2>&1; then
+    alias open=xdg-open
+fi
