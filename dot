@@ -38,6 +38,7 @@ link(){
 
     has vim && symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
     has git && symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
+    has tmux && symlink "$dotfiles/.tmux.conf" "$HOME/.tmux.conf"
     symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
 }
 
