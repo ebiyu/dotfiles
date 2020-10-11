@@ -116,3 +116,7 @@ fi
 if type "xdg-open" > /dev/null 2>&1; then
     alias open=xdg-open
 fi
+
+if type "fish" > /dev/null 2>&1; then
+    exec fish
+fi
