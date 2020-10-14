@@ -3,6 +3,7 @@ export LANG_ALL=ja_JP.UTF-8
 export LANG_MESSAGES=ja_JP.UTF-8
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
+export LESSCHARSET=utf-8
 
 shopt -s autocd
  
@@ -26,12 +27,7 @@ alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
 alias dotfiles="~/dotfiles/dot"
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
-
-if type hub > /dev/null 2>&1; then
-    alias g=hub
-else
-    alias g=git
-fi
+alias g=git
 
 proj(){
     if [ -e "$HOME/projects" ]; then
