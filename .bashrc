@@ -16,7 +16,7 @@ else
     alias ls="ls --color=auto"
     alias la="ls --color=auto -a"
     alias ll="ls --color=auto -l"
-    alias lla="ls --color=autol -a"
+    alias lla="ls --color=auto -la"
 fi
 alias rm="rm -i"
 alias cp="cp -i"
@@ -103,7 +103,7 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 # eval `ssh-agent`
 # ssh-add .ssh/id_rsa
 
-export PATH=$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
+export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
 
 if [ "$(uname)" == "Linux" ]; then
     export PATH=$HOME/android-studio/bin:$PATH
@@ -115,4 +115,8 @@ fi
 
 if type "fish" > /dev/null 2>&1; then
     exec fish
+fi
+
+if type "xsel" > /dev/null 2>&1; then
+    alias pbcopy='xsel --clipboard --input'
 fi
