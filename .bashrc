@@ -120,3 +120,6 @@ fi
 if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
 fi
+
+# supress warning in new mac
+export BASH_SILENCE_DEPRECATION_WARNING=1
