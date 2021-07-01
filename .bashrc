@@ -18,6 +18,7 @@ else
     alias ll="ls --color=auto -l"
     alias lla="ls --color=auto -la"
 fi
+alias sl=ls
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
@@ -123,3 +124,8 @@ fi
 
 # supress warning in new mac
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# brew
+if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
