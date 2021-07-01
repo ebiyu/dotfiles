@@ -104,12 +104,10 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 # eval `ssh-agent`
 # ssh-add .ssh/id_rsa
 
-<<<<<<< HEAD
-export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:/home/denjo/.local/bin:$PATH
-eval "$(anyenv init -)"
-=======
-export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
->>>>>>> 4c164b95961e4fb0bf12e25850fcdec165cb460b
+export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
+if type "anyenv" > /dev/null 2>&1; then
+    eval "$(anyenv init -)"
+fi
 
 if [ "$(uname)" == "Linux" ]; then
     export PATH=$HOME/android-studio/bin:$PATH
@@ -139,3 +137,4 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
