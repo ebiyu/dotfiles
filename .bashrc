@@ -123,12 +123,11 @@ if type "fish" > /dev/null 2>&1; then
     exec fish
 fi
 
-<<<<<<< HEAD
 # export DISPLAY=192.168.3.7:0.0
 # export DISPLAY=localhost:0.0
 # export "LIBGL_ALWAYS_INDIRECT=1"
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-=======
+
 if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
 fi
@@ -140,4 +139,3 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
->>>>>>> 4c164b95961e4fb0bf12e25850fcdec165cb460b
