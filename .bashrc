@@ -103,7 +103,8 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 # eval `ssh-agent`
 # ssh-add .ssh/id_rsa
 
-export PATH=$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
+export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:/home/denjo/.local/bin:$PATH
+eval "$(anyenv init -)"
 
 if [ "$(uname)" == "Linux" ]; then
     export PATH=$HOME/android-studio/bin:$PATH
@@ -116,3 +117,8 @@ fi
 if type "fish" > /dev/null 2>&1; then
     exec fish
 fi
+
+# export DISPLAY=192.168.3.7:0.0
+# export DISPLAY=localhost:0.0
+# export "LIBGL_ALWAYS_INDIRECT=1"
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0

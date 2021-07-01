@@ -11,5 +11,8 @@
 	cma = commit --amend
 	b = branch
     st = status
+    delete-merged = !git branch --merged | grep -vE '^\\*|master$|develop$|main$|staging$' | xargs -I % git branch -d %
 [core]
 	editor = vi
+[push]
+	default = simple
