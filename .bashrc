@@ -16,8 +16,9 @@ else
     alias ls="ls --color=auto"
     alias la="ls --color=auto -a"
     alias ll="ls --color=auto -l"
-    alias lla="ls --color=autol -a"
+    alias lla="ls --color=auto -la"
 fi
+alias sl=ls
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
@@ -103,8 +104,12 @@ export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e
 # eval `ssh-agent`
 # ssh-add .ssh/id_rsa
 
+<<<<<<< HEAD
 export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:/home/denjo/.local/bin:$PATH
 eval "$(anyenv init -)"
+=======
+export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
+>>>>>>> 4c164b95961e4fb0bf12e25850fcdec165cb460b
 
 if [ "$(uname)" == "Linux" ]; then
     export PATH=$HOME/android-studio/bin:$PATH
@@ -118,7 +123,21 @@ if type "fish" > /dev/null 2>&1; then
     exec fish
 fi
 
+<<<<<<< HEAD
 # export DISPLAY=192.168.3.7:0.0
 # export DISPLAY=localhost:0.0
 # export "LIBGL_ALWAYS_INDIRECT=1"
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+=======
+if type "xsel" > /dev/null 2>&1; then
+    alias pbcopy='xsel --clipboard --input'
+fi
+
+# supress warning in new mac
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# brew
+if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+>>>>>>> 4c164b95961e4fb0bf12e25850fcdec165cb460b
