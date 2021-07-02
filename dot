@@ -41,6 +41,7 @@ link(){
     has tmux && symlink "$dotfiles/.tmux.conf" "$HOME/.tmux.conf"
     has fish && symlink "$dotfiles/.config/fish" "$HOME/.config/fish"
     symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
+    symlink "$dotfiles/.bash_conf" "$HOME/.bash_conf"
 }
 
 copy(){
