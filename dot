@@ -97,9 +97,15 @@ sync(){
         yes | link
     fi
 }
+
 vi(){
     dotfiles=$HOME/dotfiles
     exec vi "$dotfiles"
+}
+
+code(){
+    dotfiles=$HOME/dotfiles
+    exec code "$dotfiles"
 }
 
 if [ $# == 0 ]; then
@@ -129,6 +135,9 @@ case $subcommand in
         ;;
     vi)
         vi
+        ;;
+    code)
+        code
         ;;
     *)
         echo "dotfiles commands"
