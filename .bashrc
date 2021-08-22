@@ -7,6 +7,8 @@ export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 export LESSCHARSET=utf-8
 
+export PIPENV_VENV_IN_PROJECT=true
+
 shopt -s autocd
 
 bash_conf=~/.bash_conf
@@ -30,3 +32,4 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+
