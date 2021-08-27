@@ -31,5 +31,12 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # brew
 type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew shellenv)"
 
+
+## anyenv
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
 
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
