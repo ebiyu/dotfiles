@@ -16,6 +16,7 @@
     ps = push
     pl = pull
     a = add
+    d = diff
     delete-merged = !git branch | grep -vE '^\\*|master$|develop$|main$|staging$' | xargs -I % git branch -d %
 [core]
 	editor = vi
