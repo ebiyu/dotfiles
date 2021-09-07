@@ -21,6 +21,7 @@
 [core]
 	editor = vi
 	symlinks = true
+    excludesfile = ~/dotfiles/.gitignore_global
 [push]
 	default = current
 [pull]
