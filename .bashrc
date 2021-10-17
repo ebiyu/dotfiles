@@ -40,3 +40,7 @@ if type pyenv > /dev/null 2>&1; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
 fi
+
+ls ~/.git-completion.bash > /dev/null 2>&1 && source ~/.git-completion.bash
+#source ~/.git-completion.bash
+
