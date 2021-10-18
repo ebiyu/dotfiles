@@ -1,16 +1,16 @@
 [user]
-	email = me@ebiyuu.com
-	name = Ebihara Yusuke
-	siginingKey = 315B2820CE85B793
+    email = me@ebiyuu.com
+    name = Ebihara Yusuke
+    siginingKey = 315B2820CE85B793
 
 [alias]
-	co = checkout
-	m = merge
-	l = log
-	g = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(reset)%cd %C(green)%cn %C(yellow)%d %C(reset)%s'
-	cm = commit
-	cma = commit --amend
-	b = branch
+    co = checkout
+    m = merge
+    l = log
+    g = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(reset)%cd %C(green)%cn %C(yellow)%d %C(reset)%s'
+    cm = commit
+    cma = commit --amend
+    b = branch
     s = status
     st = status
     f = fetch
@@ -20,15 +20,15 @@
     d = diff
     delete-merged = !git branch | grep -vE '^\\*|master$|develop$|main$|staging$' | xargs -I % git branch -d %
 [core]
-	editor = vi
-	symlinks = true
+    editor = vi
+    symlinks = true
     excludesfile = ~/dotfiles/.gitignore_global
 [push]
-	default = current
+    default = current
 [pull]
-	rebase = false
+    rebase = false
 [commit]
-	gpgsign = false
-	gpgsigna = false
+    gpgsign = false
+    gpgsigna = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
