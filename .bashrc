@@ -1,3 +1,5 @@
+export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:$HOME.local/bin:$PATH
+
 export LANG=ja_JP.UTF-8
 export LANG_ALL=ja_JP.UTF-8
 export LANG_MESSAGES=ja_JP.UTF-8
@@ -5,97 +7,23 @@ export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 export LESSCHARSET=utf-8
 
+export PIPENV_VENV_IN_PROJECT=true
+
 shopt -s autocd
+
+bash_conf=~/.bash_conf
+. $bash_conf/alias.bash
+. $bash_conf/func.bash
+. $bash_conf/prompt.bash
  
-if [ "$(uname)" == "Darwin" ]; then
-    alias ls="ls -G"
-    alias la="ls -Ga"
-    alias ll="ls -Gl"
-    alias lla="ls -Gla"
-else
-    alias ls="ls --color=auto"
-    alias la="ls --color=auto -a"
-    alias ll="ls --color=auto -l"
-    alias lla="ls --color=auto -la"
-fi
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
-alias l="less"
-alias d=docker
-alias dc="docker-compose"
-alias dcp="docker-compose -f docker-compose.prod.yml"
-alias dotfiles="~/dotfiles/dot"
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
-alias g=git
+type xdg-open > /dev/null 2>&1 && alias open=xdg-open
+type "xsel" > /dev/null 2>&1 && alias pbcopy='xsel --clipboard --input'
 
-proj(){
-    if [ -e "$HOME/projects" ]; then
-        cd "$HOME/projects"
-    else
-        if [ -e "$HOME/Documents/projects" ]; then
-            cd "$HOME/Documents/projects/"
-        else
-            echo "no project directory"
-        fi
-    fi
-}
+# eval `ssh-agent`
+# ssh-add .ssh/id_rsa
 
-# start prompt -------
-function _prompt_hostname() {
-    if ! [ -z "$SSH_CONNECTION" ]; then
-        echo "$USER@$HOSTNAME "
-    fi
-}
-function nonzero_return() {
-	RETVAL=$?
-	[ $RETVAL -ne 0 ] && echo "[$RETVAL] "
-}
-
-# get current branch in git repo
-function parse_git_branch() {
-	BRANCH="$(git symbolic-ref --short HEAD 2> /dev/null)"
-	if [ ! "${BRANCH}" == "" ]
-	then
-		STAT=`parse_git_dirty`
-		echo "(${BRANCH}${STAT}) "
-	else
-		echo ""
-	fi
-}
-
-# get current status of git repo
-function parse_git_dirty {
-	local status=$(git status --short --ignore-submodules 2> /dev/null) || return 0
-	
-	local unstaged   # add 前のファイル (行頭にスペース1つ開けて M or D)
-	local staged     # add 済のファイル (行頭に A or M or D)
-	local untracked  # 新規作成ファイル (行頭に ??)
-	
-	# Unstaged
-	if [ -n "$(echo "$status" | cut -c 2 | tr -dc 'ACDMRU')" ]; then
-		unstaged='*'
-	fi
-	
-	# Staged
-	if [ -n "$(echo "$status" | cut -c 1 | tr -dc 'ACDMRU')" ]; then
-		staged='+'
-	fi
-	
-	# Untracked
-	if [ -n "$(echo "$status" | tr -dc '?')" ]; then
-		untracked='?'
-	fi
-
-	# ステータス文字列を結合する
-	local files_status="$unstaged$staged$untracked"
-	
-	# いずれかの記号があれば先頭にスペースを入れておく
-	if [ -n "$files_status" ]; then
-		files_status=" $files_status"
-	fi
-}
-
+<<<<<<< HEAD
 function parse_aws_profile {
     profile="${AWS_PROFILE}"
     if [[ -z "${profile}" ]]; then
@@ -107,26 +35,30 @@ function parse_aws_profile {
 }
 
 export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]`parse_aws_profile`\\$ "
+=======
+#export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+>>>>>>> 4d5a7e184c705560053c5af25de6678419edcb69
 
-# ----prompt end---
+# supress warning in new mac
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# eval `ssh-agent`
-# ssh-add .ssh/id_rsa
+# brew
+type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.nodebrew/current/bin:/home/denjo/.local/bin:$PATH
 
-if [ "$(uname)" == "Linux" ]; then
-    export PATH=$HOME/android-studio/bin:$PATH
+## anyenv
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+
+if type pyenv > /dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
 fi
 
-if type "xdg-open" > /dev/null 2>&1; then
-    alias open=xdg-open
-fi
+ls ~/.git-completion.bash > /dev/null 2>&1 && source ~/.git-completion.bash
+#source ~/.git-completion.bash
 
-if type "fish" > /dev/null 2>&1; then
-    exec fish
-fi
-
+<<<<<<< HEAD
 if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
 fi
@@ -136,3 +68,5 @@ export PATH="$PATH:`yarn global bin`"
 if type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1; then
     alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
 fi
+=======
+>>>>>>> 4d5a7e184c705560053c5af25de6678419edcb69

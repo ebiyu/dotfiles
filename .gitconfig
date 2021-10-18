@@ -1,5 +1,5 @@
 [user]
-	email = ebiyuu1121@gmail.com
+	email = me@ebiyuu.com
 	name = Ebihara Yusuke
 	siginingKey = 315B2820CE85B793
 
@@ -11,9 +11,22 @@
 	cm = commit
 	cma = commit --amend
 	b = branch
+    s = status
     st = status
+    f = fetch
+    ps = push
+    pl = pull
+    a = add
+    d = diff
+    delete-merged = !git branch | grep -vE '^\\*|master$|develop$|main$|staging$' | xargs -I % git branch -d %
 [core]
 	editor = vi
+	symlinks = true
+    excludesfile = ~/dotfiles/.gitignore_global
+[push]
+	default = current
+[pull]
+	rebase = false
 [commit]
 	gpgsign = false
 	gpgsigna = false
