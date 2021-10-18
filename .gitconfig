@@ -1,6 +1,7 @@
 [user]
 	email = ebiyuu1121@gmail.com
 	name = Ebihara Yusuke
+	siginingKey = 315B2820CE85B793
 
 [alias]
 	co = checkout
@@ -13,3 +14,8 @@
     st = status
 [core]
 	editor = vi
+[commit]
+	gpgsign = false
+	gpgsigna = false
+[init]
+	defaultBranch = main

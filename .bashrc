@@ -96,7 +96,17 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]\\$ "
+function parse_aws_profile {
+    profile="${AWS_PROFILE}"
+    if [[ -z "${profile}" ]]; then
+        _prompt_awsprof=""
+    else
+        _prompt_awsprof="/ AWS:%F{magenta}${profile}%f"
+    fi
+    echo "${_prompt_awsprof}"
+}
+
+export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]`parse_aws_profile`\\$ "
 
 # ----prompt end---
 
@@ -119,4 +129,10 @@ fi
 
 if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
+fi
+
+export PATH="$PATH:`yarn global bin`"
+
+if type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1; then
+    alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
 fi
