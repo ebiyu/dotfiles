@@ -23,7 +23,6 @@ type "xsel" > /dev/null 2>&1 && alias pbcopy='xsel --clipboard --input'
 # eval `ssh-agent`
 # ssh-add .ssh/id_rsa
 
-<<<<<<< HEAD
 function parse_aws_profile {
     profile="${AWS_PROFILE}"
     if [[ -z "${profile}" ]]; then
@@ -35,9 +34,7 @@ function parse_aws_profile {
 }
 
 export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[35m\]`_prompt_hostname`\[\e[m\]\[\e[32m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\[\e[m\]`parse_aws_profile`\\$ "
-=======
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
->>>>>>> 4d5a7e184c705560053c5af25de6678419edcb69
 
 # supress warning in new mac
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -58,7 +55,6 @@ fi
 ls ~/.git-completion.bash > /dev/null 2>&1 && source ~/.git-completion.bash
 #source ~/.git-completion.bash
 
-<<<<<<< HEAD
 if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
 fi
@@ -68,5 +64,3 @@ export PATH="$PATH:`yarn global bin`"
 if type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1; then
     alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
 fi
-=======
->>>>>>> 4d5a7e184c705560053c5af25de6678419edcb69
