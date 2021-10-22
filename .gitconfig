@@ -14,10 +14,12 @@
     s = status
     st = status
     f = fetch
+    rs = reset
     ps = push
     pl = pull
     a = add
     d = diff
+    ds = diff --staged
     delete-merged = !git branch | grep -vE '^\\*|master$|develop$|main$|staging$' | xargs -I % git branch -d %
 [core]
     editor = vi
