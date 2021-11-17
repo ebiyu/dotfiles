@@ -19,3 +19,5 @@ alias dc="docker-compose"
 alias dcp="docker-compose -f docker-compose.prod.yml"
 alias dotfiles="~/dotfiles/dot"
 alias g=git
+alias v=vim
+alias vi=vim

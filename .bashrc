@@ -66,3 +66,14 @@ fi
 if type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1; then
     alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
 fi
+
+# 履歴を記録するcdの再定義（pushdの利用）
+function cd {
+    if [ -z "$1" ] ; then
+        # cd 連打で余計な $DIRSTACK を増やさない
+        test "$PWD" != "$HOME" && pushd $HOME > /dev/null
+    else
+        pushd "$1" > /dev/null
+    fi  
+}
+alias dirs="dirs -v"
