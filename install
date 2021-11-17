@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# run "curl -sL dot.ebiyuu.com | sh" to setup dotfiles
+
 set -eu
 
 setup(){
