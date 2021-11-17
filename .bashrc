@@ -59,7 +59,9 @@ if type "xsel" > /dev/null 2>&1; then
     alias pbcopy='xsel --clipboard --input'
 fi
 
-export PATH="$PATH:`yarn global bin`"
+if type "yarn" > /dev/null 2>&1; then
+    export PATH="$PATH:`yarn global bin`"
+fi
 
 if type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1; then
     alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
