@@ -35,7 +35,14 @@ type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew
 export PIPENV_VENV_IN_PROJECT=true
 
 # anyenv
-type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+# https://naoblo.net/archives/1046
+# anyenv init - --no-rehash > ~/.anyenv-rc.sh
+if [ -f ~/.anyenv-rc.sh ]; then
+    source ~/.anyenv-rc.sh
+else
+    type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+fi
+
 if type pyenv > /dev/null 2>&1; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -43,7 +50,7 @@ if type pyenv > /dev/null 2>&1; then
 fi
 
 # yarn
-type "yarn" > /dev/null 2>&1 && export PATH="$PATH:`yarn global bin`"
+# type "yarn" > /dev/null 2>&1 && export PATH="$PATH:`yarn global bin`"
 
 # git completion
 ls ~/.git-completion.bash > /dev/null 2>&1 && source ~/.git-completion.bash
