@@ -70,10 +70,19 @@ fi
 # 履歴を記録するcdの再定義（pushdの利用）
 function cd {
     if [ -z "$1" ] ; then
+        cd-
         # cd 連打で余計な $DIRSTACK を増やさない
-        test "$PWD" != "$HOME" && pushd $HOME > /dev/null
+        #test "$PWD" != "$HOME" && pushd $HOME > /dev/null
     else
         pushd "$1" > /dev/null
     fi  
 }
 alias dirs="dirs -v"
+function cd-() {
+    ! which peco >/dev/null 2>&1 && dirs -v && return 0
+    local pushd_number=$(dirs -v | peco | perl -anE 'say $F[0]')
+    [[ -z $pushd_number ]] && return 1
+    pushd +$pushd_number > /dev/null
+    return $?
+}
+alias pd="pushd"
