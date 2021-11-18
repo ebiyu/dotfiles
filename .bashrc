@@ -51,9 +51,9 @@ ls ~/.git-completion.bash > /dev/null 2>&1 && source ~/.git-completion.bash
 # 履歴を記録するcdの再定義（pushdの利用）
 function cd {
     if [ -z "$1" ] ; then
-        cd-
+        #cd-
         # cd 連打で余計な $DIRSTACK を増やさない
-        #test "$PWD" != "$HOME" && pushd $HOME > /dev/null
+        test "$PWD" != "$HOME" && pushd $HOME > /dev/null
     else
         pushd "$1" > /dev/null
     fi  
