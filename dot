@@ -42,6 +42,8 @@ link(){
     has fish && symlink "$dotfiles/.config/fish" "$HOME/.config/fish"
     symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/.bash_conf" "$HOME/.bash_conf"
+    symlink "$dotfiles/vim/config" "$HOME/.vim/config"
+    symlink "$dotfiles/vim/dein.toml" "$HOME/.vim/dein.toml"
 }
 
 copy(){

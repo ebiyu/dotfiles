@@ -1,0 +1,5 @@
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+
+[[plugins]]
+repo='flazz/vim-colorschemes'
