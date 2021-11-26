@@ -21,6 +21,7 @@ alias dotfiles="~/dotfiles/dot"
 alias g=git
 alias v=vim
 alias vi=vim
+alias t=tmux
 
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
 type xdg-open > /dev/null 2>&1 && alias open=xdg-open
