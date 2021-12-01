@@ -22,6 +22,7 @@ alias g=git
 alias v=vim
 alias vi=vim
 alias t=tmux
+alias clean-xcode="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
 type xdg-open > /dev/null 2>&1 && alias open=xdg-open
