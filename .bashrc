@@ -74,3 +74,7 @@ function cd-() {
     return $?
 }
 alias pd="pushd"
+
+# cotowali
+export PATH="$HOME/.konryu/bin:$PATH"
+eval "$(konryu init)"
