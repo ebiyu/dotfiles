@@ -47,10 +47,7 @@ try
 
     if s:is_plugged("fern.vim")
         nnoremap <C-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-        let Grep_Skip_Dirs = '.svn .git node_modules' 
-        let Grep_Default_Options = '-I'   "ignore binary files
-        let Grep_Skip_Files = '*.bak *~' 
-        autocmd QuickFixCmdPost *grep* cwindow
+        let g:fern#default_hidden=1
     endif
 
 catch /E117.*/
