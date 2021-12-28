@@ -152,6 +152,7 @@ case $subcommand in
 
 dotfiles commands
 
+help            - show this help
 pull            - pull from remote repository
 push            - push to remote repository
 sync            - pull / push repote repository
