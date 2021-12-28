@@ -43,7 +43,6 @@ link(){
     symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/.bash_conf" "$HOME/.bash_conf"
     symlink "$dotfiles/vim/config" "$HOME/.vim/config"
-    symlink "$dotfiles/vim/dein.toml" "$HOME/.vim/dein.toml"
 }
 
 copy(){
@@ -108,6 +107,11 @@ code(){
     exec code "$dotfiles"
 }
 
+installPlug() {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 if [ $# == 0 ]; then
     echo "no subcommand given. running \`dot sync\` ..."
     sync
@@ -139,10 +143,22 @@ case $subcommand in
     code)
         code
         ;;
+    install-plug)
+        installPlug
+        ;;
     *)
-        echo "dotfiles commands"
-        echo "pull"
-        echo "push"
-        echo "link"
+        echo "usage: dotfiles [<command>]
+
+
+dotfiles commands
+
+pull            - pull from remote repository
+push            - push to remote repository
+sync            - pull / push repote repository
+link            - create symlink (ask)
+vi              - edit dotfiles directory in vim
+code            - edit dotfiles directory in VSCode
+install-plug    - install vim-plug to vim 
+"
         ;;
 esac
