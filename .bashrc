@@ -77,4 +77,4 @@ alias pd="pushd"
 
 # cotowali
 export PATH="$HOME/.konryu/bin:$PATH"
-eval "$(konryu init)"
+type konryu > /dev/null 2>&1 && eval "$(konryu init)"

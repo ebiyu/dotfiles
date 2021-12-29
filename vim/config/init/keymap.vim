@@ -20,7 +20,7 @@ nnoremap <space>c :lcd %:h<cr>
 nnoremap <space>r :lcd %:h<cr>:<c-u>w<cr>:<c-u>!run %<cr>
 nnoremap <space>p :lcd %:h<cr>:<c-u>w<cr>:<c-u>!prev %<cr>
 
-noremap <silent> <space><space> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
+"noremap <silent> <space><space> :set cursorline<cr>:sleep 100m<cr>:set nocursorline<cr>
 
 noremap j gj
 noremap k gk

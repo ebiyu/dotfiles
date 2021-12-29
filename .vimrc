@@ -11,11 +11,6 @@ if filereadable(expand($HOME.'/local.vimrc'))
 endif
 " }}}
 
-let g:activate_plugin=0
-
 runtime! config/init/*.vim
 
-if filereadable(expand($HOME.'/.vim/colors/hybrid.vim'))
-    colorscheme hybrid
-endif
 syntax on

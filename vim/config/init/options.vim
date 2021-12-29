@@ -7,6 +7,10 @@ set autoindent
 set smartindent
 "}}}
 
+" white spaces
+	set listchars=eol:↵,tab:»\ ,space:･
+set list
+
 set mouse=a
 
 "オプションの設定"{{{
@@ -28,7 +32,7 @@ set laststatus=2 "常にステータス行を表示
 set modelines=5
 set hlsearch
 set incsearch
-nnoremap <Esc><Esc> :noh<Return>
+nnoremap <silent> <Esc><Esc> :noh<Return>
 set ignorecase " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set smartcase " 検索文字列に大文字が含まれている場合は区別して検索する
 set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}

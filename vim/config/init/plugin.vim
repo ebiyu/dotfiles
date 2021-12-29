@@ -15,6 +15,11 @@ try
     Plug 'vim-scripts/grep.vim'
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
+    Plug 'neoclide/coc.nvim'
+    Plug 'Shougo/unite.vim'
+    Plug 'Shougo/neomru.vim'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
     call plug#end()
 
     function s:is_plugged(name)
@@ -24,6 +29,19 @@ try
             return 0
         endif
     endfunction
+
+    if s:is_plugged("vim-gitgutter")
+        highlight SignColumn ctermbg=black
+        highlight GitGutterAdd ctermfg=blue
+        highlight GitGutterChange ctermfg=green
+        highlight GitGutterDelete ctermfg=red
+        highlight GitGutterChangeDelete ctermfg=magenta
+        highlight GitGutterAddLine ctermbg=64 "green
+        highlight GitGutterChangeLine ctermbg=24 "blue
+        highlight GitGutterDeleteLine ctermbg=1 "red
+        highlight GitGutterChangeDeleteLine ctermbg=55 "purple
+    endif
+
 
     if s:is_plugged("fzf.vim")
         fun! FzfOmniFiles()
@@ -46,8 +64,24 @@ try
     endif
 
     if s:is_plugged("fern.vim")
-        nnoremap <C-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+        "nnoremap <C-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+        nnoremap <C-b> :Fern . -reveal=%<CR>
         let g:fern#default_hidden=1
+    endif
+
+    if s:is_plugged("coc.nvim")
+        nnoremap <space><space> :call CocAction('doHover')<CR>
+    endif
+
+    if s:is_plugged("unite.vim")
+        let g:unite_source_history_yank_enable =1
+        nnoremap <silent> <Space>f :<C-u>Unite<Space>buffer file_mru<CR>
+    endif
+
+    if s:is_plugged("vim-prettier")
+        "let g:prettier#autoformat_config_present = 1
+        let g:prettier#autoformat = 1
+        let g:prettier#autoformat_require_pragma = 0
     endif
 
 catch /E117.*/
