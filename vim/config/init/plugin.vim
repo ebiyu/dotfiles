@@ -20,6 +20,7 @@ try
     Plug 'Shougo/neomru.vim'
     Plug 'leafgarland/typescript-vim'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
+    Plug 'editorconfig/editorconfig-vim'
     call plug#end()
 
     function s:is_plugged(name)
@@ -71,6 +72,8 @@ try
 
     if s:is_plugged("coc.nvim")
         nnoremap <space><space> :call CocAction('doHover')<CR>
+        nmap <silent> <C-]> <Plug>(coc-definition)
+        nmap <silent> <C-t> <Plug>(coc-references)
     endif
 
     if s:is_plugged("unite.vim")
