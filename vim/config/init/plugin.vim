@@ -21,6 +21,7 @@ try
     Plug 'leafgarland/typescript-vim'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
     Plug 'editorconfig/editorconfig-vim'
+    Plug 'cohama/lexima.vim'
     call plug#end()
 
     function s:is_plugged(name)
