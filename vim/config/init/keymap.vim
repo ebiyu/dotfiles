@@ -26,11 +26,9 @@ cnoremap <c-f> <right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-<<<<<<< HEAD
 " esc key
 inoremap <silent> jj <ESC>
 
-=======
 function s:is_plugged(name)
     if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
         return 1
@@ -69,4 +67,3 @@ if s:is_plugged("fzf.vim")
     endfun
     nnoremap <C-p> :call FzfOmniFiles()<CR>
 endif
->>>>>>> fec8251793a0186468e19de25263c028d0cc67ab
