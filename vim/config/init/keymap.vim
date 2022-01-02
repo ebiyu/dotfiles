@@ -55,3 +55,6 @@ cnoremap <c-f> <right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
+" esc key
+inoremap <silent> jj <ESC>
+

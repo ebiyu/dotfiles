@@ -22,6 +22,7 @@ try
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
+    Plug 'mattn/emmet-vim'
     call plug#end()
 
     function s:is_plugged(name)
@@ -87,6 +88,16 @@ try
         let g:prettier#autoformat = 1
         let g:prettier#autoformat_require_pragma = 0
     endif
+
+    if s:is_plugged("emmet-vim")
+        let g:user_emmet_settings = {
+        \  'javascriptreact' : {
+        \      'extends' : 'jsx',
+        \  },
+        \}
+    endif
+
+
 
 catch /E117.*/
     echo "vim-plug not installed"
