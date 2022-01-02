@@ -26,6 +26,8 @@ try
     Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'posva/vim-vue'
+    Plug 'chikamichi/mediawiki.vim'
     call plug#end()
 
 catch /E117.*/
