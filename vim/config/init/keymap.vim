@@ -25,28 +25,6 @@ nnoremap <space>p :lcd %:h<cr>:<c-u>w<cr>:<c-u>!prev %<cr>
 noremap j gj
 noremap k gk
 
-noremap s <nop>
-"ウィンドウ
-noremap ss :split<Return>
-noremap sv :vsplit<Return>
-noremap sS :Se<Return>
-noremap sV :Ve<Return>
-noremap sh <C-w>h
-noremap sj <C-w>j
-noremap sk <C-w>k
-noremap sl <C-w>l
-noremap sH <C-w>H
-noremap sJ <C-w>J
-noremap sK <C-w>K
-noremap sL <C-w>L
-"タブ
-noremap st :tabnew<Return>
-noremap sn gt
-noremap sp gT
-noremap <silent> sN :tabm +1<cr>
-noremap <silent> sP :tabm -1<cr>
-noremap sw <C-w>c
-
 "コマンドライン
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
