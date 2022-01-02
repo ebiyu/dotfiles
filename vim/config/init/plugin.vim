@@ -28,6 +28,7 @@ try
     Plug 'tpope/vim-commentary'
     Plug 'posva/vim-vue'
     Plug 'chikamichi/mediawiki.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
     call plug#end()
 
 catch /E117.*/
@@ -79,3 +80,6 @@ if s:is_plugged("emmet-vim")
     \}
 endif
 
+if s:is_plugged("vim-indent-guides")
+    let g:indent_guides_enable_on_vim_startup = 1
+endif
