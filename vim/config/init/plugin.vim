@@ -23,10 +23,13 @@ try
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
+    Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'posva/vim-vue'
+    Plug 'chikamichi/mediawiki.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
     call plug#end()
-
 
 catch /E117.*/
     echo "vim-plug not installed"
@@ -69,6 +72,7 @@ if s:is_plugged("vim-prettier")
     let g:prettier#autoformat_require_pragma = 0
 endif
 
+<<<<<<< HEAD
 
 if s:is_plugged("vim-prettier")
     let g:coc_global_extensions = [
@@ -81,4 +85,16 @@ if s:is_plugged("vim-prettier")
         \ 'coc-highlight',
         \ 'coc-json',
         \ ]
+=======
+if s:is_plugged("emmet-vim")
+    let g:user_emmet_settings = {
+    \  'javascriptreact' : {
+    \      'extends' : 'jsx',
+    \  },
+    \}
+endif
+
+if s:is_plugged("vim-indent-guides")
+    let g:indent_guides_enable_on_vim_startup = 1
+>>>>>>> 1fc7eb79e964c2a0b6b9c093ead3eb835c450a70
 endif

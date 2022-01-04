@@ -26,6 +26,10 @@ cnoremap <c-f> <right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
+" esc key
+inoremap <silent> jj <ESC>
+inoremap <silent> っj <ESC>
+
 function s:is_plugged(name)
     if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
         return 1

@@ -1,4 +1,4 @@
-".vimlocalの読み込み
+" .vimlocalの読み込み
 if filereadable(expand($HOME.'/local.vimrc'))
     source $HOME/local.vimrc
 endif
