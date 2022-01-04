@@ -72,9 +72,7 @@ if s:is_plugged("vim-prettier")
     let g:prettier#autoformat_require_pragma = 0
 endif
 
-<<<<<<< HEAD
-
-if s:is_plugged("vim-prettier")
+if s:is_plugged("coc.nvim")
     let g:coc_global_extensions = [
         \ 'coc-tsserver',
         \ 'coc-jedi',
@@ -85,7 +83,8 @@ if s:is_plugged("vim-prettier")
         \ 'coc-highlight',
         \ 'coc-json',
         \ ]
-=======
+endif
+
 if s:is_plugged("emmet-vim")
     let g:user_emmet_settings = {
     \  'javascriptreact' : {
@@ -96,5 +95,4 @@ endif
 
 if s:is_plugged("vim-indent-guides")
     let g:indent_guides_enable_on_vim_startup = 1
->>>>>>> 1fc7eb79e964c2a0b6b9c093ead3eb835c450a70
 endif
