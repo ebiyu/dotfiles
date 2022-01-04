@@ -69,3 +69,16 @@ if s:is_plugged("vim-prettier")
     let g:prettier#autoformat_require_pragma = 0
 endif
 
+
+if s:is_plugged("vim-prettier")
+    let g:coc_global_extensions = [
+        \ 'coc-tsserver',
+        \ 'coc-jedi',
+        \ 'coc-eslint',
+        \ 'coc-html',
+        \ 'coc-css',
+        \ 'coc-yaml',
+        \ 'coc-highlight',
+        \ 'coc-json',
+        \ ]
+endif

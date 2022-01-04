@@ -62,5 +62,5 @@ if s:is_plugged("fzf.vim")
             :GFiles
         endif
     endfun
-    nnoremap <C-p> :call FzfOmniFiles()<CR>
+    nnoremap <silent> <C-p> :call FzfOmniFiles()<CR>
 endif
