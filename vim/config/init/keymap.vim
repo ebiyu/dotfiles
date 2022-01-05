@@ -30,6 +30,9 @@ cnoremap <c-e> <end>
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
 
+" config
+command! Config e ~/.vim/config/init/
+
 function s:is_plugged(name)
     if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
         return 1

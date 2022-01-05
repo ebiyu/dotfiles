@@ -82,6 +82,7 @@ if s:is_plugged("coc.nvim")
         \ 'coc-yaml',
         \ 'coc-highlight',
         \ 'coc-json',
+        \ 'coc-vetur',
         \ ]
 endif
 
