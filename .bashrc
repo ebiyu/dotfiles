@@ -1,5 +1,4 @@
 export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:$HOME.local/bin:$PATH
-export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:$HOME.local/bin:$PATH
 
 export LANG=ja_JP.UTF-8
 export LANG_ALL=ja_JP.UTF-8
@@ -78,3 +77,8 @@ alias pd="pushd"
 # cotowali
 export PATH="$HOME/.konryu/bin:$PATH"
 type konryu > /dev/null 2>&1 && eval "$(konryu init)"
+
+
+
+
+export PATH=$HOME/dotfiles/bin:$PATH
