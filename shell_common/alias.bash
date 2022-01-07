@@ -29,3 +29,5 @@ type xdg-open > /dev/null 2>&1 && alias open=xdg-open
 type "xsel" > /dev/null 2>&1 && alias pbcopy='xsel --clipboard --input'
 type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1 && alias eagle="$HOME/bin/eagle-9.6.2/eagle > /dev/null 2>&1 &"
 
+alias proj='cd ~/projects'
+

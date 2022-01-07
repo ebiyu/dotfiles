@@ -19,11 +19,12 @@ fi
 export IGNOREEOF=4
 
 
-bash_conf=~/dotfiles/bash_conf
-. $bash_conf/alias.bash
-. $bash_conf/func.bash
+bash_conf=~/dotfiles/bash
 . $bash_conf/prompt.bash
- 
+
+shell_common=~/dotfiles/shell_common
+. $shell_common/alias.bash
+
 # supress warning in new mac
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -78,7 +79,5 @@ alias pd="pushd"
 export PATH="$HOME/.konryu/bin:$PATH"
 type konryu > /dev/null 2>&1 && eval "$(konryu init)"
 
-
-
-
 export PATH=$HOME/dotfiles/bin:$PATH
+
