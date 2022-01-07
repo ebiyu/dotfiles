@@ -11,7 +11,6 @@ disable r
 
 shell_common=~/dotfiles/shell_common
 . $shell_common/alias.bash
-. $shell_common/env.bash
 
 alias :q=exit
 

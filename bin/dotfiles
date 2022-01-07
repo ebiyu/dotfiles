@@ -27,6 +27,7 @@ link(){
     has tmux && symlink "$dotfiles/tmux.conf" "$HOME/.tmux.conf"
     has fish && symlink "$dotfiles/fish-conf" "$HOME/.config/fish"
     has zsh && symlink "$dotfiles/zshrc" "$HOME/.zshrc"
+    has zsh && symlink "$dotfiles/zshenv" "$HOME/.zshenv"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/vim/config" "$HOME/.vim/config"
 }
