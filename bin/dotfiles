@@ -7,41 +7,26 @@ has(){
 }
 
 symlink(){
-    if [ -e "$2" ]; then
-        echo -n "file $2 already exists. override? [y/b/N]: "
-        read ANS
-        case $ANS in
-            [Yy]* )
-                rm -f "$2"
-                echo "$2 removed"
-                echo "linking $1 => $2"
-                ln -s "$1" "$2"
-                ;;
-            [Bb]* )
-                mv "$2" "$2.bak"
-                echo "$2.bak created"
-                echo "linking $1 => $2"
-                ln -s "$1" "$2"
-                ;;
-            * )
-                echo "skipping..."
-                ;;
-        esac
+    if [ -L "$2" ]; then
+        unlink "$2"
     else
-        echo "linking $1 => $2"
-        ln -s "$1" "$2"
+        if [ -e "$2" ]; then
+            mv "$2" "$2.bak"
+            echo "$2.bak created"
+        fi
     fi
+    echo "linking $1 => $2"
+    ln -s "$1" "$2"
 }
 
 link(){
     dotfiles=$HOME/dotfiles
 
-    has vim && symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
-    has git && symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
-    has tmux && symlink "$dotfiles/.tmux.conf" "$HOME/.tmux.conf"
-    has fish && symlink "$dotfiles/.config/fish" "$HOME/.config/fish"
-    symlink "$dotfiles/.bashrc" "$HOME/.bashrc"
-    symlink "$dotfiles/.bash_conf" "$HOME/.bash_conf"
+    has vim && symlink "$dotfiles/vimrc" "$HOME/.vimrc"
+    has git && symlink "$dotfiles/gitconfig" "$HOME/.gitconfig"
+    has tmux && symlink "$dotfiles/tmux.conf" "$HOME/.tmux.conf"
+    has fish && symlink "$dotfiles/fish-conf" "$HOME/.config/fish"
+    symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/vim/config" "$HOME/.vim/config"
 }
 
@@ -163,6 +148,8 @@ case $subcommand in
         ;;
     install-plug)
         installPlug
+        ;;
+    cron)
         ;;
     *)
         help
