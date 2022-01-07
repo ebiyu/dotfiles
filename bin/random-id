@@ -1,0 +1,17 @@
+#! /usr/bin/env python3
+
+import secrets
+import argparse
+
+parser = argparse.ArgumentParser(description="Generate random ID (e.g. SaXAWeFIa)")
+parser.add_argument('-n', default='10', help='digit to generate')
+parser.add_argument('-r', help='add NL', action="store_true")
+args = parser.parse_args()
+
+n = int(args.n)
+token = secrets.token_urlsafe(n)[:n] 
+if args.r:
+    print(token)
+else:
+    print(token, end="")
+
