@@ -141,6 +141,7 @@ case $subcommand in
         installPlug
         ;;
     cron)
+        sync >/dev/null 2>&1
         ;;
     *)
         help
