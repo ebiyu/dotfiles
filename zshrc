@@ -11,6 +11,7 @@ disable r
 
 shell_common=~/dotfiles/shell_common
 . $shell_common/alias.bash
+. $shell_common/env.bash
 
 alias :q=exit
 
@@ -120,3 +121,14 @@ function my_enter {
 zle -N my_enter
 bindkey '^m' my_enter
 #}}}
+
+# anyenv
+# https://naoblo.net/archives/1046
+# anyenv init - --no-rehash > ~/.anyenv-rc.sh
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init - zsh)"
+
+if type pyenv > /dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi

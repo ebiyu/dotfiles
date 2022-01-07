@@ -1,8 +1,3 @@
-export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebrew/current/bin:$HOME.local/bin:$PATH
-
-export LANG=ja_JP.UTF-8
-export LANG_ALL=ja_JP.UTF-8
-export LANG_MESSAGES=ja_JP.UTF-8
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 export LESSCHARSET=utf-8
@@ -24,6 +19,7 @@ bash_conf=~/dotfiles/bash
 
 shell_common=~/dotfiles/shell_common
 . $shell_common/alias.bash
+. $shell_common/env.bash
 
 # supress warning in new mac
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -31,17 +27,10 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # brew
 type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# python
-export PIPENV_VENV_IN_PROJECT=true
-
 # anyenv
 # https://naoblo.net/archives/1046
 # anyenv init - --no-rehash > ~/.anyenv-rc.sh
-if [ -f ~/.anyenv-rc.sh ]; then
-    source ~/.anyenv-rc.sh
-else
-    type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
-fi
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
 
 if type pyenv > /dev/null 2>&1; then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -74,10 +63,4 @@ function cd-() {
     return $?
 }
 alias pd="pushd"
-
-# cotowali
-export PATH="$HOME/.konryu/bin:$PATH"
-type konryu > /dev/null 2>&1 && eval "$(konryu init)"
-
-export PATH=$HOME/dotfiles/bin:$PATH
 
