@@ -45,13 +45,19 @@ precmd () {
     else
         echo -e "\033[0;31m${(r:COLUMNS::-:)}\033[0;39m"
     fi
+
+    if ! [ -z "$SSH_CONNECTION" ]; then
+        host_info="$USER@$HOST "
+    else
+        host_info=""
+    fi
 }
 
 setopt prompt_subst #プロンプトで変数を展開
 
 #プロンプトを設定
-PROMPT='%F{blue}[%D %*]%f%F{green}[${battery_info}%%]%f %~${vcs_info_msg_0_}
-%(?,$,%F{red}$%f) '
+PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}[${battery_info}%%]%f %F{green}%~%f${vcs_info_msg_0_}
+%(?,,%F{red}[$?] %f)$ '
 PROMPT2='${vimmode}>'
 
 #C-zでfgを実行#{{{
