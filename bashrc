@@ -19,7 +19,7 @@ fi
 export IGNOREEOF=4
 
 
-bash_conf=~/.bash_conf
+bash_conf=~/dotfiles/bash_conf
 . $bash_conf/alias.bash
 . $bash_conf/func.bash
 . $bash_conf/prompt.bash
