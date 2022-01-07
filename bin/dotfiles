@@ -94,7 +94,7 @@ push(){
             echo "local change found"
             git diff --stat HEAD^ HEAD
             echo "pushing changes... (private)"
-            git push origin master
+            git push origin main
             echo "pushed to remote"
         fi
     fi
