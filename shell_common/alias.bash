@@ -1,4 +1,4 @@
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(uname)" -eq "Darwin" ]]; then
     alias ls="ls -G"
     alias la="ls -Ga"
     alias ll="ls -Gl"
