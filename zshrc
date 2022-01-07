@@ -101,8 +101,11 @@ cdpath=(.. ~ ~/projects /Volumes ~/Desktop)
 
 #空行でlsを実行#{{{
 function gitls {
-    echo 'git status'${(r:COLUMNS-10::-:)}
-    git status -s
+    git status > /dev/null 2>&1
+    if [[ $? == 0 ]]; then
+        echo 'git status'${(r:COLUMNS-10::-:)}
+        git status -s
+    fi
     echo 'ls'${(r:COLUMNS-2::-:)}
     ls
 }
