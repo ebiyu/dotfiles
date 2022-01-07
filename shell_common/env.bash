@@ -3,10 +3,10 @@ export PATH=$HOME/.ebcli-virtual-env/executables:$HOME/.anyenv/bin:$HOME/.nodebr
 export LANG=ja_JP.UTF-8
 export LANG_ALL=ja_JP.UTF-8
 export LANG_MESSAGES=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 
 # python
 export PIPENV_VENV_IN_PROJECT=true
-
 
 # cotowali
 export PATH="$HOME/.konryu/bin:$PATH"
