@@ -20,6 +20,11 @@ alias mmv='noglob zmv -W'
 
 bindkey '^J' self-insert #C-jで改行
 
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+
 #プロンプトの設定#{{{
 
 #git情報の表示#{{{
