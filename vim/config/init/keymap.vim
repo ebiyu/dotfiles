@@ -1,22 +1,17 @@
 nnoremap Y y$
 nnoremap x "_x
 
-noremap + <C-a>
-noremap - <C-x>
-vnoremap + <C-a>gv
-vnoremap - <C-x>gv
-noremap g+ g<C-a>
-noremap g- g<C-x>
-
+vnoremap <C-a> <C-a>gv
+vnoremap <C-x> <C-x>gv
+vnoremap g<C-a> g<C-a>gv
+vnoremap g<C-x> g<C-x>gv
 vnoremap > >gv
 vnoremap < <gv
 
-noremap <space> <nop>
-noremap <space>h  ^
-noremap <space>l  $
-
 noremap j gj
 noremap k gk
+
+noremap <space> <nop>
 
 "コマンドライン
 cnoremap <c-n> <down>
@@ -49,14 +44,13 @@ if s:is_plugged("coc.nvim")
 endif
 
 if s:is_plugged("unite.vim")
-    nmap <space> [unite]
-    nnoremap <silent> [unite]f :<C-u>Unite buffer file_mru<CR>
-    nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+    nnoremap <silent> <space>f :<C-u>Unite buffer file_mru<CR>
+    nnoremap <silent> <space>y :<C-u>Unite history/yank<CR>
 endif
 
 if s:is_plugged("fern.vim")
     " nnoremap <C-S-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-    nnoremap <C-b> :Fern . -reveal=%<CR>
+    nnoremap <C-b> :<C-u>Fern . -reveal=%<CR>
 endif
 
 
