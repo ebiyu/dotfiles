@@ -123,12 +123,14 @@ bindkey '^m' my_enter
 
 # anyenv
 # https://naoblo.net/archives/1046
-if [ ! -f ~/.anyenv-rc.zsh  ]; then
-    echo "setting anyenv-rc.zsh"
-    anyenv init - zsh > ~/.anyenv-rc.zsh
-    chmod 755 ~/.anyenv-rc.zsh
+if type anyenv > /dev/null 2>&1; then
+    if [ ! -f ~/.anyenv-rc.zsh  ]; then
+        echo "setting anyenv-rc.zsh"
+        anyenv init - zsh > ~/.anyenv-rc.zsh
+        chmod 755 ~/.anyenv-rc.zsh
+    fi
+    source ~/.anyenv-rc.zsh
 fi
-source ~/.anyenv-rc.zsh
 
 if type pyenv > /dev/null 2>&1; then
     export PYENV_ROOT="$HOME/.pyenv"

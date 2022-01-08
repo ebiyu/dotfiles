@@ -29,12 +29,14 @@ type "/opt/homebrew/bin/brew" > /dev/null 2>&1 && eval "$(/opt/homebrew/bin/brew
 
 # anyenv
 # https://naoblo.net/archives/1046
-if [ ! -f ~/.anyenv-rc.bash  ]; then
-    echo "setting anyenv-rc.bash"
-    anyenv init - bash > ~/.anyenv-rc.bash
-    chmod 755 ~/.anyenv-rc.bash
+if type anyenv > /dev/null 2>&1; then
+    if [ ! -f ~/.anyenv-rc.bash  ]; then
+        echo "setting anyenv-rc.bash"
+        anyenv init - bash > ~/.anyenv-rc.bash
+        chmod 755 ~/.anyenv-rc.bash
+    fi
+    source ~/.anyenv-rc.bash
 fi
-source ~/.anyenv-rc.bash
 
 if type pyenv > /dev/null 2>&1; then
     export PYENV_ROOT="$HOME/.pyenv"
