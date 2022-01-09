@@ -31,3 +31,7 @@ type "$HOME/bin/eagle-9.6.2/eagle" > /dev/null 2>&1 && alias eagle="$HOME/bin/ea
 
 alias proj='cd ~/projects'
 
+google() {
+    local url="https://www.google.co.jp/search?q=${*// /+}"
+    open "${url}"
+}
