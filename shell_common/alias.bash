@@ -35,3 +35,17 @@ google() {
     local url="https://www.google.co.jp/search?q=${*// /+}"
     open "${url}"
 }
+
+function gitls {
+    git status > /dev/null 2>&1
+    if [[ $? == 0 ]]; then
+        echo 'git status'${(r:COLUMNS-10::-:)}
+        git status -s
+    fi
+    echo 'ls'${(r:COLUMNS-2::-:)}
+    ls
+}
+
+function cd {
+    builtin cd "$@" && gitls
+}
