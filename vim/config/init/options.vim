@@ -8,7 +8,7 @@ set smartindent
 "}}}
 
 " white spaces
-	set listchars=eol:↵,tab:»\ ,space:･
+set listchars=tab:>\ ,trail:_
 set list
 
 set mouse=a
