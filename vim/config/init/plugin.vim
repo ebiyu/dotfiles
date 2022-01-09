@@ -29,6 +29,7 @@ try
     Plug 'posva/vim-vue'
     Plug 'chikamichi/mediawiki.vim'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'altercation/vim-colors-solarized'
     call plug#end()
 
 catch /E117.*/
@@ -97,3 +98,8 @@ endif
 if s:is_plugged("vim-indent-guides")
     let g:indent_guides_enable_on_vim_startup = 1
 endif
+
+if s:is_plugged("vim-colors-solarized")
+    colorscheme solarized
+endif
+
