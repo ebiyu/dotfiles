@@ -13,4 +13,8 @@ export PIPENV_VENV_IN_PROJECT=true
 export PATH="$HOME/.konryu/bin:$PATH"
 type konryu > /dev/null 2>&1 && eval "$(konryu init)"
 
+# go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
 export PATH=$HOME/dotfiles_private/bin:$HOME/dotfiles/bin:$PATH
