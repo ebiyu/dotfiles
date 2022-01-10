@@ -7,6 +7,12 @@ set autoindent
 set smartindent
 "}}}
 
+augroup MyGroup
+    autocmd!
+    autocmd BufRead,BufNewFile *.go setlocal noexpandtab
+    autocmd BufRead,BufNewFile *.yaml,*.yml,*.json,*.js,*.ts,*.jsx,*.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
+
 " white spaces
 set listchars=tab:>\ ,trail:_
 set list
