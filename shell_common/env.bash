@@ -6,6 +6,10 @@ export LANG_MESSAGES=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
 
+# mattn/go-runewidth
+# https://github.com/rivo/tview/issues/653
+export RUNEWIDTH_EASTASIAN=true
+
 # python
 export PIPENV_VENV_IN_PROJECT=true
 
