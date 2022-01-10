@@ -30,6 +30,7 @@ link(){
     has zsh && symlink "$dotfiles/zshenv" "$HOME/.zshenv"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/vim/config" "$HOME/.vim/config"
+    symlink "$dotfiles/vim/coc-settings.json" "$HOME/.vim/coc-settings.json"
 
     dotfiles_private=$HOME/dotfiles_private
     if [ -e $dotfiles_private ]; then
