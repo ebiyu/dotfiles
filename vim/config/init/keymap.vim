@@ -11,6 +11,10 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
+noremap gr gT
+noremap <space>l gt
+noremap <space>h gT
+
 noremap <space> <nop>
 
 "コマンドライン
@@ -50,7 +54,7 @@ endif
 
 if s:is_plugged("fern.vim")
     " nnoremap <C-S-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-    nnoremap <C-b> :<C-u>Fern . -reveal=%<CR>
+    nnoremap <C-b> :<C-u>tabnew<CR>:Fern . -reveal=%<CR>
 endif
 
 
