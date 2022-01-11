@@ -20,7 +20,7 @@ try
     Plug 'Shougo/neoyank.vim'
     Plug 'Shougo/neomru.vim'
     Plug 'leafgarland/typescript-vim'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html'] }
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
     Plug 'mattn/emmet-vim'
