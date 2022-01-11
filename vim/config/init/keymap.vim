@@ -54,7 +54,7 @@ endif
 
 if s:is_plugged("fern.vim")
     " nnoremap <C-S-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-    nnoremap <C-b> :<C-u>tabnew<CR>:Fern . -reveal=%<CR>
+    nnoremap <C-b> :Fern . -reveal=%<CR>
 endif
 
 
