@@ -2,11 +2,11 @@
 set -eu
 
 
-has(){
+function has(){
     type "$1" > /dev/null 2>&1
 }
 
-symlink(){
+function symlink(){
     if [ -L "$2" ]; then
         unlink "$2"
     else
@@ -19,7 +19,7 @@ symlink(){
     ln -s "$1" "$2"
 }
 
-link(){
+function link(){
     dotfiles=$HOME/dotfiles
 
     has vim && symlink "$dotfiles/vimrc" "$HOME/.vimrc"
@@ -39,14 +39,14 @@ link(){
     fi
 }
 
-copy(){
+function copy(){
     dotfiles=$HOME/dotfiles
 
     cp "$dotfiles/.vimrc" "$HOME/.vimrc"
     cp "$dotfiles/.bashrc" "$HOME/.bashrc"
 }
 
-pull(){
+function pull(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
     CID0=`git log --pretty=format:"%H" | head -n 1`
@@ -74,7 +74,7 @@ pull(){
     fi
 }
 
-push(){
+function push(){
     dotfiles=$HOME/dotfiles
     cd "$dotfiles"
     msg=`git status -s | sed -e "s/^ //" -e "s/ /_/g"` || :
@@ -102,23 +102,23 @@ push(){
     fi
 }
 
-sync(){
+function sync(){
     pull 
     push
     link
 }
 
-vi(){
+function vi(){
     dotfiles=$HOME/dotfiles
     exec vi "$dotfiles"
 }
 
-code(){
+function code(){
     dotfiles=$HOME/dotfiles
     exec code "$dotfiles"
 }
 
-installPlug() {
+function installPlug() {
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
