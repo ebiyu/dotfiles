@@ -6,6 +6,7 @@ endif
 runtime! config/init/plugin.vim
 runtime! config/init/options.vim
 runtime! config/init/keymap.vim
+runtime! config/init/abbrev.vim
 
 syntax on
 
