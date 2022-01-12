@@ -34,7 +34,7 @@
     gpgsign = false
     gpgsigna = false
 [init]
-    defaultBranch = main
+	defaultBranch = ,
 [diff]
 	tool = vimdiff
 [difftool]
