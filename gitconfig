@@ -1,7 +1,6 @@
 [user]
     email = me@ebiyuu.com
     name = Ebihara Yusuke
-    siginingKey = 315B2820CE85B793
 
 [alias]
     co = checkout
