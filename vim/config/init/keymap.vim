@@ -42,7 +42,7 @@ endfunction
 
 
 if s:is_plugged("coc.nvim")
-    nnoremap <space><space> :call CocAction('doHover')<CR>
+    nnoremap <silent> <space><space> :call CocAction('doHover')<CR>
     nmap <silent> <C-]> <Plug>(coc-definition)
     nmap <silent> <C-t> <Plug>(coc-references)
 endif
