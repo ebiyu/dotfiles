@@ -26,7 +26,7 @@ set showcmd "入力中のコマンドを表示
 set hidden "buffer切り替え時に保存を促さない
 set history=1000 "コマンド履歴
 set background=dark
-set clipboard=unnamed
+set clipboard=unnamedplus
 set showmatch "対応するかっこを挿入
 set matchtime=1
 set number "行番号を表示
