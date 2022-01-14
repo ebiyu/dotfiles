@@ -14,6 +14,11 @@ shell_common=~/dotfiles/shell_common
 
 alias :q=exit
 
+alias -g G='| grep'
+alias -g L='| less'
+alias -g ...="../.."
+alias -g ....="../../.."
+
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'
