@@ -7,6 +7,8 @@ set autoindent
 set smartindent
 "}}}
 
+set formatoptions-=ro
+
 augroup MyGroup
     autocmd!
     autocmd BufRead,BufNewFile *.go setlocal noexpandtab
