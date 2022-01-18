@@ -4,10 +4,12 @@ if [ "$(uname)" = "Darwin" ]; then
     alias ll="ls -Gl"
     alias lla="ls -Gla"
 else
-    alias ls="ls --color=auto"
-    alias la="ls --color=auto -a"
-    alias ll="ls --color=auto -l"
-    alias lla="ls --color=auto -la"
+    if [ "$(uname)" = "Linux" ]; then
+        alias ls="ls --color=auto"
+        alias la="ls --color=auto -a"
+        alias ll="ls --color=auto -l"
+        alias lla="ls --color=auto -la"
+    fi
 fi
 alias sl=ls
 alias rm="rm -i"
