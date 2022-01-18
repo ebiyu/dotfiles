@@ -9,6 +9,7 @@
     g = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(reset)%cd %C(green)%cn %C(yellow)%d %C(reset)%s'
     cm = commit
     cma = commit --amend
+    cman = commit --amend --no-edit
     b = branch
     s = status
     st = status
