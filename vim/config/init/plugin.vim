@@ -15,12 +15,16 @@ try
     Plug 'vim-scripts/grep.vim'
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
-    Plug 'neoclide/coc.nvim'
+
+    if executable('fzf')
+        Plug 'neoclide/coc.nvim'
+        Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
+        Plug 'leafgarland/typescript-vim'
+    endif
+
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/neoyank.vim'
     Plug 'Shougo/neomru.vim'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
     Plug 'mattn/emmet-vim'
