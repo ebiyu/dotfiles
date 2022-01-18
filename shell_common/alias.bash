@@ -9,6 +9,10 @@ else
         alias la="ls --color=auto -a"
         alias ll="ls --color=auto -l"
         alias lla="ls --color=auto -la"
+    else
+        alias la="ls -a"
+        alias ll="ls -l"
+        alias lla="ls -la"
     fi
 fi
 alias sl=ls
