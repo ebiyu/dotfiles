@@ -72,7 +72,7 @@ if s:is_plugged("fern.vim")
 
     function! s:init_fern() abort
       " Use 'select' instead of 'edit' for default 'open' action
-      nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+      "nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
     endfunction
 
     augroup fern-custom
