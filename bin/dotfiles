@@ -28,6 +28,8 @@ function link(){
     has fish && symlink "$dotfiles/fish-conf" "$HOME/.config/fish"
     has zsh && symlink "$dotfiles/zshrc" "$HOME/.zshrc"
     has zsh && symlink "$dotfiles/zshenv" "$HOME/.zshenv"
+    [ -d $HOME/.config/gh  ] || mkdir -p $HOME/.config/gh
+    has gh && symlink "$dotfiles/gh/config.yml" "$HOME/.config/gh/config.yml"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     [ -d $HOME/.vim  ] || mkdir $HOME/.vim
     symlink "$dotfiles/vim/config" "$HOME/.vim/config"
