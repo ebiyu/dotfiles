@@ -99,6 +99,7 @@ if s:is_plugged("coc.nvim")
         \ 'coc-json',
         \ 'coc-vetur',
         \ 'coc-go',
+        \ 'coc-clangd',
         \ ]
 endif
 
