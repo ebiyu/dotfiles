@@ -27,7 +27,6 @@ try
     Plug 'Shougo/neomru.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
-    Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
     Plug 'posva/vim-vue'
@@ -93,6 +92,7 @@ if s:is_plugged("coc.nvim")
         \ 'coc-jedi',
         \ 'coc-eslint',
         \ 'coc-html',
+        \ 'coc-emmet',
         \ 'coc-css',
         \ 'coc-yaml',
         \ 'coc-highlight',
@@ -101,14 +101,6 @@ if s:is_plugged("coc.nvim")
         \ 'coc-go',
         \ 'coc-clangd',
         \ ]
-endif
-
-if s:is_plugged("emmet-vim")
-    let g:user_emmet_settings = {
-    \  'javascriptreact' : {
-    \      'extends' : 'jsx',
-    \  },
-    \}
 endif
 
 if s:is_plugged("vim-indent-guides")

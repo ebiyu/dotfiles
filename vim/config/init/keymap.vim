@@ -12,6 +12,8 @@ noremap j gj
 noremap k gk
 
 noremap gr gT
+noremap t gt
+noremap T :<c-u>tabnew<CR>
 noremap <space>l gt
 noremap <space>h gT
 
