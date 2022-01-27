@@ -8,7 +8,6 @@ try
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
     else
-        Plug 'ctrlpvim/ctrlp.vim'
         echo  "fzf not installed"
     endif
 
