@@ -59,7 +59,7 @@ if s:is_plugged("vim-gitgutter")
 endif
 
 if s:is_plugged("grep.vim")
-    let Grep_Skip_Dirs = '.svn .git node_modules' 
+    let Grep_Skip_Dirs = '.svn .git node_modules SourcePackages'
     let Grep_Default_Options = '-I'   "ignore binary files
     let Grep_Skip_Files = '*.bak *~' 
     autocmd QuickFixCmdPost *grep* cwindow
