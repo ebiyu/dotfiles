@@ -15,6 +15,8 @@ try
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
 
+    Plug 'lervag/vimtex'
+
     if executable('fzf')
         Plug 'neoclide/coc.nvim'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
