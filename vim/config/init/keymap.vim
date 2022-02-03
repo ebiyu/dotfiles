@@ -19,6 +19,8 @@ noremap <space>h gT
 
 noremap <space> <nop>
 
+noremap ; :
+
 "コマンドライン
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
