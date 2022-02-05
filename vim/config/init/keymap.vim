@@ -21,12 +21,16 @@ noremap <space> <nop>
 
 noremap ; :
 
-"コマンドライン
+" emacs key binding in insert mode
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
+inoremap <c-b> <left>
 cnoremap <c-b> <left>
+inoremap <c-f> <right>
 cnoremap <c-f> <right>
+inoremap <c-a> <home>
 cnoremap <c-a> <home>
+inoremap <c-e> <end>
 cnoremap <c-e> <end>
 
 " esc key
