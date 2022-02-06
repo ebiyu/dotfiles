@@ -16,6 +16,7 @@ try
     Plug 'lambdalisue/fern-git-status.vim'
 
     Plug 'lervag/vimtex'
+    Plug 'chrisbra/csv.vim'
 
     Plug 'thinca/vim-quickrun'
 
