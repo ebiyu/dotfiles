@@ -65,6 +65,11 @@ if s:is_plugged("fern.vim")
     nnoremap <C-b> :Fern . -reveal=%<CR>
 endif
 
+if s:is_plugged("vim-quickrun")
+    nnoremap <leader>r :<c-u>QuickRun<CR>
+endif
+
+
 
 if s:is_plugged("fzf.vim")
     fun! FzfOmniFiles()
