@@ -20,6 +20,8 @@ try
 
     Plug 'thinca/vim-quickrun'
 
+    Plug 'rhysd/vim-grammarous'
+
     if executable('fzf')
         Plug 'neoclide/coc.nvim'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
