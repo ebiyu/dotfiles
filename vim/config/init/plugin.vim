@@ -8,7 +8,6 @@ try
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
     else
-        Plug 'ctrlpvim/ctrlp.vim'
         echo  "fzf not installed"
     endif
 
@@ -16,7 +15,7 @@ try
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
 
-    if executable('fzf')
+    if executable('node')
         Plug 'neoclide/coc.nvim'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
         Plug 'leafgarland/typescript-vim'
@@ -90,7 +89,7 @@ endif
 if s:is_plugged("coc.nvim")
     let g:coc_global_extensions = [
         \ 'coc-tsserver',
-        \ 'coc-jedi',
+        \ 'coc-pyright',
         \ 'coc-eslint',
         \ 'coc-html',
         \ 'coc-css',
