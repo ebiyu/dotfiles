@@ -11,5 +11,7 @@ aliases:
     co: pr checkout
     i: issue status
     p: pr status
+    dim: issue edit --add-assignee @me
+    homework: issue list --assignee @me
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:

@@ -12,17 +12,25 @@ noremap j gj
 noremap k gk
 
 noremap gr gT
+"noremap t gt
+noremap T gt
 noremap <space>l gt
 noremap <space>h gT
 
 noremap <space> <nop>
 
-"コマンドライン
+noremap ; :
+
+" emacs key binding in insert mode
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
+inoremap <c-b> <left>
 cnoremap <c-b> <left>
+inoremap <c-f> <right>
 cnoremap <c-f> <right>
+inoremap <c-a> <home>
 cnoremap <c-a> <home>
+inoremap <c-e> <end>
 cnoremap <c-e> <end>
 
 " esc key
@@ -56,6 +64,11 @@ if s:is_plugged("fern.vim")
     " nnoremap <C-S-b> :Fern . -reveal=% -drawer -toggle -width=40<CR>
     nnoremap <C-b> :Fern . -reveal=%<CR>
 endif
+
+if s:is_plugged("vim-quickrun")
+    nnoremap <leader>r :<c-u>QuickRun<CR>
+endif
+
 
 
 if s:is_plugged("fzf.vim")

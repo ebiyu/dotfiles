@@ -15,6 +15,13 @@ try
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
 
+    Plug 'lervag/vimtex'
+    Plug 'chrisbra/csv.vim'
+
+    Plug 'thinca/vim-quickrun'
+
+    Plug 'rhysd/vim-grammarous'
+
     if executable('node')
         Plug 'neoclide/coc.nvim'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
@@ -26,7 +33,6 @@ try
     Plug 'Shougo/neomru.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'cohama/lexima.vim'
-    Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
     Plug 'posva/vim-vue'
@@ -60,7 +66,7 @@ if s:is_plugged("vim-gitgutter")
 endif
 
 if s:is_plugged("grep.vim")
-    let Grep_Skip_Dirs = '.svn .git node_modules' 
+    let Grep_Skip_Dirs = '.svn .git node_modules SourcePackages'
     let Grep_Default_Options = '-I'   "ignore binary files
     let Grep_Skip_Files = '*.bak *~' 
     autocmd QuickFixCmdPost *grep* cwindow
@@ -92,22 +98,16 @@ if s:is_plugged("coc.nvim")
         \ 'coc-pyright',
         \ 'coc-eslint',
         \ 'coc-html',
+        \ 'coc-emmet',
         \ 'coc-css',
         \ 'coc-yaml',
         \ 'coc-highlight',
         \ 'coc-json',
         \ 'coc-vetur',
+        \ 'coc-vimtex',
         \ 'coc-go',
         \ 'coc-clangd',
         \ ]
-endif
-
-if s:is_plugged("emmet-vim")
-    let g:user_emmet_settings = {
-    \  'javascriptreact' : {
-    \      'extends' : 'jsx',
-    \  },
-    \}
 endif
 
 if s:is_plugged("vim-indent-guides")
