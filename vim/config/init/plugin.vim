@@ -15,6 +15,8 @@ try
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-git-status.vim'
 
+    Plug 'thinca/vim-prettyprint'
+
     Plug 'lervag/vimtex'
     Plug 'chrisbra/csv.vim'
 
@@ -26,6 +28,12 @@ try
         Plug 'neoclide/coc.nvim'
         Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
         Plug 'leafgarland/typescript-vim'
+    endif
+
+    if executable('deno')
+        Plug 'vim-denops/denops.vim'
+        Plug 'vim-denops/denops-helloworld.vim'
+        Plug 'vim-skk/skkeleton'
     endif
 
     Plug 'Shougo/unite.vim'
@@ -118,3 +126,12 @@ if s:is_plugged("vim-colors-solarized")
     colorscheme solarized
 endif
 
+if s:is_plugged("skkeleton")
+    imap <C-j> <Plug>(skkeleton-enable)
+    cmap <C-j> <Plug>(skkeleton-enable)
+    imap <C-k> <Plug>(skkeleton-enable)
+    cmap <C-k> <Plug>(skkeleton-enable)
+
+    nmap <C-k> i<C-k>
+    nmap <C-j> i<C-j>
+endif
