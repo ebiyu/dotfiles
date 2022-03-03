@@ -134,4 +134,8 @@ if s:is_plugged("skkeleton")
 
     nmap <C-k> i<C-k>
     nmap <C-j> i<C-j>
+
+    if isdirectory('~/.skk')
+        call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+    endif
 endif
