@@ -144,6 +144,6 @@ if type pyenv > /dev/null 2>&1; then
     source ~/.pyenv-rc.bash
 fi
 
-export DENO_INSTALL="/home/ebiyu/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
