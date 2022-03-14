@@ -1,5 +1,5 @@
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -69,11 +69,8 @@ hook_add = '''
             :GFiles
         endif
     endfun
-    nnoremap <silent> <C-p> :call FzfOmniFiles()<CR>
+    nnoremap <silent> <C-p> :call FzfOmniFiles()<C>
 '''
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
@@ -107,6 +104,4 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
-
-
 

@@ -68,4 +68,11 @@ hook_source = '''
     let g:prettier#autoformat_require_pragma = 0
 '''
 
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+on_event = 'CursorHold'
 
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+depends = 'denops.vim'
+on_source = 'denops.vim'
