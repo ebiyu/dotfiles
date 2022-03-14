@@ -1,0 +1,112 @@
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = 'nnoremap <leader>r :<c-u>QuickRun<CR>'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+    highlight SignColumn ctermbg=black
+    highlight GitGutterAdd ctermfg=blue
+    highlight GitGutterChange ctermfg=green
+    highlight GitGutterDelete ctermfg=red
+    highlight GitGutterChangeDelete ctermfg=magenta
+    highlight GitGutterAddLine ctermbg=64 "green
+    highlight GitGutterChangeLine ctermbg=24 "blue
+    highlight GitGutterDeleteLine ctermbg=1 "red
+    highlight GitGutterChangeDeleteLine ctermbg=55 "purple
+'''
+
+[[plugins]]
+repo = 'vim-scripts/grep.vim'
+hook_add = '''
+    let Grep_Skip_Dirs = '.svn .git node_modules SourcePackages'
+    let Grep_Default_Options = '-I'   "ignore binary files
+    let Grep_Skip_Files = '*.bak *~' 
+    autocmd QuickFixCmdPost *grep* cwindow
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+    nnoremap <C-b> :Fern . -reveal=%<CR>
+
+    let g:fern#default_hidden=1
+
+    function! s:init_fern() abort
+      " Use 'select' instead of 'edit' for default 'open' action
+      "nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+    endfunction
+
+    augroup fern-custom
+      autocmd! *
+      autocmd FileType fern call s:init_fern()
+    augroup END
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+depends = 'fern.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    fun! FzfOmniFiles()
+        let is_git = system('git status')
+        if v:shell_error
+            :Files
+        else
+            :GFiles
+        endif
+    endfun
+    nnoremap <silent> <C-p> :call FzfOmniFiles()<CR>
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'vim-skk/skkeleton'
+depends = 'denops.vim'
+hook_add = '''
+    imap <C-j> <Plug>(skkeleton-enable)
+    cmap <C-j> <Plug>(skkeleton-enable)
+    imap <C-k> <Plug>(skkeleton-enable)
+    cmap <C-k> <Plug>(skkeleton-enable)
+    if isdirectory($HOME . '/.skk')
+        call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+    endif
+'''
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+hook_add = 'colorscheme solarized'
+
+[[plugins]]
+repo = 'thinca/vim-prettyprint'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = 'let g:indent_guides_enable_on_vim_startup = 1'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+
+

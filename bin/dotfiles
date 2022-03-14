@@ -22,7 +22,6 @@ function symlink(){
 function link(){
     dotfiles=$HOME/dotfiles
 
-    has vim && symlink "$dotfiles/vimrc" "$HOME/.vimrc"
     has git && symlink "$dotfiles/gitconfig" "$HOME/.gitconfig"
     has tmux && symlink "$dotfiles/tmux.conf" "$HOME/.tmux.conf"
     has fish && symlink "$dotfiles/fish-conf" "$HOME/.config/fish"
@@ -31,9 +30,10 @@ function link(){
     [ -d $HOME/.config/gh  ] || mkdir -p $HOME/.config/gh
     has gh && symlink "$dotfiles/gh/config.yml" "$HOME/.config/gh/config.yml"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
-    [ -d $HOME/.vim  ] || mkdir $HOME/.vim
-    symlink "$dotfiles/vim/config" "$HOME/.vim/config"
-    symlink "$dotfiles/vim/coc-settings.json" "$HOME/.vim/coc-settings.json"
+
+    has vim && symlink "$dotfiles/vimrc" "$HOME/.vimrc"
+    has vim && symlink "$dotfiles/vim" "$HOME/.vim"
+
     symlink "$dotfiles/.alacritty.yml" "$HOME/.alacritty.yml"
 
     dotfiles_private=$HOME/dotfiles_private
