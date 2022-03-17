@@ -2,6 +2,9 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = 'nnoremap <leader>r :<c-u>QuickRun<CR>'
 
