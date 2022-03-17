@@ -15,6 +15,8 @@ if &runtimepath =~# 'dein.vim'
     filetype plugin indent on
     syntax enable
 
+    call dein#save_state()
+
     " auto install dein plugin
     if dein#check_install()
         call dein#install()
