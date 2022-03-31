@@ -138,9 +138,11 @@ noremap k gk
 
 noremap gr gT
 "noremap t gt
-noremap T gt
+noremap <silent> T :tabnew<cr>
 noremap <space>l gt
 noremap <space>h gT
+noremap <c-n> gt
+noremap <c-k> gT
 
 noremap <space> <nop>
 

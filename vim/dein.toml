@@ -38,6 +38,7 @@ hook_add = '''
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
     nnoremap <C-b> :Fern . -reveal=%<CR>
+    nnoremap B :tabnew<CR>:Fern . -reveal=%<CR>
 
     let g:fern#default_hidden=1
 
@@ -72,7 +73,7 @@ hook_add = '''
             :GFiles
         endif
     endfun
-    nnoremap <silent> <C-p> :call FzfOmniFiles()<C>
+    nnoremap <silent> <C-p> :call FzfOmniFiles()<CR>
 '''
 
 [[plugins]]
