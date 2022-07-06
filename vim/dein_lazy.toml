@@ -45,6 +45,7 @@ hook_source = '''
     nnoremap <silent> <space><space> :call CocAction('doHover')<CR>
     nmap <silent> <C-]> <Plug>(coc-definition)
     nmap <silent> <C-t> <Plug>(coc-references)
+    nmap <silent> <space>rn <Plug>(coc-rename)
 '''
 
 [[plugins]]
@@ -64,7 +65,7 @@ on_ft = [
     'markdown',
 ]
 hook_source = '''
-    let g:prettier#autoformat = 1
+    "let g:prettier#autoformat = 1
     let g:prettier#autoformat_require_pragma = 0
 '''
 
