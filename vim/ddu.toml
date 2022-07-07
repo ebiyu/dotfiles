@@ -1,12 +1,8 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
-on_source = 'denops.vim'
-hook_add = '''
-    noremap <silent> <C-b> :call ddu#start()<CR>
-    noremap <silent> <C-p> :call ddu#start({'ui': 'ff', 'sources': [{'name': 'file_rec', 'params': {}}]})<CR>
-    noremap <silent> B :call ddu#start({'ui': 'ff', 'sources': [{'name': 'buffer', 'params': {}}]})<CR>
-'''
+on_map = ['<C-b>', '<C-p>', 'B']
+on_event = ['FocusLost', 'CursorHold']
 hook_source = '''
     call ddu#custom#patch_global({
         \   'ui': 'filer',
@@ -25,6 +21,10 @@ hook_source = '''
         \     },
         \   },
         \ })
+
+    noremap <silent> <C-b> :call ddu#start()<CR>
+    noremap <silent> <C-p> :call ddu#start({'ui': 'ff', 'sources': [{'name': 'file_rec', 'params': {}}]})<CR>
+    noremap <silent> B :call ddu#start({'ui': 'ff', 'sources': [{'name': 'buffer', 'params': {}}]})<CR>
 
     autocmd FileType ddu-ff call s:ddu_my_settings()
     function! s:ddu_my_settings() abort

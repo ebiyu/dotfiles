@@ -34,48 +34,6 @@ hook_add = '''
     autocmd QuickFixCmdPost *grep* cwindow
 '''
 
-# [[plugins]]
-# repo = 'lambdalisue/fern.vim'
-# hook_add = '''
-#     nnoremap <C-b> :Fern . -reveal=%<CR>
-#     nnoremap B :tabnew<CR>:Fern . -reveal=%<CR>
-# 
-#     let g:fern#default_hidden=1
-# 
-#     function! s:init_fern() abort
-#       " Use 'select' instead of 'edit' for default 'open' action
-#       "nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
-#     endfunction
-# 
-#     augroup fern-custom
-#       autocmd! *
-#       autocmd FileType fern call s:init_fern()
-#     augroup END
-# '''
-
-# [[plugins]]
-# repo = 'lambdalisue/fern-git-status.vim'
-# depends = 'fern.vim'
-
-# [[plugins]]
-# repo = 'junegunn/fzf'
-# build = './install --bin'
-# 
-# [[plugins]]
-# repo = 'junegunn/fzf.vim'
-# depends = 'fzf'
-# hook_add = '''
-#     fun! FzfOmniFiles()
-#         let is_git = system('git status')
-#         if v:shell_error
-#             :Files
-#         else
-#             :GFiles
-#         endif
-#     endfun
-#     nnoremap <silent> <C-p> :call FzfOmniFiles()<CR>
-# '''
-
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = 'colorscheme solarized'
@@ -83,6 +41,7 @@ hook_add = 'colorscheme solarized'
 [[plugins]]
 repo = 'thinca/vim-prettyprint'
 
+# This is commented out because it conflicts with du
 # [[plugins]]
 # repo = 'nathanaelkane/vim-indent-guides'
 # hook_add = 'let g:indent_guides_enable_on_vim_startup = 1'
