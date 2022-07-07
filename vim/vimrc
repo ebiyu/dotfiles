@@ -3,8 +3,9 @@ nnoremap <space>s <c-u>:source $MYVIMRC
 " dein
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
-if &runtimepath =~# 'dein.vim'
+if isdirectory(s:dein_repo_dir)
+    execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+
     call dein#begin(s:dein_dir)
         " load toml
         call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
@@ -12,25 +13,24 @@ if &runtimepath =~# 'dein.vim'
         call dein#load_toml('~/.vim/ddu.toml', {'lazy': 1})
     call dein#end()
 
-    filetype plugin indent on
-    syntax enable
-
     call dein#save_state()
 
     " auto install dein plugin
     if dein#check_install()
         call dein#install()
     endif
+
+    filetype plugin indent on
+    syntax enable
 endif
 
-"インデント関係"{{{
+" Indent
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
-"}}}
 
 set formatoptions-=ro
 

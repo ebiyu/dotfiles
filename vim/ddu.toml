@@ -5,6 +5,7 @@ on_source = 'denops.vim'
 hook_add = '''
     noremap <silent> <C-b> :call ddu#start()<CR>
     noremap <silent> <C-p> :call ddu#start({'ui': 'ff', 'sources': [{'name': 'file_rec', 'params': {}}]})<CR>
+    noremap <silent> B :call ddu#start({'ui': 'ff', 'sources': [{'name': 'buffer', 'params': {}}]})<CR>
 '''
 hook_source = '''
     call ddu#custom#patch_global({
@@ -27,24 +28,17 @@ hook_source = '''
 
     autocmd FileType ddu-ff call s:ddu_my_settings()
     function! s:ddu_my_settings() abort
-      nnoremap <buffer><silent> <CR>
-            \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-      nnoremap <buffer><silent> <Space>
-            \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
-      nnoremap <buffer><silent> i
-            \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-      nnoremap <buffer><silent> q
-            \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+      nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+      nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+      nnoremap <buffer><silent> i <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+      nnoremap <buffer><silent> q <Cmd>call ddu#ui#ff#do_action('quit')<CR>
     endfunction
 
     autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
     function! s:ddu_filter_my_settings() abort
-      inoremap <buffer><silent> <CR>
-      \ <Esc><Cmd>close<CR>
-      nnoremap <buffer><silent> <CR>
-      \ <Cmd>close<CR>
-      nnoremap <buffer><silent> q
-      \ <Cmd>close<CR>
+      inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
+      nnoremap <buffer><silent> <CR> <Cmd>close<CR>
+      nnoremap <buffer><silent> q <Cmd>close<CR>
     endfunction
 
     autocmd FileType ddu-filer call s:ddu_filer_my_settings()
@@ -60,9 +54,8 @@ hook_source = '''
       nnoremap <buffer><silent> M <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'move'})<CR>
       nnoremap <buffer><silent> P <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'paste'})<CR>
       nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
-      nnoremap <buffer> o
-            \ <Cmd>call ddu#ui#filer#do_action('expandItem',
-            \ {'mode': 'toggle'})<CR>
+      nnoremap <buffer> o <Cmd>call ddu#ui#filer#do_action('expandItem', {'mode': 'toggle'})<CR>
+      nnoremap <buffer> l <Cmd>call ddu#ui#filer#do_action('expandItem')<CR>
       nnoremap <buffer><silent> q <Cmd>call ddu#ui#filer#do_action('quit')<CR>
     endfunction
 '''
