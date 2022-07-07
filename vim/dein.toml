@@ -102,4 +102,11 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends= 'context_filetype.vim'
+hook_add = '''
+    let g:precious_enable_switchers = {
+    \       "vue": {
+    \           "setfiletype": 0,
+    \       },
+    \}
+'''
 

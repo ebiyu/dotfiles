@@ -72,7 +72,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-on_event = 'CursorHold'
+on_event = ['FocusLost', 'CursorHold']
 hook_source = '''
   " Note: for profile
   " let g:denops#server#deno_args = [
@@ -85,16 +85,10 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'vim-denops/denops-helloworld.vim'
-depends = 'denops.vim'
-on_source = 'denops.vim'
-
-[[plugins]]
 repo = 'vim-skk/skkeleton'
 depends = 'denops.vim'
-hook_add = '''
-    imap <C-j> <Plug>(skkeleton-enable)
-    cmap <C-j> <Plug>(skkeleton-enable)
+on_map = [['i', '<c-k>']]
+hook_source = '''
     imap <C-k> <Plug>(skkeleton-enable)
     cmap <C-k> <Plug>(skkeleton-enable)
     if isdirectory($HOME . '/.skk')
