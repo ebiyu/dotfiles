@@ -56,6 +56,7 @@ hook_source = '''
       nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
       nnoremap <buffer> o <Cmd>call ddu#ui#filer#do_action('expandItem', {'mode': 'toggle'})<CR>
       nnoremap <buffer> l <Cmd>call ddu#ui#filer#do_action('expandItem')<CR>
+      nnoremap <buffer> h <Cmd>call ddu#ui#filer#do_action('collapseItem')<CR>
       nnoremap <buffer><silent> q <Cmd>call ddu#ui#filer#do_action('quit')<CR>
     endfunction
 '''
