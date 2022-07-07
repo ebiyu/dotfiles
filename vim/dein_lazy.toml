@@ -89,3 +89,16 @@ repo = 'vim-denops/denops-helloworld.vim'
 depends = 'denops.vim'
 on_source = 'denops.vim'
 
+[[plugins]]
+repo = 'vim-skk/skkeleton'
+depends = 'denops.vim'
+hook_add = '''
+    imap <C-j> <Plug>(skkeleton-enable)
+    cmap <C-j> <Plug>(skkeleton-enable)
+    imap <C-k> <Plug>(skkeleton-enable)
+    cmap <C-k> <Plug>(skkeleton-enable)
+    if isdirectory($HOME . '/.skk')
+        call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+    endif
+'''
+
