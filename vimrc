@@ -23,56 +23,6 @@ if &runtimepath =~# 'dein.vim'
     endif
 endif
 
-autocmd FileType ddu-ff call s:ddu_my_settings()
-function! s:ddu_my_settings() abort
-  nnoremap <buffer><silent> <CR>
-        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> <Space>
-        \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
-  nnoremap <buffer><silent> i
-        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-  nnoremap <buffer><silent> q
-        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
-endfunction
-
-autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
-function! s:ddu_filter_my_settings() abort
-  inoremap <buffer><silent> <CR>
-  \ <Esc><Cmd>close<CR>
-  nnoremap <buffer><silent> <CR>
-  \ <Cmd>close<CR>
-  nnoremap <buffer><silent> q
-  \ <Cmd>close<CR>
-endfunction
-
-" old vim-plug settings
-" if executable('node')
-"     Plug 'neoclide/coc.nvim'
-"     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'html', 'markdown'] }
-"     Plug 'leafgarland/typescript-vim'
-" endif
-
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/neoyank.vim'
-" Plug 'Shougo/neomru.vim'
-" Plug 'tpope/vim-repeat'
-" Plug 'posva/vim-vue'
-" Plug 'chikamichi/mediawiki.vim'
-
-" function s:is_plugged(name)
-"     if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
-"         return 1
-"     else
-"         return 0
-"     endif
-" endfunction
-
-" if s:is_plugged("unite.vim")
-"     nnoremap <silent> <space>f :<C-u>Unite buffer file_mru<CR>
-"     nnoremap <silent> <space>y :<C-u>Unite history/yank<CR>
-" endif
-
-
 "インデント関係"{{{
 set expandtab
 set tabstop=4
