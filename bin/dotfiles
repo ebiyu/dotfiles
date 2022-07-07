@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#nk
+!/usr/bin/env bash
 set -eu
 
 
@@ -31,7 +32,6 @@ function link(){
     has gh && symlink "$dotfiles/gh/config.yml" "$HOME/.config/gh/config.yml"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
 
-    has vim && symlink "$dotfiles/vimrc" "$HOME/.vimrc"
     has vim && symlink "$dotfiles/vim" "$HOME/.vim"
 
     symlink "$dotfiles/.alacritty.yml" "$HOME/.alacritty.yml"
