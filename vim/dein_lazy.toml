@@ -93,7 +93,7 @@ hook_source = '''
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 depends = 'denops.vim'
-on_map = [['i', '<c-k>']]
+on_map = [['i', '<c-k>'], ['c', '<c-k>']]
 hook_source = '''
     imap <C-k> <Plug>(skkeleton-enable)
     cmap <C-k> <Plug>(skkeleton-enable)
