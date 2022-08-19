@@ -1,4 +1,4 @@
-nnoremap <space>s <c-u>:source $MYVIMRC
+nnoremap <space>s :<c-u>source $MYVIMRC<CR>
 
 " dein
 let s:dein_dir = expand('~/.cache/dein')
@@ -86,9 +86,6 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
-noremap gr gT
-"noremap t gt
-noremap <silent> T :tabnew<cr>
 noremap <space>l gt
 noremap <space>h gT
 noremap <c-n> gt
@@ -96,7 +93,7 @@ noremap <c-k> gT
 
 noremap <space> <nop>
 
-noremap ; :
+" noremap ; :
 
 " emacs key binding in insert mode
 cnoremap <c-n> <down>
