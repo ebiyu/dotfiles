@@ -22,7 +22,7 @@ hook_source = '''
         \   },
         \ })
 
-    noremap <silent> <C-b> :call ddu#start()<CR>
+    noremap <silent> <C-b> :call ddu#start({'ui': 'filer', 'uiParams': {'filer': {'search': expand("%:p")}}})<CR>
     noremap <silent> <C-p> :call ddu#start({'ui': 'ff', 'sources': [{'name': 'file_rec', 'params': {}}]})<CR>
     noremap <silent> B :call ddu#start({'ui': 'ff', 'sources': [{'name': 'buffer', 'params': {}}]})<CR>
 

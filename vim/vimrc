@@ -31,8 +31,15 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
+set indentexpr=
+set indentkeys=
 
-set formatoptions-=ro
+set formatoptions-=o
+set formatoptions-=r
+set formatoptions-=c
+
+autocmd BufNewFile,BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 
 augroup MyGroup
     autocmd!
@@ -93,7 +100,7 @@ noremap <c-k> gT
 
 noremap <space> <nop>
 
-" noremap ; :
+noremap ; :
 
 " emacs key binding in insert mode
 cnoremap <c-n> <down>

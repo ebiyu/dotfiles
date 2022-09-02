@@ -43,7 +43,6 @@ hook_source = '''
         \ 'coc-vimtex',
         \ 'coc-go',
         \ 'coc-clangd',
-        \ 'coc-sourcekit',
         \ ]
     nnoremap <silent> <space><space> :call CocAction('doHover')<CR>
     nmap <silent> <C-]> <Plug>(coc-definition)
@@ -58,6 +57,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'prettier/vim-prettier'
+build = 'yarn install --frozen-lockfile'
 on_ft = [
     'javascript',
     'typescript',
@@ -74,7 +74,9 @@ on_ft = [
 ]
 hook_source = '''
     "let g:prettier#autoformat = 1
-    let g:prettier#autoformat_require_pragma = 0
+    "let g:prettier#autoformat_require_pragma = 0
+    let g:prettier#quickfix_enabled = 0
+    " autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
 '''
 
 [[plugins]]
