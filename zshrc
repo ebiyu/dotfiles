@@ -19,6 +19,12 @@ alias -g L='| less'
 alias -g ...="../.."
 alias -g ....="../../.."
 
+
+if type nvim > /dev/null 2>&1; then
+    alias vi=nvim
+    alias vim=nvim
+fi
+
 #zmv
 autoload -U zmv
 alias mmv='noglob zmv -W'

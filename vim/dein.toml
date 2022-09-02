@@ -35,8 +35,8 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_add = 'colorscheme solarized'
+repo = 'overcache/NeoSolarized'
+hook_add = 'colorscheme NeoSolarized'
 
 [[plugins]]
 repo = 'thinca/vim-prettyprint'

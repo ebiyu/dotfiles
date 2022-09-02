@@ -11,6 +11,9 @@ if isdirectory(s:dein_repo_dir)
         call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
         call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
         call dein#load_toml('~/.vim/ddu.toml', {'lazy': 1})
+        if has('nvim')
+            call dein#load_toml('~/.vim/dein_nvim.toml', {'lazy': 0, 'merged': 0})
+        endif
     call dein#end()
 
     call dein#save_state()
@@ -37,6 +40,7 @@ set indentkeys=
 set formatoptions-=o
 set formatoptions-=r
 set formatoptions-=c
+
 
 autocmd BufNewFile,BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
@@ -117,6 +121,11 @@ cnoremap <c-e> <end>
 " esc key
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <ESC>
+
+if has('nvim')
+    set inccommand=split
+    set cmdheight=0
+endif
 
 syntax on
 
