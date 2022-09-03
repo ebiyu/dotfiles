@@ -59,6 +59,9 @@ repo = 'cohama/lexima.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
+repo = 'lambdalisue/mr.vim'
+
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends= 'context_filetype.vim'
 hook_add = '''
@@ -71,4 +74,5 @@ hook_add = '''
     \       },
     \}
 '''
+
 
