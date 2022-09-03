@@ -1,3 +1,5 @@
+source $HOME/.vim/vimrc.min
+
 nnoremap <space>s :<c-u>source $MYVIMRC<CR>
 
 " dein
@@ -27,21 +29,9 @@ if isdirectory(s:dein_repo_dir)
     syntax enable
 endif
 
-" Indent
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set smartindent
-set indentexpr=
-set indentkeys=
-
 set formatoptions-=o
 set formatoptions-=r
 set formatoptions-=c
-
-
 autocmd BufNewFile,BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -67,11 +57,9 @@ set background=dark
 set clipboard=unnamedplus,unnamed
 set showmatch "対応するかっこを挿入
 set matchtime=1
-set number "行番号を表示
 set scrolloff=8
 set autoread
 set timeoutlen=500
-set laststatus=2 "常にステータス行を表示
 
 set modelines=5
 set hlsearch
@@ -79,23 +67,10 @@ set incsearch
 nnoremap <silent> <Esc><Esc> :noh<Return>
 set ignorecase " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set smartcase " 検索文字列に大文字が含まれている場合は区別して検索する
-set statusline=%F%m%r%h%w\ [%{&ff}][%{&fenc}][%Y]\ %l/%L(%p%%)%=%{strftime(\"%Y/%m/%d\ (%a)\ %H:%M\")}
 "}}}
-
-set noswapfile
 
 nnoremap Y y$
 nnoremap x "_x
-
-vnoremap <C-a> <C-a>gv
-vnoremap <C-x> <C-x>gv
-vnoremap g<C-a> g<C-a>gv
-vnoremap g<C-x> g<C-x>gv
-vnoremap > >gv
-vnoremap < <gv
-
-noremap j gj
-noremap k gk
 
 noremap <space>l gt
 noremap <space>h gT
@@ -103,8 +78,6 @@ noremap <c-n> gt
 noremap <c-k> gT
 
 noremap <space> <nop>
-
-noremap ; :
 
 " emacs key binding in insert mode
 cnoremap <c-n> <down>
