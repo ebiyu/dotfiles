@@ -1,6 +1,6 @@
 " specification: https://github.com/tritask/tritask-sta/blob/master/specification.md
 
-nnoremap T <cmd>split ~/task.trita<CR>
+nnoremap T <cmd>split ~/tritra/task.trita<CR>
 augroup Tritask
     au!
     filetype plugin indent on
@@ -9,7 +9,7 @@ augroup Tritask
 augroup END
 
 function! s:trita_file() abort
-    nnoremap <buffer> q <cmd>wq<cr>
+    nnoremap <buffer> q <cmd>w<cr><cmd>bd<cr>
     nnoremap <buffer> o <cmd>call TritraNewLine(v:true)<cr>
     nnoremap <buffer> O <cmd>call TritraNewLine(v:false)<cr>
     nnoremap <buffer> S <cmd>call TritraStartTask()<cr>
