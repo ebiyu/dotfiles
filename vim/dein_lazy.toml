@@ -36,6 +36,7 @@ hook_source = '''
         \ 'coc-html',
         \ 'coc-emmet',
         \ 'coc-css',
+        \ 'coc-stylelint',
         \ 'coc-yaml',
         \ 'coc-highlight',
         \ 'coc-json',

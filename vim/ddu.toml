@@ -29,7 +29,9 @@ hook_source = '''
 
     call ddu#custom#patch_local('ff', {
     \   'ui': 'ff',
-    \   'sources': [{'name': 'file_rec', 'params': {}}],
+    \   'sources': [{'name': 'file_rec', 'params': {
+    \     'ignoredDirectories': ['.git', 'node_modules', 'dist'],
+    \   }}],
     \   'uiParams': {
     \     'ff': {
     \       'startFilter': v:true,

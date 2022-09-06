@@ -40,6 +40,7 @@ augroup MyGroup
     autocmd!
     autocmd BufRead,BufNewFile *.go setlocal noexpandtab
     autocmd BufRead,BufNewFile *.yaml,*.yml,*.json,*.js,*.ts,*.jsx,*.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    au BufRead,BufNewFile *.njk setfiletype html
 augroup END
 
 " white spaces
