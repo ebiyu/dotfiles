@@ -134,6 +134,9 @@ function! s:tritra_validate_line() abort
         let date_parsed = strptime("%Y/%m/%d", date)
     endif
 
+    " Tag input (':' -> ')')
+    let description = substitute(description, "\\v^([A-Za-z0-9]+): (.+)$", "[\\1] \\2", "")
+
     " TODO: skip
 
     " Sort mark
