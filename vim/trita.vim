@@ -10,6 +10,7 @@ augroup END
 
 function! s:trita_file() abort
     nnoremap <buffer> q <cmd>w<cr><cmd>bd<cr>
+    nnoremap <buffer> Q <cmd>!~/tritra/sync.sh<cr><cmd>e<cr>
     nnoremap <buffer> o <cmd>call TritraNewLine(v:true)<cr>
     nnoremap <buffer> O <cmd>call TritraNewLine(v:false)<cr>
     nnoremap <buffer> S <cmd>call TritraStartTask()<cr>
@@ -20,6 +21,7 @@ function! s:trita_file() abort
         au!
         filetype plugin indent on
         au BufWritePre <buffer> call s:tritra_on_save()
+        au BufWrite <buffer> call execute("!~/tritra/sync.sh&", "silent")
     augroup END
 endfunction
 
