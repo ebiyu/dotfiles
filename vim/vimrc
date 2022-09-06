@@ -1,5 +1,7 @@
 source $HOME/.vim/vimrc.min
 
+source $HOME/.vim/trita.vim
+
 nnoremap <space>s :<c-u>source $MYVIMRC<CR>
 
 " dein
