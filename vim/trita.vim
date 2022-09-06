@@ -1,6 +1,6 @@
 " specification: https://github.com/tritask/tritask-sta/blob/master/specification.md
 
-nnoremap T <cmd>split ~/tritra/task.trita<CR>
+nnoremap T <cmd>split ~/Dropbox/task.trita<CR>
 augroup Tritask
     au!
     filetype plugin indent on
@@ -22,7 +22,7 @@ function! s:trita_file() abort
         au!
         filetype plugin indent on
         au BufWritePre <buffer> call s:tritra_on_save()
-        au BufWrite <buffer> call execute("!~/tritra/sync.sh&", "silent")
+        " au BufWrite <buffer> call execute("!~/tritra/sync.sh&", "silent")
     augroup END
 endfunction
 

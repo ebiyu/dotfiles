@@ -1,6 +1,7 @@
 source $HOME/.vim/vimrc.min
 
 source $HOME/.vim/trita.vim
+source $HOME/.vim/memo.vim
 
 nnoremap <space>s :<c-u>source $MYVIMRC<CR>
 
@@ -102,7 +103,7 @@ inoremap <silent> っj <ESC>
 
 if has('nvim')
     set inccommand=split
-    set cmdheight=0
+    "set cmdheight=0
 endif
 
 syntax on
