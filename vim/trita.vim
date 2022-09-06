@@ -18,6 +18,7 @@ function! s:trita_file() abort
     nnoremap <buffer> W <cmd>call TritraWalkADay()<cr>
     nnoremap <buffer> T <cmd>call TritraChangeToToday()<cr>
     nnoremap <buffer> I <cmd>call TritraChangeToInbox()<cr>
+    nnoremap <buffer> F <cmd>call TritraChangeToFuture()<cr>
     augroup TritaskFile
         au!
         filetype plugin indent on
@@ -138,20 +139,23 @@ function! s:tritra_validate_line() abort
     " Sort mark
     if date_parsed == 0
         " inbo
-        let sortmark = " "
+        let tasktype = "inbo"
     elseif date_parsed < today_unixtime
-        " ye
-        let sortmark = "4"
+        let tasktype = "ye"
     elseif date_parsed > today_unixtime
-        " tom
-        let sortmark = "3"
+        let tasktype = "tom"
     elseif endtime_parsed == 0
-        " tt, ts
-        let sortmark = "2"
+        if starttime_parsed == 0
+            let tasktype = "tt"
+        else
+            let tasktype = "ts"
+        endif
     else
         " td
-        let sortmark = "1"
+        let tasktype = "td"
+        "let sortmark = "1"
     endif
+    let sortmark = s:get_sortmark(tasktype)
 
     " day of week
     if date_parsed != 0
@@ -163,6 +167,22 @@ function! s:tritra_validate_line() abort
     let newLine = join([sortmark, date, dow, starttime, endtime, description], " ")
 
     call setline(".", newLine)
+endfunction
+
+function! s:get_sortmark(tasktype) abort
+    if a:tasktype == "ye"
+        return "4"
+    elseif a:tasktype == "tom"
+        return "3"
+    elseif a:tasktype == "tt"
+        return "2"
+    elseif a:tasktype == "ts"
+        return "1"
+    elseif a:tasktype == "td"
+        return "3"
+    else
+        return " "
+    endif
 endfunction
 
 function! s:tritra_on_save() abort
@@ -206,6 +226,13 @@ function! TritraStartTask()
     let endtime   = repeat(" ", 5)
     let description = trim(line[29:])
 
+    if description =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
+    endif
+
     let newLine = join([sortmark, date, dow, starttime, endtime, description], " ")
 
     call setline(".", newLine)
@@ -231,6 +258,13 @@ function! TritraEndTask() abort
         return
     endif
 
+    if description =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
+    endif
+
     let updatedLine = join(["2", date, dow, starttime, endtime, description], " ")
     call setline(".", updatedLine)
 
@@ -243,7 +277,6 @@ function! TritraEndTask() abort
         call append(".", newItemLine)
     endif
 endfunction
-command! TritraEndTask call TritraEndTask()
 
 function! TritraWalkADay()
     language time C
@@ -256,6 +289,13 @@ function! TritraWalkADay()
     let date_parsed = strptime("%Y/%m/%d", date)
     let remain      = line[13:]
 
+    if remain =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
+    endif
+
     if date_parsed == 0
         return
     endif
@@ -266,7 +306,6 @@ function! TritraWalkADay()
     call setline(".", newLine)
     call s:tritra_validate_line()
 endfunction
-command! TritraWalkADay call TritraWalkADay()
 
 function! TritraChangeToToday()
     language time C
@@ -279,6 +318,13 @@ function! TritraChangeToToday()
     let date = strftime("%Y/%m/%d %a", localtime())
     let description = trim(line[29:])
 
+    if description =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
+    endif
+
     " rep
     let rep_match_list = matchlist(description, "\\vrep:(\\d+)")
     if len(rep_match_list) != 0
@@ -289,10 +335,30 @@ function! TritraChangeToToday()
     let updatedLine = join(["3", date, repeat(" ", 11), description], " ")
     call setline(".", updatedLine)
 endfunction
-command! TritraChangeToToday call TritraEndTask()
 
+function! TritraChangeToFuture()
+    language time C
+    let line = getline(".")
+    if line[12] != " " ||
+        \ line[16] != " " || line[22] != " " || line[28] != " "
+        return
+    endif
 
-function! TritraChangeToInbox()
+    let date = "3000/01/01 Wed"
+    let description = trim(line[29:])
+
+    if description =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
+    endif
+
+    let updatedLine = join(["3", date, repeat(" ", 11), description], " ")
+    call setline(".", updatedLine)
+endfunction
+
+function! TritraChangeToInbox() abort
     language time C
     let line = getline(".")
     if line[12] != " " ||
@@ -303,15 +369,14 @@ function! TritraChangeToInbox()
     let date = strftime("%Y/%m/%d %a", localtime())
     let description = trim(line[29:])
 
-    " rep
-    let rep_match_list = matchlist(description, "\\vrep:(\\d+)")
-    if len(rep_match_list) != 0
-        let N = rep_match_list[1]
-        let nextdate = strftime("%Y/%m/%d %a", localtime() + N * 24 * 60 * 60)
+    if description =~ "locked:1"
+        echohl WarningMsg
+            echomsg "This task is locked!"
+        echohl None
+        return
     endif
 
     let updatedLine = repeat(" ", 29) . description
     call setline(".", updatedLine)
 endfunction
-command! TritraChangeToInbox call TritraEndTask()
 
