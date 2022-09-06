@@ -31,7 +31,7 @@ endfunction
 
 function! s:tritra_validate_line() abort
 
-    language time en_US.UTF8
+    language time C
     let line = getline(".")
     if line[1] == " "
         let line = line[2:]
@@ -185,7 +185,7 @@ function! TritraNewLine(next)
 endfunction
 
 function! TritraStartTask()
-    language time en_US.UTF8
+    language time C
     let line = getline(".")
     if line[12] != " " ||
         \ line[16] != " " || line[22] != " " || line[28] != " "
@@ -206,7 +206,7 @@ endfunction
 command! TritraStartTask call TritraStartTask()
 
 function! TritraEndTask()
-    language time en_US.UTF8
+    language time C
     let line = getline(".")
     if line[12] != " " ||
         \ line[16] != " " || line[22] != " " || line[28] != " "
@@ -240,7 +240,7 @@ endfunction
 command! TritraEndTask call TritraEndTask()
 
 function! TritraWalkADay()
-    language time en_US.UTF8
+    language time C
     let line = getline(".")
     if line[1] != " " || line[12] != " "
         return
@@ -263,7 +263,7 @@ endfunction
 command! TritraWalkADay call TritraWalkADay()
 
 function! TritraChangeToToday()
-    language time en_US.UTF8
+    language time C
     let line = getline(".")
     if line[12] != " " ||
         \ line[16] != " " || line[22] != " " || line[28] != " "
