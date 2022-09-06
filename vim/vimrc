@@ -11,6 +11,7 @@ if isdirectory(s:dein_repo_dir)
     execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 
     call dein#begin(s:dein_dir)
+noremap ; :
         " load toml
         call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
         call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
@@ -74,12 +75,13 @@ set smartcase " 検索文字列に大文字が含まれている場合は区別�
 nnoremap Y y$
 nnoremap x "_x
 
-noremap <space>l gt
-noremap <space>h gT
-noremap <c-n> gt
-noremap <c-k> gT
+nnoremap <space>l gt
+nnoremap <space>h gT
+nnoremap <c-n> gt
+nnoremap <c-k> gT
+nnoremap <c-c> :tabnew<cr>
 
-noremap <space> <nop>
+nnoremap <space> <nop>
 
 " emacs key binding in insert mode
 cnoremap <c-n> <down>
