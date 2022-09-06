@@ -29,6 +29,10 @@ function! s:tritra_validate() abort
     %call s:tritra_validate_line()
 endfunction
 
+function! s:parse_time(str) abort
+    return strptime("%Y/%m/%d %H:%M", "2020/02/02 " . a:str)
+endfunction
+
 function! s:tritra_validate_line() abort
 
     language time C
@@ -45,9 +49,9 @@ function! s:tritra_validate_line() abort
     let date_parsed = strptime("%Y/%m/%d", date)
     let dow         = line[11:13]
     let starttime   = line[15:19]
-    let starttime_parsed = strptime("%H:%M", starttime)
+    let starttime_parsed = strptime("%Y/%m/%d %H:%M", "2020/02/02 " . starttime)
     let endtime     = line[21:25]
-    let endtime_parsed = strptime("%H:%M", endtime)
+    let endtime_parsed = strptime("%Y/%m/%d %H:%M", "2020/02/02 " . endtime)
     let description = trim(line[27:])
 
     " format HHMM to HH:MM
@@ -59,13 +63,13 @@ function! s:tritra_validate_line() abort
     endif
 
     if starttime_parsed == 0
-        let starttime_parsed = strptime("%H%M", starttime)
+        let starttime_parsed = strptime("%Y/%m/%d %H%M", "2020/02/02 " . starttime)
     endif
     if starttime_parsed != 0
         let starttime = strftime("%H:%M", starttime_parsed)
     endif
     if endtime_parsed == 0
-        let endtime_parsed = strptime("%H%M", endtime)
+        let endtime_parsed = strptime("%Y/%m/%d %H%M", "2020/02/02 " . endtime)
     endif
     if endtime_parsed != 0
         let endtime = strftime("%H:%M", endtime_parsed)
@@ -205,7 +209,7 @@ function! TritraStartTask()
 endfunction
 command! TritraStartTask call TritraStartTask()
 
-function! TritraEndTask()
+function! TritraEndTask() abort
     language time C
     let line = getline(".")
     if line[12] != " " ||
@@ -216,7 +220,7 @@ function! TritraEndTask()
     let date = strftime("%Y/%m/%d", localtime())
     let dow = strftime("%a", localtime())
     let starttime   = line[17:21]
-    let starttime_parsed = strptime("%H:%M", starttime)
+    let starttime_parsed = s:parse_time(starttime)
     let endtime = strftime("%H:%M", localtime())
     let description = trim(line[29:])
 
@@ -224,18 +228,17 @@ function! TritraEndTask()
         return
     endif
 
+    let updatedLine = join(["2", date, dow, starttime, endtime, description], " ")
+    call setline(".", updatedLine)
+
     " rep
     let rep_match_list = matchlist(description, "\\vrep:(\\d+)")
     if len(rep_match_list) != 0
         let N = rep_match_list[1]
         let nextdate = strftime("%Y/%m/%d %a", localtime() + N * 24 * 60 * 60)
+        let newItemLine = join(["3", nextdate, repeat(" ", 11), description], " ")
+        call append(".", newItemLine)
     endif
-
-    let updatedLine = join(["2", date, dow, starttime, endtime, description], " ")
-    let newItemLine = join(["3", nextdate, repeat(" ", 11), description], " ")
-
-    call setline(".", updatedLine)
-    call append(".", newItemLine)
 endfunction
 command! TritraEndTask call TritraEndTask()
 
