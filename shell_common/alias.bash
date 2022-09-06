@@ -30,6 +30,8 @@ alias vi=vim
 alias t=tmux
 alias clean-xcode="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
+alias todo="vim ~/task.trita"
+
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
 type xdg-open > /dev/null 2>&1 && alias open=xdg-open
 type "xsel" > /dev/null 2>&1 && alias pbcopy='xsel --clipboard --input'
