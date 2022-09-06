@@ -17,6 +17,7 @@ function! s:trita_file() abort
     nnoremap <buffer> E <cmd>call TritraEndTask()<cr>
     nnoremap <buffer> W <cmd>call TritraWalkADay()<cr>
     nnoremap <buffer> T <cmd>call TritraChangeToToday()<cr>
+    nnoremap <buffer> I <cmd>call TritraChangeToInbox()<cr>
     augroup TritaskFile
         au!
         filetype plugin indent on
@@ -289,4 +290,28 @@ function! TritraChangeToToday()
     call setline(".", updatedLine)
 endfunction
 command! TritraChangeToToday call TritraEndTask()
+
+
+function! TritraChangeToInbox()
+    language time C
+    let line = getline(".")
+    if line[12] != " " ||
+        \ line[16] != " " || line[22] != " " || line[28] != " "
+        return
+    endif
+
+    let date = strftime("%Y/%m/%d %a", localtime())
+    let description = trim(line[29:])
+
+    " rep
+    let rep_match_list = matchlist(description, "\\vrep:(\\d+)")
+    if len(rep_match_list) != 0
+        let N = rep_match_list[1]
+        let nextdate = strftime("%Y/%m/%d %a", localtime() + N * 24 * 60 * 60)
+    endif
+
+    let updatedLine = repeat(" ", 29) . description
+    call setline(".", updatedLine)
+endfunction
+command! TritraChangeToInbox call TritraEndTask()
 
