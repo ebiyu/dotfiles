@@ -17,8 +17,10 @@ function! s:trita_file() abort
     nnoremap <buffer> E <cmd>call TritraEndTask()<cr>
     nnoremap <buffer> W <cmd>call TritraWalkADay()<cr>
     nnoremap <buffer> T <cmd>call TritraChangeToToday()<cr>
-    nnoremap <buffer> I <cmd>call TritraChangeToInbox()<cr>
+    nnoremap <buffer> D <cmd>call TritraChangeToInbox()<cr>
     nnoremap <buffer> F <cmd>call TritraChangeToFuture()<cr>
+    nnoremap <buffer> C <cmd>call TritraEndTask()<cr>yyp<cmd>call TritraChangeToToday()<cr>
+    nnoremap <buffer> I <cmd>call TritraStartInsert0()<cr>
     augroup TritaskFile
         au!
         filetype plugin indent on
@@ -189,7 +191,8 @@ function! s:get_sortmark(tasktype) abort
 endfunction
 
 function! s:tritra_on_save() abort
-    let line = line(".")
+    " let line = line(".")
+    let pos = getpos(".")
 
     silent! g/^\s*$/d
     noh
@@ -197,7 +200,8 @@ function! s:tritra_on_save() abort
     call s:tritra_validate()
 
     sort
-    call cursor(line, 0)
+    "call cursor(line, 0)
+    call setpos(".", pos)
 endfunction
 
 function! TritraNewLine(next)
@@ -381,5 +385,10 @@ function! TritraChangeToInbox() abort
 
     let updatedLine = repeat(" ", 29) . description
     call setline(".", updatedLine)
+endfunction
+
+function! TritraStartInsert0() abort
+    call cursor(0, 30)
+    startinsert
 endfunction
 
