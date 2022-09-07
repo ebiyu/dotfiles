@@ -33,6 +33,17 @@ noremap ; :
     syntax enable
 endif
 
+function! InstallDein() abort
+    if has('win32')
+        !Invoke-WebRequest https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.ps1 -OutFile dein-installer.ps1
+        !./dein-installer.ps1 ~/.cache/dein
+    else
+        !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/dein-installer.sh
+        !sh ./installer.sh /tmp/dein-installer.sh
+    endif
+endfunction
+command! InstallDein call InstallDein()
+
 set formatoptions-=o
 set formatoptions-=r
 set formatoptions-=c

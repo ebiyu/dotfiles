@@ -258,7 +258,7 @@ function! TritraEndTask() abort
     let description = trim(line[29:])
 
     if starttime_parsed == 0
-        return
+        let starttime = endtime
     endif
 
     if description =~ "locked:1"
