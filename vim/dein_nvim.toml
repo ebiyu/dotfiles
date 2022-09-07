@@ -13,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
       'vue',
     }
   },
-  ensure_installed = 'all',
+  --ensure_installed = 'all',
 }
 EOF
 '''
