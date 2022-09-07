@@ -77,7 +77,7 @@ set scrolloff=8
 set autoread
 set timeoutlen=500
 
-set modelines=5
+set modelines=0
 set hlsearch
 set incsearch
 nnoremap <silent> <Esc><Esc> :noh<Return>
