@@ -45,14 +45,14 @@ hook_source = '''
         \ 'coc-go',
         \ 'coc-clangd',
         \ ]
-    nnoremap <silent> <space><space> :call CocAction('doHover')<CR>
-    nmap <silent> <C-]> <Plug>(coc-definition)
-    nmap <silent> <C-t> <Plug>(coc-references)
-    nmap <silent> <space>rn <Plug>(coc-rename)
 
-    autocmd Filetype help call s:coc_help()
-    function! s:coc_help() abort
-      nnoremap <buffer><silent> <C-]> <C-]>
+    autocmd Filetype javascript,typescript,javascriptreact,typescriptreact,css,less,scss,json,graphql,vue,html,markdown,tex,python,go,swift  call s:coc_open()
+
+    function! s:coc_open() abort
+      nnoremap <buffer><silent> <space><space> :call CocAction('doHover')<CR>
+      nmap <buffer><silent> <C-]> <Plug>(coc-definition)
+      nmap <buffer><silent> <C-t> <Plug>(coc-references)
+      nmap <buffer><silent> <space>rn <Plug>(coc-rename)
     endfunction
 '''
 

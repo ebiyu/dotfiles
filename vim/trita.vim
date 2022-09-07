@@ -9,7 +9,7 @@ augroup Tritask
 augroup END
 
 function! s:trita_file() abort
-    nnoremap <buffer> q <cmd>w<cr><cmd>bd<cr>
+    nnoremap <buffer> q <cmd>x<cr>
     nnoremap <buffer> Q <cmd>!~/tritra/sync.sh<cr><cmd>e<cr>
     nnoremap <buffer> o <cmd>call TritraNewLine(v:true)<cr>
     nnoremap <buffer> O <cmd>call TritraNewLine(v:false)<cr>
