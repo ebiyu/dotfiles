@@ -1,6 +1,6 @@
 " specification: https://github.com/tritask/tritask-sta/blob/master/specification.md
 
-nnoremap T <cmd>split ~/Dropbox/task.trita<CR>
+nnoremap T <cmd>split ~/task.trita<CR>
 augroup Tritask
     au!
     filetype plugin indent on
