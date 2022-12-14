@@ -151,5 +151,11 @@ if type pyenv > /dev/null 2>&1; then
 fi
 
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ebiyu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ebiyu/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ebiyu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ebiyu/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
