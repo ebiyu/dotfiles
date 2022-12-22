@@ -62,6 +62,14 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'lambdalisue/mr.vim'
 
 [[plugins]]
+repo = 'mattn/vim-sonictemplate'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = [
+      \ '~/.vim/template'
+      \]
+'''
+
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends= 'context_filetype.vim'
 hook_add = '''
