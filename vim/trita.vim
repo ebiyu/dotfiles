@@ -19,7 +19,7 @@ function! s:trita_file() abort
     nnoremap <buffer> T <cmd>call TritraChangeToToday()<cr>
     nnoremap <buffer> D <cmd>call TritraChangeToInbox()<cr>
     nnoremap <buffer> F <cmd>call TritraChangeToFuture()<cr>
-    nnoremap <buffer> C <cmd>call TritraEndTask()<cr>yyp<cmd>call TritraChangeToToday()<cr>
+    "nnoremap <buffer> C <cmd>call TritraEndTask()<cr>yyp<cmd>call TritraChangeToToday()<cr>
     nnoremap <buffer> I <cmd>call TritraStartInsert0()<cr>
     augroup TritaskFile
         au!
