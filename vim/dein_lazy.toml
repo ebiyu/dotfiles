@@ -53,6 +53,7 @@ hook_source = '''
       nmap <buffer><silent> <C-]> <Plug>(coc-definition)
       nmap <buffer><silent> <C-t> <Plug>(coc-references)
       nmap <buffer><silent> <space>rn <Plug>(coc-rename)
+      nmap <buffer><silent> <space>f <cmd>call CocAction('format')<CR>
     endfunction
 '''
 

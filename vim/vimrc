@@ -114,6 +114,7 @@ inoremap <silent> っj <ESC>
 
 if has('nvim')
     set inccommand=split
+    tnoremap <esc> <c-\><c-n>
     "set cmdheight=0
 endif
 

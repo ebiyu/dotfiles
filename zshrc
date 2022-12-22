@@ -153,3 +153,7 @@ fi
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+
+if type explorer.exe > /dev/null 2>&1; then
+    alias op="explorer.exe ."
+fi
