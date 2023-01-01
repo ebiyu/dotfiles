@@ -12,7 +12,6 @@ if isdirectory(s:dein_repo_dir)
     execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 
     call dein#begin(s:dein_dir)
-noremap ; :
         " load toml
         call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
         call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
@@ -29,18 +28,14 @@ noremap ; :
         call dein#install()
     endif
 
+    autocmd VimEnter * call dein#call_hook('post_source')
+
     filetype plugin indent on
     syntax enable
 endif
 
 function! InstallDein() abort
-    if has('win32')
-        !Invoke-WebRequest https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.ps1 -OutFile dein-installer.ps1
-        !./dein-installer.ps1 ~/.cache/dein
-    else
-        !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/dein-installer.sh
-        !sh ./installer.sh /tmp/dein-installer.sh
-    endif
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endfunction
 command! InstallDein call InstallDein()
 

@@ -1,7 +1,6 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_source = '''
-lua <<EOF
+lua_hook_post_source = '''
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -11,10 +10,9 @@ require'nvim-treesitter.configs'.setup {
       'toml',
       'c_sharp',
       'vue',
-    }
+    },
   },
-  --ensure_installed = 'all',
+  --ensure_installed = 'maintained',
 }
-EOF
 '''
 
