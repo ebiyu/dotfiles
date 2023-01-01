@@ -28,11 +28,12 @@ if isdirectory(s:dein_repo_dir)
         call dein#install()
     endif
 
-    autocmd VimEnter * call dein#call_hook('post_source')
 
     filetype plugin indent on
     syntax enable
 endif
+
+autocmd VimEnter * call dein#call_hook('post_source')
 
 function! InstallDein() abort
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
