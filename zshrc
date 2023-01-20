@@ -108,7 +108,6 @@ bindkey "" history-beginning-search-forward-end
 
 setopt ignoreeof #C-dでのログアウトを無効化
 setopt auto_pushd #移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
-setopt auto_cd
 setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
@@ -158,9 +157,9 @@ if type explorer.exe > /dev/null 2>&1; then
     alias op="explorer.exe ."
 fi
 
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ebiyu/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ebiyu/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/ebi/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ebiyu/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ebiyu/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
+if [ -f '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc'; fi

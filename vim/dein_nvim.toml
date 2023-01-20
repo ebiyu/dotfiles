@@ -1,21 +1,21 @@
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_source = '''
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {
-      'lua',
-      'ruby',
-      'toml',
-      'c_sharp',
-      'vue',
-    },
-  },
-  --ensure_installed = 'maintained',
-}
-EOF
-TSEnable highlight
-'''
+# [[plugins]]
+# repo = 'nvim-treesitter/nvim-treesitter'
+# hook_post_source = '''
+# lua <<EOF
+# require'nvim-treesitter.configs'.setup {
+#   highlight = {
+#     enable = true,
+#     disable = {
+#       'lua',
+#       'ruby',
+#       'toml',
+#       'c_sharp',
+#       'vue',
+#     },
+#   },
+#   --ensure_installed = 'maintained',
+# }
+# EOF
+# TSEnable highlight
+# '''
 

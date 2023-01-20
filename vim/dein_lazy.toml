@@ -107,16 +107,16 @@ hook_source = '''
 '''
 
 
-[[plugins]]
-repo = 'lambdalisue/gin.vim'
-depends = 'denops.vim'
-on_map = ['<space>g']
-on_cmd = ['Gin*']
-on_event = ['FocusLost', 'CursorHold']
-hook_source = '''
-    noremap <silent> <space>g <cmd>:split<cr><cmd>GinStatus<cr>
-    autocmd FileType gin-status call s:gin_my_settings()
-    function! s:gin_my_settings() abort
-      nnoremap <buffer><silent> q <cmd>q<cr>
-    endfunction
-'''
+# [[plugins]]
+# repo = 'lambdalisue/gin.vim'
+# depends = 'denops.vim'
+# on_map = ['<space>g']
+# on_cmd = ['Gin*']
+# on_event = ['FocusLost', 'CursorHold']
+# hook_source = '''
+#     noremap <silent> <space>g <cmd>:split<cr><cmd>GinStatus<cr>
+#     autocmd FileType gin-status call s:gin_my_settings()
+#     function! s:gin_my_settings() abort
+#       nnoremap <buffer><silent> q <cmd>q<cr>
+#     endfunction
+# '''
