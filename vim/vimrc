@@ -15,7 +15,7 @@ if isdirectory(s:dein_repo_dir)
         " load toml
         call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
         call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
-        call dein#load_toml('~/.vim/ddu.toml', {'lazy': 1})
+        #call dein#load_toml('~/.vim/ddu.toml', {'lazy': 1})
         if has('nvim')
             call dein#load_toml('~/.vim/dein_nvim.toml', {'lazy': 0, 'merged': 0})
         endif
