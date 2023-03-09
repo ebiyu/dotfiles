@@ -19,6 +19,8 @@ alias -g L='| less'
 alias -g ...="../.."
 alias -g ....="../../.."
 
+alias px="pipenv run"
+
 
 if type nvim > /dev/null 2>&1; then
     alias vi=nvim
@@ -112,7 +114,7 @@ setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
-cdpath=(.. ~ ~/projects /Volumes ~/Desktop ~/Dropbox)
+#cdpath=(.. ~ ~/projects /Volumes ~/Desktop ~/Dropbox)
 
 #空行でlsを実行#{{{
 function my_enter {
@@ -160,6 +162,19 @@ fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ebi/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
 if [ -f '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ebiyu/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ebiyu/bin/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ebiyu/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ebiyu/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
