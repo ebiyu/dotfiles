@@ -131,25 +131,30 @@ bindkey '^m' my_enter
 
 # anyenv
 # https://naoblo.net/archives/1046
-if type anyenv > /dev/null 2>&1; then
-    if [ ! -f ~/.anyenv-rc.zsh  ]; then
-        echo "setting anyenv-rc.zsh"
-        anyenv init - zsh > ~/.anyenv-rc.zsh
-        chmod 755 ~/.anyenv-rc.zsh
-    fi
-    source ~/.anyenv-rc.zsh
-fi
+# if type anyenv > /dev/null 2>&1; then
+#     if [ ! -f ~/.anyenv-rc.zsh  ]; then
+#         echo "setting anyenv-rc.zsh"
+#         anyenv init - zsh > ~/.anyenv-rc.zsh
+#         chmod 755 ~/.anyenv-rc.zsh
+#     fi
+#     source ~/.anyenv-rc.zsh
+# fi
 
-if type pyenv > /dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if [ ! -f ~/.pyenv-rc.bash  ]; then
-        echo "setting pyenv-rc.bash"
-        pyenv init --path > ~/.pyenv-rc.bash
-        chmod 755 ~/.pyenv-rc.bash
-    fi
-    source ~/.pyenv-rc.bash
-fi
+#source `anyenv init`
+eval "$(anyenv init -)"
+
+
+# if type pyenv > /dev/null 2>&1; then
+#     export PYENV_ROOT="$HOME/.pyenv"
+#     export PATH="$PYENV_ROOT/bin:$PATH"
+#     if [ ! -f ~/.pyenv-rc.bash  ]; then
+#         echo "setting pyenv-rc.bash"
+#         pyenv init --path > ~/.pyenv-rc.bash
+#         chmod 755 ~/.pyenv-rc.bash
+#     fi
+#     source ~/.pyenv-rc.bash
+# fi
+#source `pyenv init`
 
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
