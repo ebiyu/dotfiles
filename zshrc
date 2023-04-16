@@ -152,7 +152,7 @@ if type pyenv > /dev/null 2>&1; then
 fi
 
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
 
 
 if type explorer.exe > /dev/null 2>&1; then
