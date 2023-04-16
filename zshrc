@@ -1,5 +1,7 @@
 # vim:set foldmethod=marker commentstring=#%s:
 
+export EDITOR=vim
+
 #gitの補完
 fpath=(~/.zsh/completion $fpath)
 
@@ -20,6 +22,7 @@ alias -g ...="../.."
 alias -g ....="../../.."
 
 alias px="pipenv run"
+alias dj="pipenv run python manage.py"
 
 
 if type nvim > /dev/null 2>&1; then
@@ -154,7 +157,9 @@ eval "$(anyenv init -)"
 #     fi
 #     source ~/.pyenv-rc.bash
 # fi
-#source `pyenv init`
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
@@ -183,3 +188,5 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+eval "$(direnv hook zsh)"
