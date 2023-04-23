@@ -11,6 +11,9 @@ compinit -u
 
 disable r
 
+# emacs key bind
+bindkey -e 
+
 shell_common=~/dotfiles/shell_common
 . $shell_common/alias.bash
 
