@@ -1,5 +1,3 @@
-# vim:set foldmethod=marker commentstring=#%s:
-
 export EDITOR=vim
 
 #gitの補完
@@ -12,7 +10,7 @@ compinit -u
 disable r
 
 # emacs key bind
-bindkey -e 
+bindkey -e
 
 shell_common=~/dotfiles/shell_common
 . $shell_common/alias.bash
@@ -120,8 +118,6 @@ setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
-#cdpath=(.. ~ ~/projects /Volumes ~/Desktop ~/Dropbox)
-
 #空行でlsを実行#{{{
 function my_enter {
     if [[ -n "$BUFFER" ]]; then
@@ -135,51 +131,27 @@ zle -N my_enter
 bindkey '^m' my_enter
 #}}}
 
-# anyenv
-# https://naoblo.net/archives/1046
-# if type anyenv > /dev/null 2>&1; then
-#     if [ ! -f ~/.anyenv-rc.zsh  ]; then
-#         echo "setting anyenv-rc.zsh"
-#         anyenv init - zsh > ~/.anyenv-rc.zsh
-#         chmod 755 ~/.anyenv-rc.zsh
-#     fi
-#     source ~/.anyenv-rc.zsh
-# fi
+# XXXenv
+type anyenv > /dev/null 2&>1 && eval "$(anyenv init -)"
 
-#source `anyenv init`
-eval "$(anyenv init -)"
-
-
-# if type pyenv > /dev/null 2>&1; then
-#     export PYENV_ROOT="$HOME/.pyenv"
-#     export PATH="$PYENV_ROOT/bin:$PATH"
-#     if [ ! -f ~/.pyenv-rc.bash  ]; then
-#         echo "setting pyenv-rc.bash"
-#         pyenv init --path > ~/.pyenv-rc.bash
-#         chmod 755 ~/.pyenv-rc.bash
-#     fi
-#     source ~/.pyenv-rc.bash
-# fi
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+type pyenv > /dev/null 2&>1 && eval "$(pyenv init -)"
+type direnv > /dev/null 2&>1 && eval "$(direnv hook zsh)"
 
+# deno
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
+export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
 
+# flutter
+export PATH="$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
 
-if type explorer.exe > /dev/null 2>&1; then
-    alias op="explorer.exe ."
-fi
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ebi/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ebi/bin/google-cloud-sdk/completion.zsh.inc'; fi
+# for wsl
+type explorer.exe > /dev/null 2>&1 && alias op="explorer.exe ."
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ebiyu/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ebiyu/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/ebiyu/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ebiyu/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"; fi
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -192,4 +164,10 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-eval "$(direnv hook zsh)"
+# Xilinx
+if [ -f "/tools/Xilinx/Vivado/2022.1/settings64.sh" ]; then . /tools/Xilinx/Vivado/2022.1/settings64.sh; fi
+
+# golang
+export GO111MODULE=on
+export PATH="$PATH:/usr/local/go/bin"
+
