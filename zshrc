@@ -132,12 +132,12 @@ bindkey '^m' my_enter
 #}}}
 
 # XXXenv
-type anyenv > /dev/null 2&>1 && eval "$(anyenv init -)"
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-type pyenv > /dev/null 2&>1 && eval "$(pyenv init -)"
-type direnv > /dev/null 2&>1 && eval "$(direnv hook zsh)"
+type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # deno
 export DENO_INSTALL="$HOME/.deno"
