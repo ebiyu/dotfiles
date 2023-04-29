@@ -171,3 +171,6 @@ if [ -f "/tools/Xilinx/Vivado/2022.1/settings64.sh" ]; then . /tools/Xilinx/Viva
 export GO111MODULE=on
 export PATH="$PATH:/usr/local/go/bin"
 
+# Disable C-s
+stty -ixon
+
