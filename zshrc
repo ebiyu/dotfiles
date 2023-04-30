@@ -181,7 +181,7 @@ function viv() {
         echo "Vivado version not set"
         return
     fi
-    zsh -c ". /tools/Xilinx/Vitis/$VIV_VER/settings64.sh && $*"
+    zsh -c ". /tools/Xilinx/Vivado/$VIV_VER/settings64.sh &&. /tools/Xilinx/Vitis/$VIV_VER/settings64.sh && $*"
     #source /tools/Xilinx/Vitis/$VIVADO_ENV/settings64.sh
     #`basename $0` $@
 }
