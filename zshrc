@@ -169,8 +169,25 @@ alias load-vivado-22.1='. /tools/Xilinx/Vivado/2022.1/settings64.sh'
 alias load-vivado-21.2='. /tools/Xilinx/Vivado/2021.2/settings64.sh'
 export VIV_VER=2022.1
 function viv() {
-    export VIV_VER=$1
+    if [ "$1" = "set" ]; then
+        export VIV_VER=$2
+        return
+    fi
+    if [ "$1" = "list" ]; then
+        ls /tools/Xilinx/Vitis
+        return
+    fi
+    if [ -z "$VIV_VER" ]; then
+        echo "Vivado version not set"
+        return
+    fi
+    zsh -c ". /tools/Xilinx/Vitis/$VIV_VER/settings64.sh && $*"
+    #source /tools/Xilinx/Vitis/$VIVADO_ENV/settings64.sh
+    #`basename $0` $@
 }
+alias vivado="viv vivado"
+alias vitis="viv vitis"
+alias xsct="viv xsct"
 
 # golang
 export GO111MODULE=on
