@@ -58,7 +58,7 @@ precmd () {
     vcs_info #git
     which pmset &> /dev/null
     if [ $? = 0 ]; then
-        export battery_info=$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}') #バッテリー残量
+        export battery_info="[$(pmset -g ps | awk 'match($0,/[0-9]{1,3}%/){print substr($0, RSTART, RLENGTH - 1)}')%%]" #バッテリー残量
     else
         export battery_info=""
     fi
@@ -78,7 +78,7 @@ precmd () {
 setopt prompt_subst #プロンプトで変数を展開
 
 #プロンプトを設定
-PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}[${battery_info}%%]%f %F{green}%~%f${vcs_info_msg_0_}
+PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f%F{magenta}[$VIV_VER]%f %F{green}%~%f${vcs_info_msg_0_}
 %(?,,%F{red}[$?] %f)$ '
 PROMPT2='${vimmode}>'
 
@@ -165,7 +165,12 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 # Xilinx
-if [ -f "/tools/Xilinx/Vivado/2022.1/settings64.sh" ]; then . /tools/Xilinx/Vivado/2022.1/settings64.sh; fi
+alias load-vivado-22.1='. /tools/Xilinx/Vivado/2022.1/settings64.sh'
+alias load-vivado-21.2='. /tools/Xilinx/Vivado/2021.2/settings64.sh'
+export VIV_VER=2022.1
+function viv() {
+    export VIV_VER=$1
+}
 
 # golang
 export GO111MODULE=on
