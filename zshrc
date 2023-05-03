@@ -62,6 +62,7 @@ precmd () {
     else
         export battery_info=""
     fi
+    export xienv_version=$(xienv version)
     if [ -n "$SSH_CONNECTION" ]; then
         echo -e "${(r:COLUMNS::-:)}"
     else
@@ -78,7 +79,7 @@ precmd () {
 setopt prompt_subst #プロンプトで変数を展開
 
 #プロンプトを設定
-PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f%F{magenta}[$VIV_VER]%f %F{green}%~%f${vcs_info_msg_0_}
+PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f%F{magenta}[${xienv_version}]%f %F{green}%~%f${vcs_info_msg_0_}
 %(?,,%F{red}[$?] %f)$ '
 PROMPT2='${vimmode}>'
 
@@ -164,30 +165,8 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-# Xilinx
-alias load-vivado-22.1='. /tools/Xilinx/Vivado/2022.1/settings64.sh'
-alias load-vivado-21.2='. /tools/Xilinx/Vivado/2021.2/settings64.sh'
-export VIV_VER=2022.1
-function viv() {
-    if [ "$1" = "set" ]; then
-        export VIV_VER=$2
-        return
-    fi
-    if [ "$1" = "list" ]; then
-        ls /tools/Xilinx/Vitis
-        return
-    fi
-    if [ -z "$VIV_VER" ]; then
-        echo "Vivado version not set"
-        return
-    fi
-    zsh -c ". /tools/Xilinx/Vivado/$VIV_VER/settings64.sh &&. /tools/Xilinx/Vitis/$VIV_VER/settings64.sh && $*"
-    #source /tools/Xilinx/Vitis/$VIVADO_ENV/settings64.sh
-    #`basename $0` $@
-}
-alias vivado="viv vivado"
-alias vitis="viv vitis"
-alias xsct="viv xsct"
+# init xienv
+eval "$(xienv init -)"
 
 # golang
 export GO111MODULE=on
