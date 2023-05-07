@@ -32,6 +32,7 @@ function link(){
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/vim" "$HOME/.vim"
     symlink "$dotfiles/.alacritty.yml" "$HOME/.alacritty.yml"
+    symlink "$dotfiles/i3conf" "$HOME/.config/i3/config"
 
     dotfiles_private=$HOME/dotfiles_private
     if [ -e $dotfiles_private ]; then

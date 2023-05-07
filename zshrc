@@ -62,7 +62,8 @@ precmd () {
     else
         export battery_info=""
     fi
-    export xienv_version=$(xienv version)
+    export xienv_version=$(xienv version --no-error)
+    export pyenv_version=$(pyenv version-name)
     if [ -n "$SSH_CONNECTION" ]; then
         echo -e "${(r:COLUMNS::-:)}"
     else
@@ -79,7 +80,7 @@ precmd () {
 setopt prompt_subst #プロンプトで変数を展開
 
 #プロンプトを設定
-PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f%F{magenta}[${xienv_version}]%f %F{green}%~%f${vcs_info_msg_0_}
+PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f[${pyenv_version}]%F{magenta}[${xienv_version}]%f %F{green}%~%f${vcs_info_msg_0_}
 %(?,,%F{red}[$?] %f)$ '
 PROMPT2='${vimmode}>'
 
