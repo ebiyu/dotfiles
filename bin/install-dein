@@ -1,6 +1,0 @@
-#!/bin/bash
-
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/dein-installer.sh
-sh /tmp/dein-installer.sh ~/.cache/dein
-rm -f /tmp/dein-installer.sh
-
