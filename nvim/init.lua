@@ -23,5 +23,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "lambdalisue/fern.vim",
+    "tpope/vim-surround",
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    }
 })
+
+-- fern
 vim.api.nvim_set_keymap('n', '<C-b>', ':Fern . -reveal=% <CR>', { noremap = true, silent = true })
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<c-p>', builtin.find_files, {})

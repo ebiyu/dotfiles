@@ -55,12 +55,6 @@ set smartcase " 検索文字列に大文字が含まれている場合は区別�
 nnoremap Y y$
 nnoremap x "_x
 
-nnoremap <space>l gt
-nnoremap <space>h gT
-nnoremap <c-n> gt
-nnoremap <c-k> gT
-nnoremap <c-c> :tabnew<cr>
-
 nnoremap <space> <nop>
 
 " emacs key binding in insert mode

@@ -1,4 +1,7 @@
 {
   "fern.vim": { "branch": "main", "commit": "dae5eb2debe023fce0e3dfafbf879bd89946d6d0" },
-  "lazy.nvim": { "branch": "main", "commit": "9ac19880b677d08f416c5189ffc2dc023084a159" }
+  "lazy.nvim": { "branch": "main", "commit": "9ac19880b677d08f416c5189ffc2dc023084a159" },
+  "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
+  "telescope.nvim": { "branch": "master", "commit": "d77b37f4520e5fc2cf4c74c12e42ed4b589bd367" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" }
 }
