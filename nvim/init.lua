@@ -1,7 +1,6 @@
 vim.api.nvim_exec([[
 
 source $HOME/.vim/vimrc
-
 set inccommand=split
 tnoremap <esc> <c-\><c-n>
 "set cmdheight=0
@@ -37,7 +36,17 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "tpope/vim-commentary",
+    {
+        "nvim-treesitter/nvim-treesitter",
+    },
+    {
+        "nvimdev/zephyr-nvim",
+        requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+    },
 })
+
+-- colorscheme
+require('zephyr')
 
 -- fern
 vim.keymap.set('n', '<C-b>', '<cmd>Fern . -reveal=% <CR>', { noremap = true, silent = true })
@@ -125,3 +134,21 @@ vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
+-- tree sitter
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
