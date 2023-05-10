@@ -31,6 +31,7 @@ function link(){
     symlink "$dotfiles/gh/config.yml" "$HOME/.config/gh/config.yml"
     symlink "$dotfiles/bashrc" "$HOME/.bashrc"
     symlink "$dotfiles/vim" "$HOME/.vim"
+    symlink "$dotfiles/nvim" "$HOME/.config/nvim"
     symlink "$dotfiles/.alacritty.yml" "$HOME/.alacritty.yml"
     symlink "$dotfiles/i3conf" "$HOME/.config/i3/config"
 

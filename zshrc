@@ -28,7 +28,7 @@ alias dj="pipenv run python manage.py"
 
 if type nvim > /dev/null 2>&1; then
     alias vi=nvim
-    alias vim=nvim
+    #alias vim=nvim
 fi
 
 #zmv

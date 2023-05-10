@@ -1,59 +1,30 @@
-source $HOME/.vim/vimrc.min
+" Indent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+set indentexpr=
+set indentkeys=
 
-source $HOME/.vim/trita.vim
-source $HOME/.vim/memo.vim
+set laststatus=2 "常にステータス行を表示
+set statusline=%F%m%r%h%w\ (%l/%L\|%p%%)%=%y[%{&ff}][%{&fenc}][%Y]
 
-nnoremap <space>s :<c-u>source $MYVIMRC<CR>
+set noswapfile
 
-" dein
-let s:dein_dir = expand('~/.cache/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if isdirectory(s:dein_repo_dir)
-    execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+vnoremap <C-a> <C-a>gv
+vnoremap <C-x> <C-x>gv
+vnoremap g<C-a> g<C-a>gv
+vnoremap g<C-x> g<C-x>gv
+vnoremap > >gv
+vnoremap < <gv
 
-    call dein#begin(s:dein_dir)
-        " load toml
-        call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
-        call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
-        " call dein#load_toml('~/.vim/ddu.toml', {'lazy': 1})
-        if has('nvim')
-            call dein#load_toml('~/.vim/dein_nvim.toml', {'lazy': 0, 'merged': 0})
-        endif
-    call dein#end()
+noremap j gj
+noremap k gk
 
-    call dein#save_state()
+noremap ; :
 
-    " auto install dein plugin
-    if dein#check_install()
-        call dein#install()
-    endif
-
-
-    filetype plugin indent on
-    syntax enable
-endif
-
-autocmd VimEnter * call dein#call_hook('post_source')
-
-function! InstallDein() abort
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-endfunction
-command! InstallDein call InstallDein()
-
-set formatoptions-=o
-set formatoptions-=r
-set formatoptions-=c
-autocmd BufNewFile,BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
-
-augroup MyGroup
-    autocmd!
-    autocmd BufRead,BufNewFile *.go setlocal noexpandtab
-    autocmd BufRead,BufNewFile *.yaml,*.yml,*.json,*.js,*.ts,*.jsx,*.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    au BufRead,BufNewFile *.njk setfiletype html
-augroup END
-
-" white spaces
 set listchars=tab:>\ ,trail:_
 set list
 
@@ -104,19 +75,5 @@ cnoremap <c-a> <home>
 inoremap <c-e> <end>
 cnoremap <c-e> <end>
 
-" esc key
-inoremap <silent> jj <ESC>
-inoremap <silent> っj <ESC>
-
-if has('nvim')
-    set inccommand=split
-    tnoremap <esc> <c-\><c-n>
-    "set cmdheight=0
-endif
-
 syntax on
 
-" .vimlocalの読み込み
-if filereadable(expand($HOME.'/local.vimrc'))
-    source $HOME/local.vimrc
-endif
