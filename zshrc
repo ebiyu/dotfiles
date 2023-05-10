@@ -62,7 +62,7 @@ precmd () {
     else
         export battery_info=""
     fi
-    export xienv_version=$(xienv version --no-error)
+    export xienv_version=$(type xienv > /dev/null 2>&1 && xienv version --no-error)
     export pyenv_version=$(pyenv version-name)
     if [ -n "$SSH_CONNECTION" ]; then
         echo -e "${(r:COLUMNS::-:)}"
@@ -167,7 +167,7 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 # init xienv
-eval "$(xienv init -)"
+type xienv > /dev/null 2>&1 && eval "$(xienv init -)"
 
 # golang
 export GO111MODULE=on
