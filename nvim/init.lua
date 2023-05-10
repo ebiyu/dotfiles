@@ -21,5 +21,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({})
-
+require("lazy").setup({
+    "lambdalisue/fern.vim",
+})
+vim.api.nvim_set_keymap('n', '<C-b>', ':Fern . -reveal=% <CR>', { noremap = true, silent = true })
