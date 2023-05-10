@@ -23,8 +23,6 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
-noremap ; :
-
 set listchars=tab:>\ ,trail:_
 set list
 
