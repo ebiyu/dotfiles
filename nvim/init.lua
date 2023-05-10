@@ -36,6 +36,7 @@ require("lazy").setup({
     "williamboman/mason-lspconfig",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
+    "tpope/vim-commentary",
 })
 
 -- fern
