@@ -43,6 +43,7 @@ require("lazy").setup({
         "nvimdev/zephyr-nvim",
         requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
     },
+    "airblade/vim-gitgutter",
 })
 
 -- colorscheme
