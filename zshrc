@@ -176,3 +176,4 @@ export PATH="$PATH:/usr/local/go/bin"
 # Disable C-s
 stty -ixon
 
+export VIRTUAL_ENV=.venv
