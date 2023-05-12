@@ -199,6 +199,7 @@ masonconfig.setup {
         'tsserver',
         'jsonls',
         'html',
+        'emmet_ls',
         'cssls',
         'eslint',
     },
