@@ -30,22 +30,19 @@ require("lazy").setup({
     -- colorscheme
     {
         "nvimdev/zephyr-nvim",
-        requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             require('zephyr')
         end
     },
     'editorconfig/editorconfig-vim',
-    "tpope/vim-surround",
+    {
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    },
 
-    -- filer
-    -- fern
-    -- {
-    --     "lambdalisue/fern.vim",
-    --     config = function()
-    --         vim.keymap.set('n', '<C-b>', '<cmd>Fern . -reveal=% <CR>')
-    --     end
-    -- },
     {
         "nvim-tree/nvim-tree.lua",
         config = function()
@@ -60,6 +57,53 @@ require("lazy").setup({
         end
     },
     "nvim-tree/nvim-web-devicons",
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('lualine').setup {
+                options = {
+                    icons_enabled = true,
+                    theme = 'auto',
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
+                    disabled_filetypes = {
+                        statusline = {},
+                        winbar = {},
+                    },
+                    ignore_focus = {},
+                    always_divide_middle = true,
+                    globalstatus = false,
+                    refresh = {
+                        statusline = 1000,
+                        tabline = 1000,
+                        winbar = 1000,
+                    }
+                },
+                sections = {
+                    lualine_a = { 'mode' },
+                    lualine_b = { 'branch', 'diff', 'diagnostics' },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                    lualine_y = { 'progress' },
+                    lualine_z = { 'location' }
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'location' },
+                    lualine_y = {},
+                    lualine_z = {}
+                },
+                tabline = {},
+                winbar = {},
+                inactive_winbar = {},
+                extensions = {}
+            }
+        end
+    },
+
 
     -- file finder
     {
@@ -123,6 +167,17 @@ require("lazy").setup({
         end
     },
     "RRethy/vim-illuminate",
+
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("indent_blankline").setup {
+                -- for example, context is off by default, use this to turn it on
+                show_current_context = true,
+                -- show_current_context_start = true,
+            }
+        end
+    },
 })
 
 
