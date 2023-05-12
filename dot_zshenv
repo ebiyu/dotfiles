@@ -22,3 +22,4 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 export PATH=$HOME/dotfiles_private/bin:$HOME/dotfiles/bin:$PATH
+

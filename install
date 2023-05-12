@@ -1,41 +1,6 @@
 #!/bin/bash
 
-# run "curl -sL dot.ebiyuu.com | sh" to setup dotfiles
+# run "curl -sL https://dot.ebiyuu.com | sh" to setup dotfiles
 
-set -eu
+sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 
-has(){
-    type "$1" > /dev/null 2>&1
-}
-
-setup(){
-    if ! has "git"; then
-        echo "git not installed" >&2
-        exit 1
-    fi
-
-    cd $HOME
-    dotfiles=$HOME/dotfiles
-    if [ ! -e $dotfiles ]; then
-        echo "cloning dotfiles... " >&2
-        git clone git@github.com:ebiyuu1121/dotfiles \
-            || git clone https://github.com/ebiyuu1121/dotfiles/ \
-            && $HOME/dotfiles/bin/dotfiles link \
-            || exit 1
-    fi
-
-    cd $HOME
-    dotfiles_private=$HOME/dotfiles_private
-    if [ ! -e $dotfiles_private ]; then
-        echo "cloning dotfiles_private... " >&2
-        git clone git@github.com:ebiyuu1121/dotfiles_private \
-            && $HOME/dotfiles/bin/dotfiles link \
-            || echo "skipped dotfiles_private"
-    fi
-
-
-    echo "configuration finished"
-    echo "restart shell to apply config"
-}
-
-setup
