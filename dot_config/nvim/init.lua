@@ -6,7 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- load base vimrc
-vim.api.nvim_exec([[source $HOME/.vim/vimrc]], false)
+vim.api.nvim_exec([[source $HOME/.vimrc]], false)
 
 -- chezmoi auto apply
 vim.api.nvim_exec([[
