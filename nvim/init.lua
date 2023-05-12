@@ -142,7 +142,8 @@ require("lazy").setup({
             -- if supported, check nodenv and use latest version
             if tonumber(ver_major) < 16 then
                 ver = io.popen('nodenv whence node|sort -n|tail -n1|tr -d "\n"'):read('*a')
-                vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"'):read('*a')
+                vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"'):read(
+                    '*a')
             end
         end
     },
@@ -166,7 +167,18 @@ require("lazy").setup({
                 },
                 on_attach = function(bufnr)
                     local gs = package.loaded.gitsigns
-                    vim.keymap.set('n', '<space>g', gs.diffthis)
+                    vim.keymap.set('n', '<space>gs', gs.stage_hunk, { desc = '[git] Stage hunk' })
+                    vim.keymap.set('n', '<space>gr', gs.reset_hunk, { desc = '[git] Reset hunk' })
+                    vim.keymap.set('v', '<space>gs', function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { desc = '[git] Stage hunk' })
+                    vim.keymap.set('v', '<space>gr', function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { desc = '[git] Reset hunk' })
+                    vim.keymap.set('n', '<space>gS', gs.stage_buffer, { desc = '[git] Stage buffer' })
+                    vim.keymap.set('n', '<space>gu', gs.undo_stage_hunk, { desc = '[git] Undo stage hunk' })
+                    vim.keymap.set('n', '<space>gR', gs.reset_buffer, { desc = '[git] Reset buffer' })
+                    vim.keymap.set('n', '<space>gp', gs.preview_hunk, { desc = '[git] Preview hunk' })
+                    vim.keymap.set('n', '<space>gb', function() gs.blame_line{full=true} end, { desc = '[git] Blame line' })
+                    vim.keymap.set('n', '<space>gd', gs.diffthis, { desc = '[git] Diff this' })
+                    vim.keymap.set('n', '<space>gD', function() gs.diffthis('~') end, { desc = '[git] Diff this (against HEAD)' })
+                    vim.keymap.set('n', '<space>gd', gs.toggle_deleted, { desc = '[git] Toggle deleted' })
                 end
             }
         end
@@ -176,11 +188,7 @@ require("lazy").setup({
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            })
+            require("which-key").setup()
         end,
     },
     {
@@ -207,6 +215,7 @@ require("lazy").setup({
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<c-p>', builtin.find_files, {})
+vim.keymap.set('n', '<c-;>', builtin.keymaps, {})
 
 -- nvim-cmp
 local cmp = require 'cmp'
@@ -224,30 +233,6 @@ cmp.setup {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
-    -- mapping = {
-    --     ['<Tab>'] = function(fallback)
-    --         if cmp.visible() then
-    --             cmp.select_next_item()
-    --         else
-    --             fallback()
-    --         end
-    --     end,
-    --     ['<c-n>'] = function(fallback)
-    --         if cmp.visible() then
-    --             cmp.select_next_item()
-    --         else
-    --             fallback()
-    --         end
-    --     end,
-    --     ['<c-p>'] = function(fallback)
-    --         if cmp.visible() then
-    --             cmp.select_prev_item()
-    --         else
-    --             fallback()
-    --         end
-    --     end
-    -- },
-    --
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         -- { name = 'nvim_lsp_signature_help' },
@@ -302,20 +287,34 @@ masonconfig.setup_handlers {
         vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = true })
     end,
 }
-vim.keymap.set('n', '<space><space>', '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
-vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
-vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
+-- map frequently used
+-- vim.keymap.set('n', '<space><space>', '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
+-- map key prefix
+local wk = require("which-key")
+wk.register({
+    l = { name = "+LSP" },
+    g = { name = "+git" },
+}, { prefix = "<space>", mode = "n" })
+
+wk.register({
+    g = { name = "+git" },
+}, { prefix = "<space>", mode = "v" })
+
+vim.keymap.set('n', '<space>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = '[LSP] Hover' })
+vim.keymap.set('n', '<space>lf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', { desc = '[LSP] Format' })
+vim.keymap.set('n', '<space>lr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = '[LSP] References' })
+vim.keymap.set('n', '<space>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = '[LSP] Go to definition' })
+vim.keymap.set('n', '<space>lD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = '[LSP] Go to declaration' })
+vim.keymap.set('n', '<space>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', { desc = '[LSP] Go to implementation' })
+vim.keymap.set('n', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { desc = '[LSP] Go to type definition' })
+vim.keymap.set('n', '<space>ln', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = '[LSP] Rename symbol' })
+vim.keymap.set('n', '<space>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = '[LSP] Code action' })
+vim.keymap.set('n', '<space>le', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = '[LSP] Open diagnostics' })
+vim.keymap.set('n', '<space>l]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = '[LSP] Go to next diagnostic' })
+vim.keymap.set('n', '<space>l[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = '[LSP] Go to previous diagnostic' })
 
 -- tree sitter
 require 'nvim-treesitter.configs'.setup {
