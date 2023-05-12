@@ -8,6 +8,11 @@ vim.opt.termguicolors = true
 -- load base vimrc
 vim.api.nvim_exec([[source $HOME/.vim/vimrc]], false)
 
+-- chezmoi auto apply
+vim.api.nvim_exec([[
+    autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+]], false)
+
 vim.o.inccommand = "split"
 vim.o.laststatus = 3
 vim.o.cmdheight = 0
@@ -323,3 +328,4 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
+
