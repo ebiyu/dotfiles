@@ -2,5 +2,5 @@
 
 # run "curl -sL https://dot.ebiyuu.com | sh" to setup dotfiles
 
-sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply git@github.com:ebiyuu1121/dotfiles
+sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --ssh --apply ebiyuu1121
 
