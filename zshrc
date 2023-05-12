@@ -145,6 +145,9 @@ type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$HOME/.bin:$DENO_INSTALL/bin:$PATH"
 
+# chezmoi
+export PATH="$HOME/bin:$PATH"
+
 # flutter
 export PATH="$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
 
