@@ -74,11 +74,19 @@ require("lazy").setup({
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     },
     "williamboman/mason-lspconfig",
+    'L3MON4D3/LuaSnip',
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
+    'saadparwaiz1/cmp_luasnip',
 
     {
         "nvim-treesitter/nvim-treesitter",
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -89,6 +97,10 @@ require("lazy").setup({
                     delay = 0,
                     ignore_whitespace = false,
                 },
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+                    vim.keymap.set('n', '<space>g', gs.diffthis)
+                end
             }
         end
     },
@@ -127,39 +139,46 @@ cmp.setup {
         end
     },
 
-    mapping = {
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
-        ['<c-n>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
-        ['<c-p>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end
-    },
-
+    mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    -- mapping = {
+    --     ['<Tab>'] = function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_next_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end,
+    --     ['<c-n>'] = function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_next_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end,
+    --     ['<c-p>'] = function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_prev_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end
+    -- },
+    --
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' },
-        { name = 'path' },
-        { name = 'buffer' },
-        { name = 'nvim_lua' },
+        -- { name = 'nvim_lsp_signature_help' },
+        -- { name = 'path' },
+        -- { name = 'buffer' },
+        -- { name = 'nvim_lua' },
         { name = 'luasnip' },
-        { name = 'cmdline' },
-        { name = 'git' },
+        -- { name = 'cmdline' },
+        -- { name = 'git' },
     }),
 }
 
