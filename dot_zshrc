@@ -33,8 +33,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias l="less"
 alias g=git
-alias v=vim
-alias vi=vim
 alias t=tmux
 alias clean-xcode="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
@@ -67,6 +65,7 @@ alias -g ....="../../.."
 alias px="pipenv run"
 alias dj="pipenv run python manage.py"
 
+type vim > /dev/null 2>&1 && alias vi=vim
 type nvim > /dev/null 2>&1 && alias vi=nvim
 
 #zmv
