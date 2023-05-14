@@ -15,7 +15,7 @@ vim.api.nvim_exec([[
 
 vim.o.inccommand = "split"
 vim.o.laststatus = 3
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0 -- TODO: skkeleton with cmdheight=1
 vim.keymap.set('t', '<esc>', '<c-\\><c-n>')
 
 -- Setup lazy.nvim
@@ -174,15 +174,19 @@ require("lazy").setup({
                     local gs = package.loaded.gitsigns
                     vim.keymap.set('n', '<space>gs', gs.stage_hunk, { desc = '[git] Stage hunk' })
                     vim.keymap.set('n', '<space>gr', gs.reset_hunk, { desc = '[git] Reset hunk' })
-                    vim.keymap.set('v', '<space>gs', function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { desc = '[git] Stage hunk' })
-                    vim.keymap.set('v', '<space>gr', function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { desc = '[git] Reset hunk' })
+                    vim.keymap.set('v', '<space>gs', function() gs.stage_hunk { vim.fn.line("."), vim.fn.line("v") } end,
+                        { desc = '[git] Stage hunk' })
+                    vim.keymap.set('v', '<space>gr', function() gs.reset_hunk { vim.fn.line("."), vim.fn.line("v") } end,
+                        { desc = '[git] Reset hunk' })
                     vim.keymap.set('n', '<space>gS', gs.stage_buffer, { desc = '[git] Stage buffer' })
                     vim.keymap.set('n', '<space>gu', gs.undo_stage_hunk, { desc = '[git] Undo stage hunk' })
                     vim.keymap.set('n', '<space>gR', gs.reset_buffer, { desc = '[git] Reset buffer' })
                     vim.keymap.set('n', '<space>gp', gs.preview_hunk, { desc = '[git] Preview hunk' })
-                    vim.keymap.set('n', '<space>gb', function() gs.blame_line{full=true} end, { desc = '[git] Blame line' })
+                    vim.keymap.set('n', '<space>gb', function() gs.blame_line { full = true } end,
+                        { desc = '[git] Blame line' })
                     vim.keymap.set('n', '<space>gd', gs.diffthis, { desc = '[git] Diff this' })
-                    vim.keymap.set('n', '<space>gD', function() gs.diffthis('~') end, { desc = '[git] Diff this (against HEAD)' })
+                    vim.keymap.set('n', '<space>gD', function() gs.diffthis('~') end,
+                        { desc = '[git] Diff this (against HEAD)' })
                     vim.keymap.set('n', '<space>gd', gs.toggle_deleted, { desc = '[git] Toggle deleted' })
                 end
             }
@@ -212,6 +216,16 @@ require("lazy").setup({
                 show_current_context = true,
                 -- show_current_context_start = true,
             }
+        end
+    },
+
+    {
+        "vim-skk/skkeleton",
+        dependencies = {
+            "vim-denops/denops.vim",
+        },
+        config = function()
+            vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
         end
     },
 })
@@ -329,4 +343,3 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
-
