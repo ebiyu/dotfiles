@@ -64,7 +64,10 @@ require("lazy").setup({
     "nvim-tree/nvim-web-devicons",
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            "SmiteshP/nvim-navic",
+        },
         config = function()
             require('lualine').setup {
                 options = {
@@ -88,7 +91,7 @@ require("lazy").setup({
                 sections = {
                     lualine_a = { 'mode' },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { 'filename' },
+                    lualine_c = { 'filename', 'navic' },
                     lualine_x = { 'encoding', 'fileformat', 'filetype' },
                     lualine_y = { 'progress' },
                     lualine_z = { 'location' }
@@ -146,6 +149,48 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     'saadparwaiz1/cmp_luasnip',
+
+    {
+        "SmiteshP/nvim-navic",
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            local navic = require("nvim-navic")
+            navic.setup {
+                lsp = {
+                    auto_attach = true,
+                    preference = nil,
+                },
+                highlight = true,
+
+            }
+            -- vim.opt.statusline = ([[%= %{%v:lua.nvim-navic()%} %p%% %l:%c]])
+        end
+    },
+
+    {
+        'monaqa/dial.nvim',
+        config = function()
+            local augend = require("dial.augend")
+            require("dial.config").augends:register_group {
+                -- default augends used when no group name is specified
+                default = {
+                    augend.integer.alias.decimal,
+                    augend.integer.alias.hex,
+                    augend.constant.alias.bool,
+                    augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
+                },
+            }
+
+            vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+            vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+            vim.keymap.set("n", "g<C-a>", require("dial.map").inc_gnormal(), { noremap = true })
+            vim.keymap.set("n", "g<C-x>", require("dial.map").dec_gnormal(), { noremap = true })
+            vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+            vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+            vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+            vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
+        end
+    },
 
     {
         "github/copilot.vim",
