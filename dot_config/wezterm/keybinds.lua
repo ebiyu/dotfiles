@@ -35,6 +35,9 @@ return {
     { key = "'", mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
     { key = '[', mods = 'LEADER', action = act.ActivateCopyMode },
     { key = ']', mods = 'LEADER', action = act.PasteFrom 'Clipboard' },
+
+    -- custom action
+    {key="o", mods="LEADER", action=wezterm.action{EmitEvent="trigger-nvim-with-scrollback"}},
   },
 
   key_tables = {
