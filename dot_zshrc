@@ -122,6 +122,10 @@ PROMPT='%B${host_info}%b%F{cyan}[%D %*]%f%F{yellow}${battery_info}%f[${pyenv_ver
 %(?,,%F{red}[$?] %f)$ '
 PROMPT2='${vimmode}>'
 
+
+type starship > /dev/null 2>&1 || curl -sS https://starship.rs/install.sh | sh
+type starship > /dev/null 2>&1 && eval "$(starship init zsh)"
+
 #C-zでfgを実行#{{{
 function run-fglast {
     zle push-input
