@@ -20,6 +20,14 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	os.remove(name)
 end)
 
+-- cf. https://coralpink.github.io/commentary/wezterm/dpi-detection.html
+wezterm.on('window-focus-changed', function(window, pane)
+  local dpi = window:get_dimensions().dpi
+  local overrides = window:get_config_overrides() or {}
+  overrides.font_size = dpi >= 140 and 14.0 or nil
+  window:set_config_overrides(overrides)
+end)
+
 return {
     leader = { key = 's', mods = 'CTRL', timeout_milliseconds = 2000 },
     keys = require('keybinds').keys,
