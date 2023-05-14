@@ -29,6 +29,16 @@ return {
     { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection' },
     { key = 'Insert', mods = 'CTRL', action = act.CopyTo 'PrimarySelection' },
 
+    { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+    { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
+    { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+    { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+
+    { key = 'H', mods = 'LEADER', action = act.AdjustPaneSize{ 'Left', 1 } },
+    { key = 'J', mods = 'LEADER', action = act.AdjustPaneSize{ 'Down', 1 } },
+    { key = 'K', mods = 'LEADER', action = act.AdjustPaneSize{ 'Up', 1 } },
+    { key = 'L', mods = 'LEADER', action = act.AdjustPaneSize{ 'Right', 1 } },
+
     -- Tmux like
     { key = "-", mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
     { key = "-", mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
