@@ -226,6 +226,7 @@ require("lazy").setup({
         },
         config = function()
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
+            vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
         end
     },
 })
