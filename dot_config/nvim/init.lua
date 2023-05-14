@@ -109,7 +109,7 @@ require("lazy").setup({
                         {
                             'buffers',
                             buffers_color = {
-                                active = 'lualine_a_normal', -- Color for active buffer.
+                                active = 'lualine_a_normal',     -- Color for active buffer.
                                 inactive = 'lualine_a_inactive', -- Color for inactive buffer.
                             },
                             symbols = { modified = '_󰷥', alternate_file = ' ', directory = ' ' },
@@ -235,7 +235,8 @@ require("lazy").setup({
                 -- if not supported, check nodenv and use latest version
                 if tonumber(ver_major) < 16 then
                     ver = io.popen('nodenv whence node|sort -n|tail -n1|tr -d "\n"'):read('*a')
-                    vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"'):read(
+                    vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"')
+                    :read(
                         '*a')
                 end
             end)
@@ -317,6 +318,12 @@ require("lazy").setup({
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
             vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
         end
+    },
+    {
+        "tani/hey.vim",
+        dependencies = {
+            "vim-denops/denops.vim",
+        },
     },
 })
 
