@@ -180,7 +180,7 @@ bar {
     status_command i3blocks
 }
 
-exec --no-startup-id "~/xrandr.sh"
+exec --no-startup-id "align-monitors"
 exec --no-startup-id "xset r rate 200 20"
 exec --no-startup-id "ibus-daemon -drx"
 
