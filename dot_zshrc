@@ -1,17 +1,14 @@
+# Set up editor
 export EDITOR=vim
 type nvim > /dev/null 2>&1 && export EDITOR=nvim
 
-#gitの補完
-fpath=(~/.zsh/completion $fpath)
-
-#補完
+# Set up completion
 autoload -U compinit
 compinit -u
+fpath=(~/.zsh/completion $fpath)
 
-disable r
-
-# emacs key bind
-bindkey -e
+disable r # disable "r" command
+bindkey -e # emacs key bind
 
 if [ "$(uname)" = "Darwin" ]; then
     alias ls="ls -G"
@@ -35,17 +32,11 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias l="less"
-alias d=docker
-alias dc="docker-compose"
-alias dcp="docker-compose -f docker-compose.prod.yml"
 alias g=git
 alias v=vim
 alias vi=vim
 alias t=tmux
 alias clean-xcode="rm -rf ~/Library/Developer/Xcode/DerivedData"
-
-alias todo="vim ~/task.trita"
-alias m="vim ~/ChangeLog"
 
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
 type xdg-open > /dev/null 2>&1 && alias open=xdg-open
@@ -76,10 +67,7 @@ alias -g ....="../../.."
 alias px="pipenv run"
 alias dj="pipenv run python manage.py"
 
-
-if type nvim > /dev/null 2>&1; then
-    alias vi=nvim
-fi
+type nvim > /dev/null 2>&1 && alias vi=nvim
 
 #zmv
 autoload -U zmv
@@ -163,6 +151,12 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 #}}}
 #}}}
+#
+
+# edit-command-line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^O' edit-command-line
 
 setopt ignoreeof #C-dでのログアウトを無効化
 setopt auto_pushd #移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
@@ -208,16 +202,16 @@ type explorer.exe > /dev/null 2>&1 && alias op="explorer.exe ."
 if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"; fi
 
-function peco-src () {
+# ghq setup
+function peco-ghq () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
-  #zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N peco-ghq
+bindkey '^]' peco-ghq
 
 # init xienv
 type xienv > /dev/null 2>&1 && eval "$(xienv init -)"
@@ -230,5 +224,4 @@ export PATH="$PATH:/usr/local/go/bin"
 stty -ixon
 
 eval "$(chezmoi completion zsh)"
-
 
