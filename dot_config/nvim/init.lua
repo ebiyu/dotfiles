@@ -110,11 +110,30 @@ require("lazy").setup({
     },
 
 
+
     -- file finder
     {
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local builtin = require('telescope.builtin')
+            vim.keymap.set('n', '<c-p>', builtin.find_files, {})
+            vim.keymap.set('n', '<c-;>', builtin.keymaps, {})
+        end
     },
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+            require "telescope".load_extension("frecency")
+            vim.api.nvim_set_keymap("n", "<c-f>",
+                "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", { noremap = true, silent = true })
+            -- vim.api.nvim_set_keymap("n", "<c-p>",
+            --     "<Cmd>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
+            --     { noremap = true, silent = true })
+        end,
+        dependencies = { "kkharji/sqlite.lua", 'nvim-telescope/telescope.nvim' }
+    },
+
 
     -- lsp
     "neovim/nvim-lspconfig",
@@ -231,11 +250,6 @@ require("lazy").setup({
     },
 })
 
-
--- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<c-p>', builtin.find_files, {})
-vim.keymap.set('n', '<c-;>', builtin.keymaps, {})
 
 -- nvim-cmp
 local cmp = require 'cmp'
