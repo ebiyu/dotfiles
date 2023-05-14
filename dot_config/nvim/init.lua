@@ -104,7 +104,29 @@ require("lazy").setup({
                     lualine_y = {},
                     lualine_z = {}
                 },
-                tabline = {},
+                tabline = {
+                    lualine_a = {
+                        {
+                            'buffers',
+                            buffers_color = {
+                                active = 'lualine_a_normal', -- Color for active buffer.
+                                inactive = 'lualine_a_inactive', -- Color for inactive buffer.
+                            },
+                            symbols = { modified = '_󰷥', alternate_file = ' ', directory = ' ' },
+                        },
+                    },
+                    lualine_b = {},
+                    lualine_c = {},
+                    lualine_x = {
+                        'diff'
+                    },
+                    lualine_y = {
+                        'branch'
+                    },
+                    lualine_z = {
+                        { 'tabs' },
+                    },
+                },
                 winbar = {},
                 inactive_winbar = {},
                 extensions = {}

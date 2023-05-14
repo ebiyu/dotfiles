@@ -55,6 +55,9 @@ nnoremap x "_x
 
 nnoremap <space> <nop>
 
+nnoremap <silent> L <Cmd>bnext<CR>
+nnoremap <silent> H <Cmd>bprev<CR>
+
 " emacs key binding in insert mode
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
