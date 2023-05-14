@@ -223,5 +223,7 @@ export PATH="$PATH:/usr/local/go/bin"
 # Disable C-s
 stty -ixon
 
-eval "$(chezmoi completion zsh)"
+type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
+
+if [ -f "$HOME/.zshrc.local" ]; then . "$HOME/.zshrc.local"; fi
 
