@@ -296,6 +296,7 @@ masonconfig.setup_handlers {
 -- map frequently used
 -- vim.keymap.set('n', '<space><space>', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', { desc = '[LSP] Format' })
 
 -- map key prefix
 local wk = require("which-key")
