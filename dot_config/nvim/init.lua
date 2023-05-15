@@ -323,6 +323,13 @@ require("lazy").setup({
         config = function()
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
             vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
+
+            local lazypath = vim.fn.expand("$HOME/.skk/SKK-JISHO.L")
+            if not vim.loop.fs_stat(lazypath) then
+                vim.api.nvim_exec([[
+                    call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+                ]], false)
+            end
         end
     },
     {
