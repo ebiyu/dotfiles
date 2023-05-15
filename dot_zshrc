@@ -23,10 +23,10 @@ zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 source $HOME/.config/zsh/alias.zsh
 
 # set up ghq
-source $HOME/.config/zsh/gs.zsh
+source $HOME/.config/zsh/ghq.zsh
 
 # config around cd / ls
-source $HOME/.config/zsh/ls
+source $HOME/.config/zsh/ls.zsh
 
 bindkey '^J' self-insert #C-jで改行
 

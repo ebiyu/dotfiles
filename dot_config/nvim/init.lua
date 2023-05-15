@@ -236,8 +236,8 @@ require("lazy").setup({
                 if tonumber(ver_major) < 16 then
                     ver = io.popen('nodenv whence node|sort -n|tail -n1|tr -d "\n"'):read('*a')
                     vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"')
-                    :read(
-                        '*a')
+                        :read(
+                            '*a')
                 end
             end)
         end
@@ -402,7 +402,7 @@ masonconfig.setup_handlers {
 -- map frequently used
 -- vim.keymap.set('n', '<space><space>', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', { desc = '[LSP] Format' })
+-- vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', { desc = '[LSP] Format' })
 
 -- map key prefix
 local wk = require("which-key")

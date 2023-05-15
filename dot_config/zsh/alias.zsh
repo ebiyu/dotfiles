@@ -1,5 +1,3 @@
-echo "Hey"
-
 if [ "$(uname)" = "Darwin" ]; then
     alias ls="ls -G"
     alias la="ls -Ga"
