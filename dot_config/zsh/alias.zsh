@@ -32,6 +32,8 @@ type wslview > /dev/null 2>&1 && alias open="wslview ."
 
 type "xsel" > /dev/null 2>&1 && alias pbcopy='xsel --clipboard --input'
 
+type wezterm > /dev/null 2>&1 && alias imgcat='wezterm imgcat'
+
 alias -g G='| grep'
 alias -g L='| less'
 alias -g ...="../.."
