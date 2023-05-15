@@ -67,12 +67,14 @@ require("lazy").setup({
         dependencies = {
             'nvim-tree/nvim-web-devicons',
             "SmiteshP/nvim-navic",
+            "nvimdev/zephyr-nvim",
         },
         config = function()
             require('lualine').setup {
                 options = {
+                    colored = true,
                     icons_enabled = true,
-                    theme = 'auto',
+                    theme = 'nord',
                     component_separators = { left = '', right = '' },
                     section_separators = { left = '', right = '' },
                     disabled_filetypes = {
@@ -109,10 +111,12 @@ require("lazy").setup({
                         {
                             'buffers',
                             buffers_color = {
-                                active = 'lualine_a_normal',     -- Color for active buffer.
-                                inactive = 'lualine_a_inactive', -- Color for inactive buffer.
+                                -- active = {fg = '#e9435d',},     -- Color for active buffer.
+                                -- active = { fg = '#ffaa88', bg = 'grey', },
+                                 active = 'lualine_a_active', -- Color for inactive buffer.
+                                 inactive = 'lualine_a_inactive', -- Color for inactive buffer.
                             },
-                            symbols = { modified = '_󰷥', alternate_file = ' ', directory = ' ' },
+                            symbols = { modified = '[+]', alternate_file = '',  directory = ' ' },
                         },
                     },
                     lualine_b = {},
