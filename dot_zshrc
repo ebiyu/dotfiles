@@ -65,13 +65,10 @@ bindkey '^O' edit-command-line
 
 # XXXenv
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
-
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
-
-# init xienv
 type xienv > /dev/null 2>&1 && eval "$(xienv init -)"
 
 # deno
