@@ -11,6 +11,10 @@ return {
     { key = 'T', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
 
+    -- Command key binding
+    { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
+    { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
+
     -- Font size
     { key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
     { key = '+', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },

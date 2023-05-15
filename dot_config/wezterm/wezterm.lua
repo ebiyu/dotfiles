@@ -34,6 +34,7 @@ return {
     key_tables = require('keybinds').key_tables,
     disable_default_key_bindings = true,
     font_size = 10.0,
+    color_scheme = "Arthur",
     use_ime = false,
 }
 
