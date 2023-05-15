@@ -3,6 +3,7 @@ stty -ixon # Disable C-s
 disable r # disable "r" command
 setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
+bindkey -e # emacs key bind
 
 # Set up editor
 export EDITOR=vim
