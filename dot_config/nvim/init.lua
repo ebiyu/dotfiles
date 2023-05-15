@@ -111,12 +111,10 @@ require("lazy").setup({
                         {
                             'buffers',
                             buffers_color = {
-                                -- active = {fg = '#e9435d',},     -- Color for active buffer.
-                                -- active = { fg = '#ffaa88', bg = 'grey', },
-                                 active = 'lualine_a_active', -- Color for inactive buffer.
-                                 inactive = 'lualine_a_inactive', -- Color for inactive buffer.
+                                active = 'lualine_a_active',
+                                inactive = 'lualine_a_inactive',
                             },
-                            symbols = { modified = '[+]', alternate_file = '',  directory = ' ' },
+                            symbols = { modified = '[+]', alternate_file = '', directory = ' ' },
                         },
                     },
                     lualine_b = {},
@@ -156,9 +154,6 @@ require("lazy").setup({
             require "telescope".load_extension("frecency")
             vim.api.nvim_set_keymap("n", "<c-f>",
                 "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", { noremap = true, silent = true })
-            -- vim.api.nvim_set_keymap("n", "<c-p>",
-            --     "<Cmd>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
-            --     { noremap = true, silent = true })
         end,
         dependencies = { "kkharji/sqlite.lua", 'nvim-telescope/telescope.nvim' }
     },
@@ -166,10 +161,7 @@ require("lazy").setup({
 
     -- lsp
     "neovim/nvim-lspconfig",
-    {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate" -- :MasonUpdate updates registry contents
-    },
+    "williamboman/mason.nvim",
     "williamboman/mason-lspconfig",
     'L3MON4D3/LuaSnip',
     "hrsh7th/nvim-cmp",
@@ -189,7 +181,6 @@ require("lazy").setup({
                 highlight = true,
 
             }
-            -- vim.opt.statusline = ([[%= %{%v:lua.nvim-navic()%} %p%% %l:%c]])
         end
     },
 
