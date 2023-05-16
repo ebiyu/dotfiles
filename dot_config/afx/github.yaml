@@ -1,0 +1,19 @@
+github:
+- name: neovim/neovim
+  description: Vim-fork focused on extensibility and usability
+  owner: neovim
+  repo: neovim
+  branch: master
+  with:
+    depth: 1
+  command:
+    build:
+      steps:
+      - make CMAKE_BUILD_TYPE=RelWithDebInfo
+    env:
+      EDITOR: nvim
+    alias:
+      vi: nvim
+    link:
+      - from: build/bin/nvim
+
