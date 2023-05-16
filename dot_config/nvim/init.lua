@@ -52,9 +52,9 @@ require("lazy").setup({
         "nvim-tree/nvim-tree.lua",
         config = function()
             require('nvim-tree').setup {
-                view = {
-                    float = {
-                        enable = false,
+                actions = {
+                    open_file = {
+                        quit_on_open = true
                     }
                 }
             }
