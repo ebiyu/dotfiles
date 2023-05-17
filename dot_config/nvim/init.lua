@@ -324,7 +324,7 @@ require("lazy").setup({
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
             vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
 
-            local dictpath = vim.fn.expand("$HOME/.skk/SKK-JISHO.L")
+            local dictpath = vim.fn.expand("$HOME/.skk/SKK-JISYO.L")
             if vim.loop.fs_stat(dictpath) then
                 vim.api.nvim_exec([[
                     call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
@@ -448,3 +448,4 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
+
