@@ -143,8 +143,13 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
+            require('telescope').setup {
+                defaults = {
+                    file_ignore_patterns = { ".venv/", ".git/", "node_modules" }
+                }
+            }
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<c-p>', builtin.find_files, {})
+            vim.keymap.set('n', '<c-p>', function() builtin.find_files { hidden = true } end, {})
             vim.keymap.set('n', '<c-;>', builtin.keymaps, {})
         end
     },
@@ -448,4 +453,3 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
-
