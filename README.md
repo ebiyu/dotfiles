@@ -1,29 +1,38 @@
 # dotfiles
 
+This project is managed by [chezmoi](https://www.chezmoi.io/).
+
+## requirement
+
 ## install
 
 ```sh
 curl -sSL dot.ebiyuu.com | sh
 ```
 
-githubへのssh接続が設定されていれば、sshを用いてcloneします。
+This runs steps below.
 
-sshが設定されていなければ、httpsでcloneします。
+1. Download/install chezmoi to your computer.
+2. Clone this repository and place dotfiles by chezoi.
+3. [afx](https://github.com/b4b4r07/afx) is installed by chezmoi.
+4. Some commnand line tool (including nvim) is installed by afx.
 
-## cron
 
-以下をcronに設定すると、定期的に自動で同期します。
-
-```
-0 * * * * /path/to/home/dir/dotfiles/bin/dotfiles cron
-```
-
-## command
+This clones this repository by http.
+If you want to push to this repository, please run:
 
 ```sh
-dotfiles link # setup symlinks
-dotfiles sync # sync with repo and setup symlinks
-dotfiles vi # open dotfiles directory in vim
-dotfiles code # open dotfiles directory in VSCode
+git remote set-url origin git@github.com:ebiyuu1121/dotfiles
+
+```
+
+## daily tasks
+
+```sh
+chezmoi update
+chezmoi apply
+
+chezmoi edit -a # open nvim on directory
+chezmoi edit -a {file}
 ```
 
