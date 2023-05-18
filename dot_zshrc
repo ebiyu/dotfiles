@@ -95,3 +95,4 @@ type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
 # set up afx
 type afx > /dev/null 2>&1 && eval "$(afx init)"
 type afx > /dev/null 2>&1 && eval "$(afx completion zsh)"
+type afx > /dev/null 2>&1 && compdef _afx afx
