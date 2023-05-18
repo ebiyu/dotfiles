@@ -2,9 +2,10 @@
 
 set -eu 
 
-echo "Installing with afx..."
+if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
+    echo "Installing with afx..."
 
-afx install
-afx update
-afx uninstall
-
+    afx install
+    afx update
+    afx uninstall
+fi

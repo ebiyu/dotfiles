@@ -1,3 +1,5 @@
 [git]
     autoCommit = true
     autoPush = true
+[scriptEnv]
+    {{ if promptBoolOnce . "fullInstall" "Do you want to perform full install?" }}CHEZMOI_FULL_INSTALL = "1"{{ end }}

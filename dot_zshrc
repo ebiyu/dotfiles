@@ -32,7 +32,6 @@ source $HOME/.config/zsh/ls.zsh
 bindkey '^J' self-insert #C-jで改行
 
 # Startship (prompt)
-type starship > /dev/null 2>&1 || curl -sS https://starship.rs/install.sh | sh
 type starship > /dev/null 2>&1 && eval "$(starship init zsh)"
 
 # C-zでfgを実行
