@@ -25,3 +25,13 @@ github:
     - from: '**/deno'
       to: deno
 
+
+- name: skk-dev/dict
+  description: SKK dictionary
+  owner: skk-dev
+  repo: dict
+  command:
+    link:
+    - from: 'SKK-JISYO.L'
+      to: '~/.skk/SKK-JISYO.L'
+
