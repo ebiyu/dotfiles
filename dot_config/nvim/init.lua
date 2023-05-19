@@ -338,6 +338,29 @@ require("lazy").setup({
             "vim-denops/denops.vim",
         },
     },
+
+
+    {
+        'prettier/vim-prettier',
+        build = 'yarn install --frozen-lockfile --production',
+        config = function()
+            vim.api.nvim_create_augroup('vimrc_augroup', {})
+            vim.api.nvim_create_autocmd('FileType', {
+                group = 'vimrc_augroup',
+                pattern = '*',
+                callback = function(args)
+                    local types = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
+                    for i = 1, #types do
+                        if args.match == types[i] then
+                            vim.keymap.set('n', '<space>lf', "<cmd>Prettier<cr>",
+                                { desc = '[LSP] Format (prettier)', buffer = true })
+                            break
+                        end
+                    end
+                end
+            })
+        end
+    }
 })
 
 
@@ -405,6 +428,7 @@ masonconfig.setup_handlers {
                 }
             }
         end
+
         lspconfig[server_name].setup(opts)
 
         -- setup keymaps handlers
@@ -429,7 +453,7 @@ wk.register({
 }, { prefix = "<space>", mode = "v" })
 
 vim.keymap.set('n', '<space>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = '[LSP] Hover' })
-vim.keymap.set('n', '<space>lf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', { desc = '[LSP] Format' })
+vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, { desc = '[LSP] Format' })
 vim.keymap.set('n', '<space>lr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = '[LSP] References' })
 vim.keymap.set('n', '<space>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = '[LSP] Go to definition' })
 vim.keymap.set('n', '<space>lD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = '[LSP] Go to declaration' })
