@@ -3,17 +3,25 @@ github:
   description: Vim-fork focused on extensibility and usability
   owner: neovim
   repo: neovim
-  branch: master
-  with:
-    depth: 1
+  release:
+    name: nvim
+    tag: nightly
   command:
-    build:
-      steps:
-      - make CMAKE_BUILD_TYPE=RelWithDebInfo
     env:
       EDITOR: nvim
-    alias:
-      vi: nvim
     link:
-      - from: build/bin/nvim
+    - from: '**/bin/nvim'
+      to: nvim
+
+
+- name: denoland/deno
+  description: A modern runtime for JavaScript and TypeScript.
+  owner: denoland
+  repo: deno
+  release:
+    name: deno
+  command:
+    link:
+    - from: '**/deno'
+      to: deno
 
