@@ -1,0 +1,66 @@
+" config for vi (not vim)
+
+" Indent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+set indentexpr=
+set indentkeys=
+
+set laststatus=2 "常にステータス行を表示
+
+set noswapfile
+
+vnoremap <C-a> <C-a>gv
+vnoremap <C-x> <C-x>gv
+vnoremap g<C-a> g<C-a>gv
+vnoremap g<C-x> g<C-x>gv
+vnoremap > >gv
+vnoremap < <gv
+
+noremap j gj
+noremap k gk
+
+set listchars=tab:>\ ,trail:_
+set list
+
+set mouse=a
+
+" options
+set backspace=indent,eol,start
+
+set showcmd "入力中のコマンドを表示
+set background=dark
+set showmatch " match parens
+set matchtime=1
+set scrolloff=8
+set autoread
+set timeoutlen=500
+
+set modelines=0
+set hlsearch
+set incsearch
+nnoremap <silent> <Esc><Esc> :noh<Return>
+set ignorecase
+set smartcase
+
+nnoremap Y y$
+nnoremap x "_x
+
+nnoremap <space> <nop>
+
+" emacs key binding in insert mode
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+inoremap <c-b> <left>
+cnoremap <c-b> <left>
+inoremap <c-f> <right>
+cnoremap <c-f> <right>
+inoremap <c-a> <home>
+cnoremap <c-a> <home>
+inoremap <c-e> <end>
+cnoremap <c-e> <end>
+
