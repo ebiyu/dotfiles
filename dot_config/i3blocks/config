@@ -36,8 +36,8 @@ markup=none
 # See the script for details.
 
 [volume]
-#label=♪
-label=VOL
+label=
+#label=VOL
 interval=1
 #signal=10
 #STEP=5%

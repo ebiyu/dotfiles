@@ -35,3 +35,24 @@ github:
     - from: 'SKK-JISYO.L'
       to: '~/.skk/SKK-JISYO.L'
 
+
+
+- name: yuru7/Firge
+  description: Firge font
+  owner: yuru7
+  repo: Firge
+  release:
+    name: Firge
+    tag: v0.2.0
+    asset:
+      filename: FirgeNerd_{{ .Release.Tag }}.zip
+  command:
+    build:
+      steps:
+        - mkdir -p ~/.local/share/fonts/
+    link:
+    - from: '**/Firge35NerdConsole-Regular.ttf'
+      to: '~/.local/share/fonts/Firge35NerdConsole-Regular.ttf'
+    - from: '**/Firge35NerdConsole-Bold.ttf'
+      to: '~/.local/share/fonts/Firge35NerdConsole-Bold.ttf'
+
