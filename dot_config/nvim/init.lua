@@ -378,7 +378,7 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        --['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -472,3 +472,33 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
+
+-- clipboard
+-- from. https://zenn.dev/skanehira/articles/2021-11-29-vim-paste-clipboard-link
+vim.api.nvim_exec([[
+    let s:clipboard_register = has('linux') || has('unix') ? '+' : '*'
+    function! InsertMarkdownLink() abort
+      " use register `9`
+      let old = getreg('9')
+      let link = trim(getreg(s:clipboard_register))
+      if link !~# '^http.*'
+        normal! gvp
+        return
+      endif
+
+      " replace `[text](link)` to selected text
+      normal! gv"9y
+      let word = getreg(9)
+      let newtext = printf('[%s](%s)', word, link)
+      call setreg(9, newtext)
+      normal! gv"9p
+
+      " restore old data
+      call setreg(9, old)
+    endfunction
+
+    augroup markdown-insert-link
+      au!
+      au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
+    augroup END
+]], false)
