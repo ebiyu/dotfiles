@@ -7,9 +7,24 @@ set -eu
 # input y/N to one-shot install
 echo "This script will install chezmoi and apply dotfiles."
 
-read -p "Dou you prefer one-shot install? [y/N] " yn < /dev/tty
-case "$yn" in
-    [yY]*) sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --one-shot --apply ebiyuu1121 ;;
-    *) sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply ebiyuu1121 ;;
-esac
+function normal_install() {
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply ebiyuu1121
+}
+
+function one_shot_install() {
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --one-shot --apply ebiyuu1121
+}
+
+if type git > /dev/null 2>&1; then
+    echo "git found."
+    read -p "Dou you prefer one-shot install? [y/N] " yn < /dev/tty
+    case "$yn" in
+        [yY]*) one_shot_install ;;
+        *) normal_install ;;
+    esac
+else
+    echo "git not found. perform one shot install."
+    one_shot_install
+fi
+
 
