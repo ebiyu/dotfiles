@@ -1,0 +1,27 @@
+# minimal configuration for environment without zsh
+
+# general-purposed bin directory
+export PATH="$HOME/bin:$PATH"
+
+# vim
+export EDITOR=vim
+type vim > /dev/null 2>&1 && alias vi=vim
+type nvim > /dev/null 2>&1 && alias vi=nvim
+
+# alias
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="ls -la"
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+
+# Startship (prompt)
+type starship > /dev/null 2>&1 && eval "$(starship init bash)"
+
+# chezmoi completion
+type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion bash)"
+
+# source local if exists
+[ -f ~/.bashrc.local ] && . ~/.bashrc.local
+
