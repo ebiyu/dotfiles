@@ -30,7 +30,7 @@ wezterm.on('window-focus-changed', function(window, pane)
     window:set_config_overrides(overrides)
 end)
 
-return {
+local config = {
     leader = { key = 's', mods = 'CTRL', timeout_milliseconds = 2000 },
     keys = require('keybinds').keys,
     key_tables = require('keybinds').key_tables,
@@ -40,3 +40,11 @@ return {
     color_scheme = "Arthur",
     use_ime = false,
 }
+
+
+if string.sub(wezterm.home_dir, 1, 2) == "C:" then
+    config.default_prog = {"wsl.exe", "--distribution", "Ubuntu-22.04", "--exec", "/bin/zsh", "-l"}
+    --wezterm.home_dir = "C:\\Users\\Arthur"
+end
+
+return config
