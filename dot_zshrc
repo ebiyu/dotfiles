@@ -5,10 +5,6 @@ setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 bindkey -e # emacs key bind
 
-# Set up editor
-export EDITOR=vim
-type nvim > /dev/null 2>&1 && export EDITOR=nvim
-
 # Set up completion
 autoload -U compinit
 compinit -u
@@ -19,6 +15,19 @@ zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
+
+# general-purposed bin directory
+export PATH="$HOME/bin:$PATH"
+
+# set up afx
+type afx > /dev/null 2>&1 && eval "$(afx init)"
+type afx > /dev/null 2>&1 && eval "$(afx completion zsh)"
+type afx > /dev/null 2>&1 && compdef _afx afx
+
+# Set up editor
+export EDITOR=vim
+type nvim > /dev/null 2>&1 && export EDITOR=nvim
+
 
 # set up alias
 source $HOME/.config/zsh/alias.zsh
@@ -70,9 +79,6 @@ type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 type xienv > /dev/null 2>&1 && eval "$(xienv init -)"
 
-# general-purposed bin directory
-export PATH="$HOME/bin:$PATH"
-
 # flutter
 export PATH="$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
 
@@ -87,7 +93,3 @@ export PATH="/usr/local/go/bin:$PATH"
 # chezmoi completion
 type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
 
-# set up afx
-type afx > /dev/null 2>&1 && eval "$(afx init)"
-type afx > /dev/null 2>&1 && eval "$(afx completion zsh)"
-type afx > /dev/null 2>&1 && compdef _afx afx
