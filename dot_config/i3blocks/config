@@ -36,7 +36,7 @@ markup=none
 # See the script for details.
 
 [volume]
-label=
+label=
 #label=VOL
 interval=1
 #signal=10
@@ -101,7 +101,7 @@ label=LOAD
 interval=10
 
 [docker]
-label=Docker
+label= Docker
 interval=10
 
 # Battery indicator
