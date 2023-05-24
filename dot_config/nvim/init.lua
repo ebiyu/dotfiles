@@ -323,6 +323,8 @@ require("lazy").setup({
         config = function()
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
             vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
+            vim.keymap.set('c', '<c-j>', '<Plug>(skkeleton-enable)')
+            vim.keymap.set('c', '<c-k>', '<Plug>(skkeleton-enable)')
 
             local dictpath = vim.fn.expand("$HOME/.skk/SKK-JISYO.L")
             if vim.loop.fs_stat(dictpath) then
