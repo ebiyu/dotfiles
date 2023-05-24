@@ -93,3 +93,5 @@ export PATH="/usr/local/go/bin:$PATH"
 # chezmoi completion
 type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
 
+type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
+
