@@ -63,8 +63,24 @@ require("lazy").setup({
             'nvim-tree/nvim-web-devicons',
             "SmiteshP/nvim-navic",
             "nvimdev/zephyr-nvim",
+            'nvim-lua/lsp-status.nvim',
         },
         config = function()
+            local lsp_names = function()
+                local clients = {}
+                for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+                    if client.name == 'null-ls' then
+                        local sources = {}
+                        for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
+                            table.insert(sources, source.name)
+                        end
+                        table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
+                    else
+                        table.insert(clients, client.name)
+                    end
+                end
+                return ' ' .. table.concat(clients, ', ')
+            end
             require('lualine').setup {
                 options = {
                     colored = true,
@@ -90,7 +106,7 @@ require("lazy").setup({
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
                     lualine_c = { 'filename', 'navic' },
                     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-                    lualine_y = { 'progress' },
+                    lualine_y = { lsp_names, 'progress' },
                     lualine_z = { 'location' }
                 },
                 inactive_sections = {
@@ -178,6 +194,7 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     'saadparwaiz1/cmp_luasnip',
+    'nvim-lua/lsp-status.nvim',
 
     {
         "SmiteshP/nvim-navic",
@@ -351,9 +368,10 @@ require("lazy").setup({
                 group = 'vimrc_augroup',
                 pattern = '*',
                 callback = function(args)
-                    local types = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
-                    for i = 1, #types do
-                        if args.match == types[i] then
+                    local prettier_types = { "typescript", "typescriptreact", "javascript", "javascriptreact", "css",
+                        "html" }
+                    for i = 1, #prettier_types do
+                        if args.match == prettier_types[i] then
                             vim.keymap.set('n', '<space>lf', "<cmd>Prettier<cr>",
                                 { desc = '[LSP] Format (prettier)', buffer = true })
                             break
@@ -362,7 +380,51 @@ require("lazy").setup({
                 end
             })
         end
-    }
+    },
+})
+
+vim.api.nvim_create_augroup('vimrc_lsp', {})
+vim.api.nvim_create_autocmd('FileType', {
+    group = 'vimrc_lsp',
+    pattern = '*',
+    callback = function(args)
+        local function ts_rename_file()
+            local source_file, target_file
+
+            source_file = vim.api.nvim_buf_get_name(0)
+
+            vim.ui.input({
+                    prompt = "Target : ",
+                    completion = "file",
+                    default = source_file
+                },
+                function(input)
+                    target_file = input
+                end
+            )
+
+            local params = {
+                command = "_typescript.applyRenameFile",
+                arguments = {
+                    {
+                        sourceUri = source_file,
+                        targetUri = target_file,
+                    },
+                },
+                title = ""
+            }
+
+            vim.lsp.util.rename(source_file, target_file)
+            vim.lsp.buf.execute_command(params)
+        end
+        local ts_types = { "typescript", "typescriptreact" }
+        for i = 1, #ts_types do
+            if args.match == ts_types[i] then
+                vim.keymap.set('n', '<space>lN', ts_rename_file,
+                    { desc = '[LSP] Rename file (typescript)', buffer = true })
+            end
+        end
+    end
 })
 
 
@@ -466,6 +528,19 @@ vim.keymap.set('n', '<space>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', { des
 vim.keymap.set('n', '<space>le', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = '[LSP] Open diagnostics' })
 vim.keymap.set('n', '<space>l]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = '[LSP] Go to next diagnostic' })
 vim.keymap.set('n', '<space>l[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = '[LSP] Go to previous diagnostic' })
+
+vim.keymap.set('v', '<space>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = '[LSP] Hover' })
+vim.keymap.set('v', '<space>lf', function() vim.lsp.buf.format { async = true } end, { desc = '[LSP] Format' })
+vim.keymap.set('v', '<space>lr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = '[LSP] References' })
+vim.keymap.set('v', '<space>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = '[LSP] Go to definition' })
+vim.keymap.set('v', '<space>lD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = '[LSP] Go to declaration' })
+vim.keymap.set('v', '<space>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', { desc = '[LSP] Go to implementation' })
+vim.keymap.set('v', '<space>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { desc = '[LSP] Go to type definition' })
+vim.keymap.set('v', '<space>ln', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = '[LSP] Rename symbol' })
+vim.keymap.set('v', '<space>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = '[LSP] Code action' })
+vim.keymap.set('v', '<space>le', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = '[LSP] Open diagnostics' })
+vim.keymap.set('v', '<space>l]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = '[LSP] Go to next diagnostic' })
+vim.keymap.set('v', '<space>l[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = '[LSP] Go to previous diagnostic' })
 
 -- tree sitter
 require 'nvim-treesitter.configs'.setup {
