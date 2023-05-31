@@ -352,6 +352,25 @@ require("lazy").setup({
         end
     },
     {
+        'Shougo/vinarise.vim',
+        config = function ()
+            -- binary editor
+            -- https://rdera.hatenadiary.org/entry/20081022/1224682665
+            vim.api.nvim_exec([[
+                augroup BinaryXXD
+                  autocmd!
+                  autocmd BufReadPre  *.bin let &binary =1
+                  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+                  autocmd BufReadPost * set ft=xxd | endif
+                  autocmd BufWritePre * if &binary | %!xxd -r 
+                  autocmd BufWritePre * endif
+                  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+                  autocmd BufWritePost * set nomod | endif
+                augroup END
+            ]], false)
+        end
+    },
+    {
         "tani/hey.vim",
         dependencies = {
             "vim-denops/denops.vim",
@@ -579,3 +598,4 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
+
