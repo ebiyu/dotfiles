@@ -339,9 +339,7 @@ require("lazy").setup({
         },
         config = function()
             vim.keymap.set('i', '<c-j>', '<Plug>(skkeleton-enable)')
-            vim.keymap.set('i', '<c-k>', '<Plug>(skkeleton-enable)')
             vim.keymap.set('c', '<c-j>', '<Plug>(skkeleton-enable)')
-            vim.keymap.set('c', '<c-k>', '<Plug>(skkeleton-enable)')
 
             local dictpath = vim.fn.expand("$HOME/.skk/SKK-JISYO.L")
             if vim.loop.fs_stat(dictpath) then
@@ -349,25 +347,6 @@ require("lazy").setup({
                     call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
                 ]], false)
             end
-        end
-    },
-    {
-        'Shougo/vinarise.vim',
-        config = function ()
-            -- binary editor
-            -- https://rdera.hatenadiary.org/entry/20081022/1224682665
-            vim.api.nvim_exec([[
-                augroup BinaryXXD
-                  autocmd!
-                  autocmd BufReadPre  *.bin let &binary =1
-                  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-                  autocmd BufReadPost * set ft=xxd | endif
-                  autocmd BufWritePre * if &binary | %!xxd -r 
-                  autocmd BufWritePre * endif
-                  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-                  autocmd BufWritePost * set nomod | endif
-                augroup END
-            ]], false)
         end
     },
     {
@@ -598,4 +577,3 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
-
