@@ -24,6 +24,12 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec wezterm
+bindsym $mod+Shift+Return exec wezterm start --class wezterm-float
+
+bindsym $mod+v exec wezterm start nvim
+bindsym $mod+Shift+v exec wezterm start --class wezterm-float nvim
+
+for_window [class="wezterm-float"] floating enable
 
 bindsym $mod+Shift+Escape exec i3lock
 bindsym $mod+Shift+Control+Escape exec --no-startup-id systemctl suspend
