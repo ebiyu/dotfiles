@@ -5,3 +5,9 @@ truncate_to_repo = false
 [python]
 pyenv_version_name = false
 
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
