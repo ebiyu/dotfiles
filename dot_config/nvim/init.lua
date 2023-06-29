@@ -51,7 +51,10 @@ require("lazy").setup({
                     open_file = {
                         quit_on_open = true
                     }
-                }
+                },
+                view = {
+                    width = 100,
+                },
             }
             vim.keymap.set('n', '<C-b>', '<cmd>NvimTreeFindFile<CR>')
         end
