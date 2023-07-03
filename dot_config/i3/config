@@ -31,7 +31,7 @@ bindsym $mod+Shift+v exec wezterm start --class wezterm-float nvim
 
 for_window [class="wezterm-float"] floating enable
 
-bindsym $mod+Shift+Escape exec i3lock
+bindsym $mod+Shift+Escape exec i3lock --color 222233
 bindsym $mod+Shift+Control+Escape exec --no-startup-id systemctl suspend
 
 # Font for window titles. Will also be used by the bar unless a different font
