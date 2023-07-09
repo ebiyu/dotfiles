@@ -5,6 +5,7 @@ setopt list_packed # 補完候補を詰めて表示する
 setopt nolistbeep # 補完候補表示時などにピッピとビープ音をならないように設定
 bindkey -e # emacs key bind
 
+autoload bashcompinit && bashcompinit
 # Set up completion
 autoload -U compinit
 compinit -u
@@ -95,3 +96,7 @@ type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
 
 type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
 
+# add completion for aws cli
+complete -C $(which aws_completer) aws
+
+type neofetch > /dev/null 2>&1 && neofetch
