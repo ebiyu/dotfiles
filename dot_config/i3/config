@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Firge35Nerd Console 10
+font pango:Firge35Nerd Console 25
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so they are included here as an example. Modify as you see fit.
 
