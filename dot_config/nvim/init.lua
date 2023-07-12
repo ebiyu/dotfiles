@@ -160,7 +160,7 @@ require("lazy").setup({
             require('telescope').setup {
                 defaults = {
                     file_ignore_patterns = { ".venv/", ".git/", "node_modules" }
-                }
+                },
             }
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<c-p>', function() builtin.find_files { hidden = true } end, {})
