@@ -19,6 +19,7 @@ zstyle ':completion:*' list-colors di=34 ln=35 ex=31 #補完に色をつける
 
 # general-purposed bin directory
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # set up afx
 type afx > /dev/null 2>&1 && eval "$(afx init)"
