@@ -1,5 +1,5 @@
-" Indent
-set expandtab
+" Indent config
+set expandtab " tabキーを押したらspaceを挿入
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -8,11 +8,7 @@ set smartindent
 set indentexpr=
 set indentkeys=
 
-set laststatus=2 "常にステータス行を表示
-"set statusline=%F%m%r%h%w\ (%l/%L\|%p%%)%=%y[%{&ff}][%{&fenc}][%Y]
-
-set noswapfile
-
+"indent in visual mode
 vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv
 vnoremap g<C-a> g<C-a>gv
@@ -23,44 +19,13 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
-set listchars=tab:>\ ,trail:_
-set list
-
-set mouse=a
-
-"オプションの設定"{{{
-set backspace=indent,eol,start
-
-set showcmd "入力中のコマンドを表示
-set hidden "buffer切り替え時に保存を促さない
-set history=1000 "コマンド履歴
-set background=dark
-set clipboard=unnamedplus,unnamed
-set showmatch "対応するかっこを挿入
-set matchtime=1
-set scrolloff=8
-set autoread
-set timeoutlen=500
-
-set modelines=0
+" 検索まわり
 set hlsearch
 set incsearch
 nmap <silent> <Esc><Esc> <Esc><Cmd>noh<Return>
 set ignorecase " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set smartcase " 検索文字列に大文字が含まれている場合は区別して検索する
-"}}}
 
-nnoremap Y y$
-nnoremap x "_x
-
-nnoremap <space> <nop>
-
-nnoremap <silent> L <Cmd>bnext<CR>
-nnoremap <silent> H <Cmd>bprev<CR>
-nnoremap <silent> Q <Cmd>bdelete<CR>
-
-inoremap ¥ \
-cnoremap ¥ \
 
 " emacs key binding in insert mode
 cnoremap <c-n> <down>
@@ -73,6 +38,44 @@ inoremap <c-a> <home>
 cnoremap <c-a> <home>
 inoremap <c-e> <end>
 cnoremap <c-e> <end>
+
+" バッファ処理関連のキーマップ
+nnoremap <silent> L <Cmd>bnext<CR>
+nnoremap <silent> H <Cmd>bprev<CR>
+nnoremap <silent> Q <Cmd>bdelete<CR>
+
+" マウスを有効化する
+set mouse=a
+
+set backspace=indent,eol,start " backspaceを有効化する
+set showcmd " 入力中のキーマップを右下に表示
+set hidden " buffer切り替え時に保存を促さない
+set history=1000 " コマンド履歴
+set background=dark " タークテーマ
+set clipboard=unnamedplus,unnamed " クリップボードの有効化
+set modelines=0 " モードラインを無効化
+set laststatus=2 " 常にステータス行を表示
+set autoread " ファイルがvimの外で変更されたら読み込む
+set scrolloff=8 " スクロールするときに、下に8行分残してスクロールする
+set timeoutlen=500 " 複数からなるキーマップのタイムアウト速度
+set noswapfile " バックアップを無効
+
+" タブや末尾のスペースを可視化する
+set listchars=tab:>\ ,trail:_
+set list
+
+" 対応するかっこをハイライト
+set showmatch
+set matchtime=1
+
+nnoremap Y y$ " Y の動作を自然にする neovimだとデフォルトで入っている
+nnoremap x "_x " レジスタを汚染しないようにする
+
+nnoremap <space> <nop>
+
+" mac用
+inoremap ¥ \
+cnoremap ¥ \
 
 syntax on
 
