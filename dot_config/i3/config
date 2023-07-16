@@ -195,3 +195,5 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Pavucontrol"] resize set 640 480
 for_window [class="1Password"] floating enable
 
+
+gaps inner 5
