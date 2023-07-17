@@ -78,10 +78,10 @@ bindsym $mod+Control+Shift+k move workspace to output up
 bindsym $mod+Control+Shift+l move workspace to output right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+bindsym $mod+i split h
 
 # split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+o split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -99,6 +99,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+z focus child
 
 # audion settings
 bindsym $mod+Shift+a exec pavucontrol
@@ -112,7 +113,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "ho"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"

@@ -20,7 +20,6 @@ return {
     { key = '+', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },
     { key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
     { key = '-', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
-    { key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
     { key = '0', mods = 'CTRL', action = act.ResetFontSize },
     { key = '0', mods = 'SHIFT|CTRL', action = act.ResetFontSize },
     { key = '0', mods = 'SUPER', action = act.ResetFontSize },
