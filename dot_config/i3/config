@@ -29,6 +29,9 @@ bindsym $mod+Shift+Return exec wezterm start --class wezterm-float
 bindsym $mod+v exec wezterm start nvim
 bindsym $mod+Shift+v exec wezterm start --class wezterm-float nvim
 
+# mute/unmute on discord
+bindsym $mod+m exec xdotool search --onlyvisible --name discord windowactivate --sync key --clearmodifiers ctrl+shift+m
+
 for_window [class="wezterm-float"] floating enable
 
 bindsym $mod+Shift+Escape exec i3lock --color 222233
@@ -199,4 +202,4 @@ for_window [class="Pavucontrol"] resize set 640 480
 for_window [class="1Password"] floating enable
 
 
-gaps inner 15
+#gaps inner 15
