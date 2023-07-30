@@ -168,15 +168,6 @@ require("lazy").setup({
         end
     },
     {
-        "nvim-telescope/telescope-frecency.nvim",
-        config = function()
-            require "telescope".load_extension("frecency")
-            vim.api.nvim_set_keymap("n", "<c-f>",
-                "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", { noremap = true, silent = true })
-        end,
-        dependencies = { "kkharji/sqlite.lua", 'nvim-telescope/telescope.nvim' }
-    },
-    {
         "img-paste-devs/img-paste.vim",
         config = function()
             vim.api.nvim_exec([[
