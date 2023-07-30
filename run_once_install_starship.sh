@@ -2,7 +2,10 @@
 
 set -eu
 
-echo "Installing starship..."
+# if not installed
+if ! type starship > /dev/null 2>&1; then
+  echo "Installing starship..."
+  curl -sS https://starship.rs/install.sh | sh
+fi
 
-type starship > /dev/null 2>&1 || curl -sS https://starship.rs/install.sh | sh
 
