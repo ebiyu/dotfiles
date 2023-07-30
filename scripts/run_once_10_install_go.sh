@@ -55,7 +55,5 @@ if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
     wget ${LATEST_GO_DOWNLOAD_URL} -O /tmp/go.tar.gz
     echo "@ Extracting file..."
     sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go.tar.gz
-    echo "> go version"
-    go version
 fi
 
