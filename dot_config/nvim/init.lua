@@ -465,22 +465,6 @@ local lspconfig = require('lspconfig')
 require("mason").setup()
 
 local masonconfig = require('mason-lspconfig')
-masonconfig.setup {
-    ensure_installed = {
-        'bashls',
-        'jedi_language_server',
-        'gopls',
-        'lua_ls',
-        'quick_lint_js',
-        'tsserver',
-        'jsonls',
-        'html',
-        'emmet_ls',
-        'cssls',
-        'eslint',
-    },
-    automatic_installation = {},
-}
 
 masonconfig.setup_handlers {
     function(server_name)
