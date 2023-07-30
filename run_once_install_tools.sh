@@ -3,6 +3,9 @@
 set -eu
 
 if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
+
+    OS="$(uname -s)"
+    ARCH="$(uname -m)"
     set +e
     type zsh > /dev/null 2>&1 || {
         echo "@ Installing zsh..."
@@ -16,8 +19,13 @@ if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
     }
     type deno > /dev/null 2>&1 || {
         echo "@ Installing deno..."
-        echo "> curl -fsSL https://deno.land/x/install/install.sh | sh"
-        curl -fsSL https://deno.land/x/install/install.sh | sh
+        if $OS == "Linux" -a $ARCH != "x86_64"; then
+            echo "! Deno only support x86_64."
+            echo "! Skip installing deno."
+        else
+            echo "> curl -fsSL https://deno.land/x/install/install.sh | sh"
+            curl -fsSL https://deno.land/x/install/install.sh | sh
+        fi
     }
     type wget > /dev/null 2>&1 || {
         echo "@ Installing wget..."
@@ -28,9 +36,6 @@ if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
         echo "@ Checking go version..."
         LATEST_GO_VERSION="$(curl --silent 'https://go.dev/VERSION?m=text')";
         echo "@ Installing go version: ${LATEST_GO_VERSION}"
-
-        OS="$(uname -s)"
-        ARCH="$(uname -m)"
 
         case $OS in
             "Linux")
