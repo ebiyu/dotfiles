@@ -19,7 +19,7 @@ if [[ ! -z "${CHEZMOI_FULL_INSTALL:-}" ]]; then
     }
     type deno > /dev/null 2>&1 || {
         echo "@ Installing deno..."
-        if $OS == "Linux" -a $ARCH != "x86_64"; then
+        if [$OS == "Linux" -a $ARCH != "x86_64"]; then
             echo "! Deno only support x86_64."
             echo "! Skip installing deno."
         else
