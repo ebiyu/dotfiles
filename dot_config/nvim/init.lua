@@ -555,3 +555,4 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
+
