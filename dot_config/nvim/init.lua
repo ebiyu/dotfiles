@@ -374,6 +374,21 @@ require("lazy").setup({
             })
         end
     },
+
+    {
+        'vim-test/vim-test',
+        config = function()
+            vim.api.nvim_exec([[
+                let g:test#python#runner = 'pytest'
+                "let g:test#python#pytest#executable = g:project_pytest
+            ]], false)
+            vim.keymap.set('n', '<space>tt', "<cmd>TestFile<cr>", { desc = '[test] Test file' })
+            vim.keymap.set('n', '<space>tn', "<cmd>TestNearest<cr>", { desc = '[test] Test nearest' })
+            vim.keymap.set('n', '<space>ts', "<cmd>TestSuite<cr>", { desc = '[test] Test suite' })
+            vim.keymap.set('n', '<space>tl', "<cmd>TestLast<cr>", { desc = '[test] Test last' })
+            vim.keymap.set('n', '<space>tv', "<cmd>TestVisit<cr>", { desc = '[test] Test visit' })
+        end
+    }
 })
 
 vim.api.nvim_create_augroup('vimrc_lsp', {})
