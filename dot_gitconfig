@@ -32,7 +32,7 @@
 [commit]
     gpgsign = false
     gpgsigna = false
-	template = ~/.gittemplate
+	template = /home/ebi/.gittemplate
 [init]
 	defaultBranch = main
 [diff]

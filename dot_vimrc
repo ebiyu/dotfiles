@@ -1,5 +1,5 @@
 " Indent config
-set expandtab " insert tab instead of space
+set expandtab " tabキーを押したらspaceを挿入
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -19,12 +19,12 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
-" find
+" 検索まわり
 set hlsearch
 set incsearch
 nmap <silent> <Esc><Esc> <Esc><Cmd>noh<Return>
-set ignorecase
-set smartcase
+set ignorecase " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set smartcase " 検索文字列に大文字が含まれている場合は区別して検索する
 
 
 " emacs key binding in insert mode
@@ -39,45 +39,47 @@ cnoremap <c-a> <home>
 inoremap <c-e> <end>
 cnoremap <c-e> <end>
 
-" keymap to switch buffer
+" バッファ処理関連のキーマップ
 nnoremap <silent> L <Cmd>bnext<CR>
 nnoremap <silent> H <Cmd>bprev<CR>
 nnoremap <silent> Q <Cmd>bdelete<CR>
 
-" enable mouse
+nnoremap <c-h> <cmd>set wrap!<cr>
+
+" マウスを有効化する
 set mouse=a
 
-set backspace=indent,eol,start " enable backspace
-set showcmd " show current keymap On bottom right
-set hidden
-set history=1000
-set background=dark
-set clipboard=unnamedplus,unnamed " enable os native clipboard
-set modelines=0
-set laststatus=2 " always show status line
-set autoread
-set scrolloff=8
-set timeoutlen=500 " timeout of keymap
-set noswapfile
+set backspace=indent,eol,start " backspaceを有効化する
+set showcmd " 入力中のキーマップを右下に表示
+set hidden " buffer切り替え時に保存を促さない
+set history=1000 " コマンド履歴
+set background=dark " タークテーマ
+set clipboard=unnamedplus,unnamed " クリップボードの有効化
+set modelines=0 " モードラインを無効化
+set laststatus=2 " 常にステータス行を表示
+set autoread " ファイルがvimの外で変更されたら読み込む
+set scrolloff=8 " スクロールするときに、下に8行分残してスクロールする
+set timeoutlen=500 " 複数からなるキーマップのタイムアウト速度
+set noswapfile " バックアップを無効
 
-" show whitespace
+" タブや末尾のスペースを可視化する
 set listchars=tab:>\ ,trail:_
 set list
 
-" highlight matched paren
+" 対応するかっこをハイライト
 set showmatch
 set matchtime=1
 
+" Y の動作を自然にする neovimだとデフォルトで入っている
 nnoremap Y y$
+" レジスタを汚染しないようにする
 nnoremap x "_x
 
 nnoremap <space> <nop>
 
-" for macos
+" mac用
 inoremap ¥ \
 cnoremap ¥ \
 
-try
-    syntax on
-catch
-endtry
+syntax on
+

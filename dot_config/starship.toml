@@ -11,5 +11,3 @@ disabled = true
 [cmake]
 disabled = true
 
-[gcloud]
-disabled = true
