@@ -6,4 +6,3 @@
 tags
 *.cache
 compile_commands.json
-nohup.out
