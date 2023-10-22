@@ -203,3 +203,5 @@ for_window [class="1Password"] floating enable
 
 
 #gaps inner 15
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
