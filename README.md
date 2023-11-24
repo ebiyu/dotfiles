@@ -36,3 +36,21 @@ chezmoi edit -a # open nvim on directory
 chezmoi edit -a {file}
 ```
 
+## Requirements
+
+memo for myself
+
+- from apt / brew
+    - zsh
+    - peco
+    - wget
+- from script
+    - starship
+        - `curl -sS https://starship.rs/install.sh | sh`
+    - deno
+        - `curl -fsSL https://deno.land/x/install/install.sh | sh`
+- manual install
+    - go
+- go install
+    - ghq
+        - `go get github.com/x-motemen/ghq`
