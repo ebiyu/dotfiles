@@ -73,6 +73,10 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^O' edit-command-line
 
+# PlatformIO
+export PATH="$HOME/.platformio/penv/bin:$PATH"
+
+
 # XXXenv
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -91,9 +95,6 @@ if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bin/goo
 # golang
 export GO111MODULE=on
 export PATH="/usr/local/go/bin:$PATH"
-
-# PlatformIO
-export PATH="$HOME/.platformio/penv/bin:$PATH"
 
 # chezmoi completion
 type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
