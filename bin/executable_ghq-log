@@ -4,11 +4,11 @@ set -eu
 
 if [ $# -eq 0 ]; then
     echo "Showing all git logs in ~/ghq"
-    find ~/ghq -maxdepth 4 -name .git -execdir git log --oneline --date=iso --decorate=short --pretty=format:'%h %cd %ct %cn %d %s' \; | cat | sort -k 2 -r | less
+    find ~/ghq -maxdepth 4 -name .git -execdir sh -c 'git log --oneline --date=iso --decorate=short --pretty=format:"%h %cd ($(cd $(dirname $0); pwd | sed 's#.*/##')) %cn %d %s"' '{}' \; | cat | sort -k 2 -r | less
 fi;
 
 if [ $# -eq 1 ]; then
     echo "Showing all git logs in ~/ghq/github.com/$1"
-    find ~/ghq/github.com/$1 -maxdepth 2 -name .git -execdir git log --oneline --date=iso --decorate=short --pretty=format:'%h %cd %ct %cn %d %s' \; | cat | sort -k 2 -r | less
+    find ~/ghq/github.com/$1 -maxdepth 2 -name .git -execdir sh -c 'git log --oneline --date=iso --decorate=short --pretty=format:"%h %cd ($(cd $(dirname $0); pwd | sed 's#.*/##')) %cn %d %s"' '{}' \; | cat | sort -k 2 -r | less
 fi;
 
