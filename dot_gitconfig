@@ -32,7 +32,6 @@
 [commit]
     gpgsign = false
     gpgsigna = false
-	template = ~/.gittemplate
 [init]
 	defaultBranch = main
 [diff]
