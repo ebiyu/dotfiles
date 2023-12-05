@@ -105,3 +105,5 @@ type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
 complete -C $(which aws_completer) aws
 
 type neofetch > /dev/null 2>&1 && neofetch
+
+export PICO_SDK_PATH=$HOME/ghq/github.com/raspberrypi/pico-sdk
