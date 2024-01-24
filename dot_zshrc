@@ -106,6 +106,10 @@ type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
 
 type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
 
+# deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # add completion for aws cli
 complete -C $(which aws_completer) aws
 
