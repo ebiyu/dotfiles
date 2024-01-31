@@ -342,6 +342,12 @@ require("lazy").setup({
         },
     },
 
+    {
+        "thinca/vim-quickrun",
+        config = function ()
+            vim.keymap.set('n', '<space>q', '<Plug>(quickrun)', { noremap = false })
+        end
+    },
 
     {
         'prettier/vim-prettier',
