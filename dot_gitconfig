@@ -8,6 +8,7 @@
     l = log
     g = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(reset)%cd %C(green)%cn %C(yellow)%d %C(reset)%s'
     cm = commit
+    undo = reset --soft HEAD^
     b = branch
     s = status
     st = status
