@@ -340,7 +340,7 @@ require("lazy").setup({
             local dictpath = vim.fn.expand("$HOME/.skk/SKK-JISYO.L")
             if vim.loop.fs_stat(dictpath) then
                 vim.api.nvim_exec([[
-                    call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+                    call skkeleton#config({ 'globalDictionaries': ['~/.skk/SKK-JISYO.L'] })
                 ]], false)
             end
         end
