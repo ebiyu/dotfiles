@@ -39,7 +39,17 @@ require("lazy").setup({
     {
         "kylechui/nvim-surround",
         config = function()
-            require("nvim-surround").setup()
+            require("nvim-surround").setup({
+                surrounds = {
+                    -- i18n
+                    ["i"] = {
+                        add = { "{t(\"", "\")}" },
+                        delete = "^(.)().-(.)()$",
+                    }
+
+                }
+
+            })
         end
     },
 
@@ -316,7 +326,7 @@ require("lazy").setup({
     },
     "RRethy/vim-illuminate",
 
-    {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}},
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
     {
         "vim-skk/skkeleton",
@@ -344,7 +354,7 @@ require("lazy").setup({
 
     {
         "thinca/vim-quickrun",
-        config = function ()
+        config = function()
             vim.keymap.set('n', '<space>q', '<Plug>(quickrun)', { noremap = false })
         end
     },
@@ -567,4 +577,3 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
-
