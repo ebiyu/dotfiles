@@ -9,7 +9,6 @@ vim.opt.termguicolors = true
 vim.api.nvim_exec([[source $HOME/.vimrc]], false)
 
 vim.o.inccommand = "split"
-vim.o.laststatus = 3
 -- vim.o.cmdheight = 0 -- TODO: skkeleton with cmdheight=1
 vim.keymap.set('t', '<esc>', '<c-\\><c-n>')
 
