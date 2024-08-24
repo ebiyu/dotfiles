@@ -25,3 +25,4 @@ type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion bash)"
 # source local if exists
 [ -f ~/.bashrc.local ] && . ~/.bashrc.local
 
+. "$HOME/.cargo/env"

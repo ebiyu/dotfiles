@@ -8,6 +8,16 @@ set smartindent
 set indentexpr=
 set indentkeys=
 
+" Indent config by file type
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.ts setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.tsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.tf setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 "indent in visual mode
 vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv

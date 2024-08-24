@@ -394,6 +394,16 @@ require("lazy").setup({
             vim.keymap.set('n', '<space>tl', "<cmd>TestLast<cr>", { desc = '[test] Test last' })
             vim.keymap.set('n', '<space>tv', "<cmd>TestVisit<cr>", { desc = '[test] Test visit' })
         end
+    },
+
+    {
+        'kyoh86/vim-ripgrep',
+        config = function()
+            vim.keymap.set('n', '<space>r', ":Rg ", { desc = '[ripgrep] Search' })
+            vim.api.nvim_exec([[
+                command! -nargs=+ -complete=file Rg :call ripgrep#search(<q-args>)
+            ]], false)
+        end
     }
 })
 
