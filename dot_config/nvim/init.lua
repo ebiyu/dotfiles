@@ -380,19 +380,41 @@ require("lazy").setup({
             })
         end
     },
-
     {
-        'vim-test/vim-test',
-        config = function()
-            vim.api.nvim_exec([[
-                let g:test#python#runner = 'pytest'
-                "let g:test#python#pytest#executable = g:project_pytest
-            ]], false)
-            vim.keymap.set('n', '<space>tt', "<cmd>TestFile<cr>", { desc = '[test] Test file' })
-            vim.keymap.set('n', '<space>tn', "<cmd>TestNearest<cr>", { desc = '[test] Test nearest' })
-            vim.keymap.set('n', '<space>ts', "<cmd>TestSuite<cr>", { desc = '[test] Test suite' })
-            vim.keymap.set('n', '<space>tl', "<cmd>TestLast<cr>", { desc = '[test] Test last' })
-            vim.keymap.set('n', '<space>tv', "<cmd>TestVisit<cr>", { desc = '[test] Test visit' })
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            'nvim-neotest/neotest-python',
+        },
+        config = function ()
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-python")({
+                        dap = { justMyCode = false },
+                    }),
+                },
+            })
+            vim.keymap.set('n', '<space>tf', function()
+                require("neotest").run.run(vim.fn.expand("%"))
+            end, { desc = '[test] Test file' })
+            vim.keymap.set('n', '<space>tt', function()
+                require("neotest").run.run()
+            end, { desc = '[test] Test nearest' })
+            vim.keymap.set('n', '<space>tp', function()
+                require("neotest").output.open()
+            end, { desc = '[test] Preview test output' })
+            vim.keymap.set('n', '<space>to', function()
+                require("neotest").output.open({ enter = true })
+            end, { desc = '[test] Open test output' })
+            vim.keymap.set('n', '<space>tw', function()
+                require("neotest").watch.watch()
+            end, { desc = '[test] Watch test' })
+            vim.keymap.set('n', '<space>tW', function()
+                require("neotest").watch.stop()
+            end, { desc = '[test] Stop watching test' })
         end
     },
 
@@ -586,3 +608,4 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
+
