@@ -24,5 +24,5 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/dotfiles_private/bin:$HOME/dotfiles/bin:$PATH
 
 
-if [ -e /home/ebi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ebi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-. "$HOME/.cargo/env"
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env" ; fi # added by Cargo installer
