@@ -26,3 +26,5 @@ export PATH=$HOME/dotfiles_private/bin:$HOME/dotfiles/bin:$PATH
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 if [ -e "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env" ; fi # added by Cargo installer
+if [ -e "$HOME/.rye/env" ]; then . "$HOME/.rye/env" ; fi # added by Cargo installer
+
