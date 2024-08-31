@@ -354,7 +354,10 @@ require("lazy").setup({
     {
         "thinca/vim-quickrun",
         config = function()
-            vim.keymap.set('n', '<space>q', '<Plug>(quickrun)', { noremap = false })
+            vim.keymap.set('n', '<space>q', '<Plug>(quickrun)', {
+                noremap = false,
+                desc = "[quickrun] Run"
+            })
         end
     },
 
@@ -389,7 +392,7 @@ require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
             'nvim-neotest/neotest-python',
         },
-        config = function ()
+        config = function()
             require("neotest").setup({
                 adapters = {
                     require("neotest-python")({
@@ -608,4 +611,3 @@ vim.api.nvim_exec([[
       au FileType markdown vnoremap <buffer> <silent> p :<C-u>call InsertMarkdownLink()<CR>
     augroup END
 ]], false)
-
