@@ -429,7 +429,111 @@ require("lazy").setup({
                 command! -nargs=+ -complete=file Rg :call ripgrep#search(<q-args>)
             ]], false)
         end
+    },
+    {
+        "GCBallesteros/NotebookNavigator.nvim",
+        keys = {
+            {
+                "<space>jj",
+                function() require("notebook-navigator").move_cell "d" end,
+                desc = '[notebook] Move cell down'
+            },
+            {
+                "<space>jk",
+                function() require("notebook-navigator").move_cell "u" end,
+                desc = '[notebook] Move cell up'
+            },
+            {
+                "<space>kk",
+                function() require("notebook-navigator").move_cell "u" end,
+                desc = '[notebook] Move cell up'
+            },
+            {
+                "<space>jr",
+                function() require("notebook-navigator").run_all_cells() end,
+                desc = '[notebook] Run all cells'
+            },
+            {
+                "<space>ju",
+                function() require("notebook-navigator").run_all_avove() end,
+                desc = '[notebook] Run avove cells'
+            },
+            -- {
+            --     "<space>jd",
+            --     function() require("notebook-navigator").run_all_below() end,
+            --     desc = '[notebook] Run below cells'
+            -- },
+            {
+                "<space>jX",
+                function() require("notebook-navigator").run_cell() end,
+                desc = '[notebook] Run cell'
+            },
+            {
+                "<space>jx",
+                function() require("notebook-navigator").run_and_move() end,
+                desc = '[notebook] Run and move'
+            },
+            {
+                "<space>j<cr>",
+                function() require("notebook-navigator").run_and_move() end,
+                desc = '[notebook] Run and move'
+            },
+            {
+                "<space>jc",
+                function() require("notebook-navigator").comment_cell() end,
+                desc = '[notebook] Comment cell'
+            },
+            {
+                "<space>js",
+                function() require("notebook-navigator").split_cell() end,
+                desc = '[notebook] Split cell'
+            },
+            {
+                "<space>jm",
+                function() require("notebook-navigator").merge_cell("u") end,
+                desc = '[notebook] Merge cell above'
+            },
+            {
+                "<space>ja",
+                function() require("notebook-navigator").add_cell_above() end,
+                desc = '[notebook] Add cell above'
+            },
+            {
+                "<space>jb",
+                function() require("notebook-navigator").add_cell_below() end,
+                desc = '[notebook] Add cell below'
+            },
+            {
+                "<space>jd",
+                function() require("notebook-navigator").delete_cell() end,
+                desc = '[notebook] Delete cell'
+            },
+        },
+        dependencies = {
+            "echasnovski/mini.comment",
+            "hkupty/iron.nvim", -- repl provider
+            -- "akinsho/toggleterm.nvim", -- alternative repl provider
+            -- "benlubas/molten-nvim", -- alternative repl provider
+            "anuvyklack/hydra.nvim",
+        },
+        event = "VeryLazy",
+        config = function()
+            local nn = require "notebook-navigator"
+            nn.setup({ activate_hydra_keys = "<space>jh" })
+        end,
+    },
+    {
+        "echasnovski/mini.hipatterns",
+        event = "VeryLazy",
+        dependencies = { "GCBallesteros/NotebookNavigator.nvim" },
+        opts = function()
+            local nn = require "notebook-navigator"
+
+            local opts = { highlighters = { cells = nn.minihipatterns_spec } }
+            return opts
+        end
     }
+
 })
 
 vim.api.nvim_create_augroup('vimrc_lsp', {})
@@ -583,7 +687,7 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- junk file
-vim.keymap.set('n', '<space>j', function()
+vim.keymap.set('n', '<space>n', function()
     local datetime = os.date('%Y-%m-%d_%H-%M-%S')
 
     -- ask for extention
