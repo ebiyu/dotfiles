@@ -8,11 +8,11 @@ set -eu
 echo "This script will install chezmoi and apply dotfiles."
 
 function normal_install() {
-    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply ebiyuu1121
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply ebiyu
 }
 
 function one_shot_install() {
-    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --one-shot --apply ebiyuu1121
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --one-shot --apply ebiyu
 }
 
 if type git > /dev/null 2>&1; then
