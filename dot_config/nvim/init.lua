@@ -173,7 +173,7 @@ require("lazy").setup({
             }
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<c-p>', function() builtin.find_files { hidden = true } end, {})
-            vim.keymap.set('n', '<c-;>', builtin.keymaps, {})
+            vim.keymap.set('n', '<space>o', builtin.oldfiles, { desc = '[telescope] Old files' }) -- mru
         end
     },
     {
@@ -581,6 +581,29 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
+
+-- junk file
+vim.keymap.set('n', '<space>j', function()
+    local datetime = os.date('%Y-%m-%d_%H-%M-%S')
+
+    -- ask for extention
+    local success, ext = pcall(vim.fn.input, {
+        prompt = ':e ~/.vimjunk/' .. datetime .. '.',
+        cancelreturn = '<esc>',
+    })
+
+    -- skip if escaped or interrupted
+    if not success or ext == '<esc>' then
+        return
+    end
+
+    -- default ext
+    if ext == '' then
+        ext = 'txt'
+    end
+    -- open junk file
+    vim.cmd('e ~/.vimtmp/' .. datetime .. '.' .. ext)
+end, { desc = '[junk] Create junk file' })
 
 -- clipboard
 -- from. https://zenn.dev/skanehira/articles/2021-11-29-vim-paste-clipboard-link
