@@ -455,7 +455,7 @@ require("lazy").setup({
             },
             {
                 "<space>ju",
-                function() require("notebook-navigator").run_all_avove() end,
+                function() require("notebook-navigator").run_cell_avove() end,
                 desc = '[notebook] Run avove cells'
             },
             -- {
@@ -523,6 +523,18 @@ require("lazy").setup({
         end,
     },
     {
+        "hkupty/iron.nvim",
+        event = "VeryLazy",
+        config = function()
+            local iron = require("iron.core")
+            iron.setup {
+                config = {
+                    repl_open_cmd = "botright vsplit",
+                }
+            }
+        end
+    },
+    {
         "echasnovski/mini.hipatterns",
         event = "VeryLazy",
         dependencies = { "GCBallesteros/NotebookNavigator.nvim" },
@@ -532,7 +544,7 @@ require("lazy").setup({
             local opts = { highlighters = { cells = nn.minihipatterns_spec } }
             return opts
         end
-    }
+    },
 
 })
 
