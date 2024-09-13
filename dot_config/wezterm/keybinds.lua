@@ -5,12 +5,6 @@ return {
   keys = {
     { key = 'p', mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
 
-    -- Tab switching
-    { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-    { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
-    { key = 'T', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-
     -- Command key binding
     { key = 't', mods = 'SUPER', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
@@ -32,6 +26,16 @@ return {
     { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection' },
     { key = 'Insert', mods = 'CTRL', action = act.CopyTo 'PrimarySelection' },
 
+    -- Tab
+    { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+    { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
+    { key = 'T', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
+    { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
+
+    { key = 'LeftArrow', mods = 'SHIFT', action = act.MoveTabRelative(1) },
+    { key = 'RightArrow', mods = 'SHIFT', action = act.MoveTabRelative(-1) },
+
+    -- Pane
     { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
     { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
     { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
@@ -41,6 +45,10 @@ return {
     { key = 'J', mods = 'LEADER', action = act.AdjustPaneSize{ 'Down', 1 } },
     { key = 'K', mods = 'LEADER', action = act.AdjustPaneSize{ 'Up', 1 } },
     { key = 'L', mods = 'LEADER', action = act.AdjustPaneSize{ 'Right', 1 } },
+
+    -- Window
+    { key = 'c', mods = 'LEADER', action = act.SpawnWindow },
+    { key = 'n', mods = 'SUPER', action = act.SpawnWindow },
 
     -- Tmux like
     { key = "-", mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
