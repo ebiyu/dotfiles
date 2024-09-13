@@ -80,7 +80,7 @@ require("lazy").setup({
         config = function()
             local lsp_names = function()
                 local clients = {}
-                for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+                for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
                     if client.name == 'null-ls' then
                         local sources = {}
                         for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
@@ -518,8 +518,9 @@ require("lazy").setup({
         },
         event = "VeryLazy",
         config = function()
-            local nn = require "notebook-navigator"
-            nn.setup({ activate_hydra_keys = "<space>jh" })
+            -- TODO: fix error
+            -- local nn = require "notebook-navigator"
+            -- nn.setup({ activate_hydra_keys = "<space>jh" })
         end,
     },
     {
@@ -656,14 +657,12 @@ vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- map key prefix
 local wk = require("which-key")
-wk.register({
-    l = { name = "+LSP" },
-    g = { name = "+git" },
-}, { prefix = "<space>", mode = "n" })
+wk.add({ "<space>g", group = "git", mode = {"n", "v"} })
+wk.add({ "<space>l", group = "LSP"})
 
-wk.register({
-    g = { name = "+git" },
-}, { prefix = "<space>", mode = "v" })
+-- wk.register({
+--     g = { name = "+git" },
+-- }, { prefix = "<space>", mode = "v" })
 
 vim.keymap.set('n', '<space>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = '[LSP] Hover' })
 vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, { desc = '[LSP] Format' })
