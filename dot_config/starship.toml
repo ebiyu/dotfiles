@@ -41,3 +41,5 @@ truncate_to_repo = false
 ssh_only = false
 disabled = false
 
+[git_status]
+stashed = ""

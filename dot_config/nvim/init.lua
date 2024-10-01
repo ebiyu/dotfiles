@@ -325,7 +325,7 @@ require("lazy").setup({
     },
     "RRethy/vim-illuminate",
 
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
     {
         "vim-skk/skkeleton",
