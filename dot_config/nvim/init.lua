@@ -630,6 +630,16 @@ require("mason").setup()
 
 local masonconfig = require('mason-lspconfig')
 
+masonconfig.setup {
+    ensure_installed = {
+        "emmet_ls",
+        "ts_ls",
+        "jedi_language_server",
+        "clangd",
+        "gopls",
+    },
+}
+
 masonconfig.setup_handlers {
     function(server_name)
         local opts = {
@@ -692,6 +702,16 @@ vim.keymap.set('v', '<space>l[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { de
 
 -- tree sitter
 require 'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+        "c",
+        "lua",
+        "vim",
+        "typescript",
+        "javascript",
+        "tsx",
+        "python",
+        "markdown",
+    },
     highlight = {
         enable = true,
     },
