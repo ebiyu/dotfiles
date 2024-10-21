@@ -635,6 +635,8 @@ masonconfig.setup {
         "emmet_ls",
         "ts_ls",
         "jedi_language_server",
+        "mypy",
+        "ruff",
         "clangd",
         "gopls",
     },
