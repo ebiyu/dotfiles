@@ -45,6 +45,8 @@ alias dj="pipenv run python manage.py"
 type vim > /dev/null 2>&1 && alias vi=vim
 type nvim > /dev/null 2>&1 && alias vi=nvim
 
+type colordiff > /dev/null 2>&1 && alias diff=colordiff
+
 type fdfind > /dev/null 2>&1 && alias fd=fdfind
 
 alias clean-xcode="rm -rf ~/Library/Developer/Xcode/DerivedData"
