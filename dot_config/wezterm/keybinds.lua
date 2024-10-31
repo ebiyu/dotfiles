@@ -32,8 +32,8 @@ return {
     { key = 'T', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
 
-    { key = 'LeftArrow', mods = 'SHIFT', action = act.MoveTabRelative(1) },
-    { key = 'RightArrow', mods = 'SHIFT', action = act.MoveTabRelative(-1) },
+    { key = 'LeftArrow', mods = 'SHIFT', action = act.MoveTabRelative(-1) },
+    { key = 'RightArrow', mods = 'SHIFT', action = act.MoveTabRelative(1) },
 
     -- Pane
     { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
