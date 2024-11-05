@@ -43,8 +43,19 @@ local config = {
 
 
 if string.sub(wezterm.home_dir, 1, 2) == "C:" then
-    config.default_prog = {"wsl.exe", "--distribution", "Ubuntu-22.04", "--exec", "/bin/zsh", "-l"}
-    --wezterm.home_dir = "C:\\Users\\Arthur"
+    config.default_prog = {"powershell.exe"}
 end
+
+config.ssh_domains = {
+  {
+    -- This name identifies the domain
+    name = 'wsl',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = '172.22.117.143',
+    -- The username to use on the remote host
+    username = 'ebi',
+  },
+}
 
 return config
