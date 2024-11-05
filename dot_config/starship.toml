@@ -43,3 +43,7 @@ disabled = false
 
 [git_status]
 stashed = ""
+
+[shell]
+disabled = false
+powershell_indicator = "PS"
