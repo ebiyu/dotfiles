@@ -46,14 +46,12 @@ if string.sub(wezterm.home_dir, 1, 2) == "C:" then
     config.default_prog = {"powershell.exe"}
 end
 
+local wsl_ip = io.popen("wsl bash -c 'echo -n `hostname -I`'"):read('*a')
+
 config.ssh_domains = {
   {
-    -- This name identifies the domain
     name = 'wsl',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
-    remote_address = '172.22.117.143',
-    -- The username to use on the remote host
+    remote_address = wsl_ip,
     username = 'ebi',
   },
 }
