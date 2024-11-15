@@ -44,18 +44,18 @@ local config = {
 
 if string.sub(wezterm.home_dir, 1, 2) == "C:" then
     config.default_prog = {"powershell.exe"}
+
+    --local wsl_ip = io.popen("wsl bash -c 'echo -n `hostname -I`'"):read('*a')
+    local wsl_ip = io.popen("wsl -- bash -c \"ip -o route get 192.0.2.0 | grep -Eo 'src\\s+\\S+' | awk '{print \\$2}'\""):read('*a'):gsub("\n", "")
+    --print(wsl_ip)
+    
+    config.ssh_domains = {
+      {
+        name = 'wsl',
+        remote_address = wsl_ip,
+        username = 'ebi',
+      },
+    }
 end
-
---local wsl_ip = io.popen("wsl bash -c 'echo -n `hostname -I`'"):read('*a')
-local wsl_ip = io.popen("wsl -- bash -c \"ip -o route get 192.0.2.0 | grep -Eo 'src\\s+\\S+' | awk '{print \\$2}'\""):read('*a'):gsub("\n", "")
-print(wsl_ip)
-
-config.ssh_domains = {
-  {
-    name = 'wsl',
-    remote_address = wsl_ip,
-    username = 'ebi',
-  },
-}
 
 return config
