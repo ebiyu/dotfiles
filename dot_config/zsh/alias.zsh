@@ -23,6 +23,8 @@ alias l="less"
 alias g=git
 alias t=tmux
 
+alias k=kubectl
+
 type column > /dev/null 2>&1 && alias csv="column -s, -t"
 
 # open command
