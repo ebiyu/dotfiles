@@ -2,9 +2,9 @@
 function peco-ghq () {
   #local selected_dir=$(ghq list -p | fzf --preview "cat {}/README.*")
   #local selected_dir=$(ghq list -p | fzf --preview "tree -L 1 {}")
-  local selected_dir=$(ghq root)/$(ghq list | fzf --preview "cd {} && git log")
+  local selected_dir=$(ghq list | fzf --preview "cd {} && git log")
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
+    BUFFER="cd $(ghq root)/${selected_dir}"
     zle accept-line
   fi
 }
