@@ -93,6 +93,9 @@ type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 type xienv > /dev/null 2>&1 && eval "$(xienv init -)"
 
+# nvm
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then . /usr/share/nvm/init-nvm.sh; fi
+
 # flutter
 export PATH="$PATH:$HOME/flutter/flutter/bin:$HOME/.pub-cache/bin"
 
