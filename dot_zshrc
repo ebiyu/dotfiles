@@ -108,7 +108,12 @@ export GO111MODULE=on
 export PATH="/usr/local/go/bin:$PATH"
 
 # chezmoi completion
-type chezmoi > /dev/null 2>&1 && eval "$(chezmoi completion zsh)"
+function _chezmoi {
+    unfunction "$0"
+    eval "$(chezmoi completion zsh)"
+    $0 "$@"
+}
+compdef _chezmoi chezmoi
 
 type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
 
