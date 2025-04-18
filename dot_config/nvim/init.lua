@@ -240,35 +240,6 @@ require("lazy").setup({
             vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
         end
     },
-
-    {
-        "github/copilot.vim",
-        config = function()
-            -- workaround: ignore error
-            pcall(function()
-                -- check Node version for copilot.vim
-                -- cf. https://rcmdnk.com/blog/2022/09/28/computer-vim/
-                local ver = io.popen('node --version'):read('*a')
-                local node_version = string.gmatch(ver, "%w+")
-                local nodev_table = {}
-                for match in node_version do
-                    table.insert(nodev_table, match)
-                end
-                local ver_major = nodev_table[1]
-                if string.find(ver_major, 'v', 1, true) == 1 then
-                    ver_major = string.sub(ver_major, 2)
-                end
-
-                -- if not supported, check nodenv and use latest version
-                if tonumber(ver_major) < 16 then
-                    ver = io.popen('nodenv whence node|sort -n|tail -n1|tr -d "\n"'):read('*a')
-                    vim.g.copilot_node_command = io.popen('NODENV_VERSION=' .. ver .. ' nodenv which node|tr -d "\n"')
-                        :read(
-                            '*a')
-                end
-            end)
-        end
-    },
     {
         "nvim-treesitter/nvim-treesitter",
     },
@@ -635,7 +606,6 @@ masonconfig.setup {
         "emmet_ls",
         "ts_ls",
         "jedi_language_server",
-        "mypy",
         "ruff",
         "clangd",
         "gopls",
