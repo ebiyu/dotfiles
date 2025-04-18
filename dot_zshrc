@@ -120,6 +120,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 complete -C $(which aws_completer) aws
 
 type neofetch > /dev/null 2>&1 && neofetch
+type fastfetch > /dev/null 2>&1 && fastfetch
 
 export PICO_SDK_PATH=$HOME/ghq/github.com/raspberrypi/pico-sdk
 
