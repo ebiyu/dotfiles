@@ -1,6 +1,6 @@
 Invoke-Expression (&starship init powershell)
 
-function rep() {
+function repo() {
  $repository =  $(ghq list | peco)
  $repositoryPath = (ghq root) + '/' + $repository
  cd $repositoryPath
