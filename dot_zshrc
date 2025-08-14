@@ -127,8 +127,11 @@ complete -C $(which aws_completer) aws
 type neofetch > /dev/null 2>&1 && neofetch
 type fastfetch > /dev/null 2>&1 && fastfetch
 
+type task > /dev/null 2>&1 || alias task="uvx --from go-task-bin task"
+
 export PICO_SDK_PATH=$HOME/ghq/github.com/raspberrypi/pico-sdk
 
 # gstreamer
 export PATH="/Library/Frameworks/GStreamer.framework/Versions/1.0/bin:$PATH"
+
 
