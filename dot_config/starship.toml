@@ -46,4 +46,4 @@ stashed = ""
 
 [shell]
 disabled = false
-powershell_indicator = "PS 🪟"
+powershell_indicator = "PS"
