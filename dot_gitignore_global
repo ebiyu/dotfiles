@@ -7,3 +7,5 @@ tags
 *.cache
 compile_commands.json
 *:com.dropbox.attrs
+3DxService.log
+
