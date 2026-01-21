@@ -115,6 +115,15 @@ function _chezmoi {
 }
 compdef _chezmoi chezmoi
 
+
+# jj completion
+function _jj {
+    unfunction "$0"
+    eval "$(jj util completion zsh)"
+    $0 "$@"
+}
+compdef _jj jj
+
 type minikube > /dev/null 2>&1 && alias kubectl="minikube kubectl --"
 
 # deno
