@@ -6,3 +6,8 @@ email = "yusuke@ebihara.me"
 
 [ui]
 default-command = "log"
+
+[aliases]
+g = ["git"]
+gf = ["git", "fetch"]
+
