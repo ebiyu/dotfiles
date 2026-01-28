@@ -24,6 +24,7 @@
 [core]
     symlinks = true
     excludesfile = ~/.gitignore_global
+	autoCRLF = false
 [push]
     default = current
 [pull]
