@@ -17,6 +17,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
+${custom.jj_desc}\
 
 $direnv\
 $env_var\
@@ -47,3 +48,8 @@ stashed = ""
 [shell]
 disabled = false
 powershell_indicator = "PS"
+
+[custom.jj_desc]
+command = "jj show -T \"coalesce(description, '(no description set)')\" --no-patch --ignore-working-copy"
+when = "true"
+
