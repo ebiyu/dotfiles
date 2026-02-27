@@ -10,3 +10,5 @@ compile_commands.json
 3DxService.log
 *:Zone.Identifier
 
+settings.local.json
+
