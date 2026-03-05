@@ -10,4 +10,5 @@ default-command = "log"
 [aliases]
 g = ["git"]
 gf = ["git", "fetch"]
+ff = ["bookmark", "set", "-r", "@-"]
 
