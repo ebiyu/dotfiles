@@ -11,4 +11,5 @@ default-command = "log"
 g = ["git"]
 gf = ["git", "fetch"]
 ff = ["bookmark", "set", "-r", "@-"]
+ai = ["util", "exec", "claude", "/jj-desc"]
 
