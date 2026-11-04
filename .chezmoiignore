@@ -6,7 +6,6 @@ install
 google-ime.txt
 
 {{ if ne .chezmoi.os "windows" }}
-Documents/WindowsPowerShell
-Documents/WindowsPowerShell/**
+Documents/
 {{ end }}
 
